@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/validate-response.schema.json",
+  "title": "Validate / dry-run response",
+  "description": "What POST /messages/validate returns: whether the message would be accepted, the journal it WOULD book (not persisted), and any findings. valid=false (or any issue of severity \"error\") means it would be rejected if sent for real.",
+  "type": "object",
+  "required": [
+    "valid",
+    "balanced",
+    "lines",
+    "issues"
+  ],
+  "properties": {
+    "messageId": {
+      "type": "string",
+      "description": "Echoed from the request."
+    },
+    "valid": {
+      "type": "boolean",
+      "description": "true = would be accepted and booked as-is (no errors)."
+    },
+    "status": {
+      "enum": [
+        "Valid",
+        "Warning",
+        "Rejected"
+      ]
+    },
+    "balanced": {
+      "type": "boolean",
+      "description": "Whether the resulting journal balances (debits = credits)."
+    },
+    "totalDebit": {
+      "type": "number"
+    },
+    "totalCredit": {
+      "type": "number"
+    },
+    "difference": {
+      "type": "number",
+      "description": "totalDebit − totalCredit; non-zero would book with a difference flag."
+    },
+    "lines": {
+      "type": "array",
+      "description": "The journal lines the message WOULD book (not persisted) — the same output as the Message Simulator preview.",
+      "items": {
+        "type": "object",
+        "required": [
+          "account",
+          "debit",
+          "credit"
+        ],
+        "properties": {
+          "ledger": {
+            "type": "string"
+          },
+          "formula": {
+            "type": "string"
+          },
+          "amountType": {
+            "type": "string"
+          },
+          "account": {
+            "type": "string",
+            "description": "Resolved pseudo account."
+          },
+          "accountDescription": {
+            "type": "string"
+          },
+          "debit": {
+            "type": "number"
+          },
+          "credit": {
+            "type": "number"
+          },
+          "externalAccountString": {
+            "type": "string",
+            "description": "Resolved account dimension string."
+          },
+          "resolvedBy": {
+            "type": "string",
+            "description": "Trace: which condition (or default) resolved the account."
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "accruals": {
+      "type": "array",
+      "description": "Accruals the message would create.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "months": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "issues": {
+      "type": "array",
+      "description": "Findings. Any item with severity \"error\" means the message would be rejected.",
+      "items": {
+        "type": "object",
+        "required": [
+          "severity",
+          "message"
+        ],
+        "properties": {
+          "severity": {
+            "enum": [
+              "error",
+              "warning",
+              "info"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "description": "Machine code, e.g. UNKNOWN_PRODUCT, NO_RULE_MATCHED, UNBALANCED, DEFAULT_ACCOUNT_USED."
+          },
+          "message": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string",
+            "description": "Offending field / path, when applicable."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "messageId": "AGR-INV-700500-1-202411-001",
+      "valid": true,
+      "status": "Valid",
+      "balanced": true,
+      "totalDebit": 523,
+      "totalCredit": 523,
+      "difference": 0,
+      "lines": [
+        {
+          "ledger": "Local Legal",
+          "formula": "200",
+          "amountType": "Total Amount",
+          "account": "63A003",
+          "accountDescription": "AR customer",
+          "debit": 523,
+          "credit": 0,
+          "externalAccountString": "63A003 CVL 23",
+          "resolvedBy": "condition MG"
+        },
+        {
+          "ledger": "Local Legal",
+          "formula": "720",
+          "amountType": "Rent - Primary",
+          "account": "EG5202",
+          "accountDescription": "Rent income",
+          "debit": 0,
+          "credit": 407,
+          "externalAccountString": "EG5202 CVL 23",
+          "resolvedBy": "condition MG"
+        }
+      ],
+      "issues": []
+    }
+  ]
+}

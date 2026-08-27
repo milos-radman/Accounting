@@ -1,0 +1,16 @@
+# Dependencies & build output (App/.gitignore also covers these; repeated here for safety)
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+*.local
+*.log
+
+# OS / OneDrive / Office temp files
+Thumbs.db
+.DS_Store
+desktop.ini
+~$*.doc*
+~$*.xls*
+~$*.ppt*

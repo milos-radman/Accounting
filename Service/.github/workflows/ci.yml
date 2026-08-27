@@ -1,0 +1,47 @@
+# CI per §15.3: format check, build (analyzers as errors), unit + architecture tests,
+# integration tests (Testcontainers), acceptance tests, vulnerability scan, container build.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore tools
+        run: dotnet tool restore
+
+      - name: Format check (CSharpier)
+        run: dotnet csharpier check .
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (warnings as errors, SonarAnalyzer)
+        run: dotnet build --no-restore -c Release
+
+      - name: Unit + architecture tests
+        run: dotnet test tests/Accounting.UnitTests --no-build -c Release
+
+      - name: Integration tests (Testcontainers)
+        run: dotnet test tests/Accounting.IntegrationTests --no-build -c Release
+
+      - name: Acceptance tests
+        run: dotnet test tests/Accounting.AcceptanceTests --no-build -c Release
+
+      - name: Dependency vulnerability scan
+        run: |
+          dotnet list package --vulnerable --include-transitive | tee vulnerable.txt
+          ! grep -q "has the following vulnerable packages" vulnerable.txt
+
+      - name: Container build
+        run: docker build -t accounting-api .

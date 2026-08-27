@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/validate-request.schema.json",
+  "title": "Validate request — any inbound message",
+  "description": "Body of POST /messages/validate: any one of the event messages. The accounting domain runs a dry-run (the same resolution it would book) WITHOUT persisting, and returns a validate-response.",
+  "oneOf": [
+    {
+      "$ref": "activation.schema.json"
+    },
+    {
+      "$ref": "invoicing.schema.json"
+    },
+    {
+      "$ref": "ar-payment.schema.json"
+    },
+    {
+      "$ref": "ar-undo-payment.schema.json"
+    },
+    {
+      "$ref": "agreement-change.schema.json"
+    },
+    {
+      "$ref": "accrual.schema.json"
+    }
+  ]
+}

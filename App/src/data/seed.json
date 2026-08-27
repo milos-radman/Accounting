@@ -1,0 +1,7612 @@
+{
+ "currencies": [
+  {
+   "id": 7,
+   "code": "EUR",
+   "name": "Euro"
+  },
+  {
+   "id": 8,
+   "code": "SEK",
+   "name": "Swedish Kronor"
+  },
+  {
+   "id": 9,
+   "code": "RSD",
+   "name": "Serbian dinar"
+  },
+  {
+   "id": 10,
+   "code": "USD",
+   "name": "US Dollar"
+  },
+  {
+   "id": 11,
+   "code": "GBP",
+   "name": "British Pound"
+  },
+  {
+   "id": 12,
+   "code": "NOK",
+   "name": "Norwegian Krone"
+  }
+ ],
+ "parties": [
+  {
+   "id": 5,
+   "name": "ALS NLD",
+   "fullName": "Alliance Laundry Systems",
+   "orgNumber": "231155",
+   "address1": "PO Box 990",
+   "address2": "Shepard Street",
+   "zip": "54971",
+   "city": "Ripon",
+   "countyState": "Wisconsin",
+   "country": "USA",
+   "taxCountry": "USA",
+   "phone": "+1 920 748 3121",
+   "email": "info@ALS.com",
+   "kind": "Organization"
+  },
+  {
+   "id": 6,
+   "name": "ALS SFB",
+   "fullName": "Alliance Laundry Finance",
+   "orgNumber": "558211",
+   "address1": "Finance House 12",
+   "address2": "",
+   "zip": "EC2A 4BX",
+   "city": "London",
+   "countyState": "",
+   "country": "UK",
+   "taxCountry": "UK",
+   "phone": "+44 20 7946 0958",
+   "email": "finance@ALS.com",
+   "kind": "Organization"
+  },
+  {
+   "id": 7,
+   "name": "ALS ITA",
+   "fullName": "Alliance Laundry Italy",
+   "orgNumber": "IT99201",
+   "address1": "Via Luigi Einaudi, 23",
+   "address2": "",
+   "zip": "25121",
+   "city": "Brescia",
+   "countyState": "",
+   "country": "Italy",
+   "taxCountry": "Italy",
+   "phone": "+39 030 2091006",
+   "email": "italy@ALS.com",
+   "kind": "Organization"
+  },
+  {
+   "id": 8,
+   "kind": "Organization",
+   "name": "ALS DEU",
+   "fullName": "Alliance Laundry Deutschland GmbH",
+   "orgNumber": "HRB-88213",
+   "address1": "Industriestrasse 4",
+   "address2": "",
+   "zip": "40213",
+   "city": "Düsseldorf",
+   "countyState": "",
+   "country": "Germany",
+   "taxCountry": "Germany",
+   "phone": "+49 211 5566 0",
+   "email": "info@als.de"
+  },
+  {
+   "id": 9,
+   "kind": "Organization",
+   "name": "ALS FRA",
+   "fullName": "Alliance Laundry France SAS",
+   "orgNumber": "FR-552110",
+   "address1": "12 Rue de la Paix",
+   "address2": "",
+   "zip": "75002",
+   "city": "Paris",
+   "countyState": "",
+   "country": "France",
+   "taxCountry": "France",
+   "phone": "+33 1 4952 0000",
+   "email": "info@als.fr"
+  },
+  {
+   "id": 14,
+   "kind": "Organization",
+   "name": "Marginalen",
+   "fullName": "Marginalen Bank Bankaktiebolag",
+   "orgNumber": "516406-0807",
+   "address1": "Adolf Fredriks Kyrkogata 8",
+   "address2": "Box 1000",
+   "zip": "111 37",
+   "city": "Stockholm",
+   "countyState": "Stockholm",
+   "country": "Sweden",
+   "taxCountry": "Sweden",
+   "phone": "+46 10 495 10 00",
+   "email": "info@marginalen.se"
+  },
+  {
+   "id": 10,
+   "kind": "Person",
+   "name": "Pierre Willard",
+   "fullName": "Pierre Willard",
+   "orgNumber": "19980129-4343",
+   "address1": "Via Luigi Einaudi 23",
+   "address2": "",
+   "zip": "25123",
+   "city": "Brescia",
+   "countyState": "",
+   "country": "Italy",
+   "taxCountry": "Italy",
+   "phone": "+39 030 2091006",
+   "email": "pierre.willard@als.com"
+  },
+  {
+   "id": 11,
+   "kind": "Person",
+   "name": "James Whitmore",
+   "fullName": "James Whitmore",
+   "orgNumber": "20010544-1120",
+   "address1": "Finance House 12",
+   "address2": "",
+   "zip": "EC2A 4BX",
+   "city": "London",
+   "countyState": "",
+   "country": "UK",
+   "taxCountry": "UK",
+   "phone": "+44 20 7946 0958",
+   "email": "james.whitmore@als.com"
+  },
+  {
+   "id": 12,
+   "kind": "Person",
+   "name": "Anna Bergstrom",
+   "fullName": "Anna Bergström",
+   "orgNumber": "19870233-2211",
+   "address1": "Sveavägen 44",
+   "address2": "",
+   "zip": "11134",
+   "city": "Stockholm",
+   "countyState": "",
+   "country": "Sweden",
+   "taxCountry": "Sweden",
+   "phone": "+46 8 555 120 00",
+   "email": "anna.bergstrom@als.com"
+  },
+  {
+   "id": 13,
+   "kind": "Person",
+   "name": "Marco Rossi",
+   "fullName": "Marco Rossi",
+   "orgNumber": "19910877-5540",
+   "address1": "Corso Buenos Aires 15",
+   "address2": "",
+   "zip": "20124",
+   "city": "Milan",
+   "countyState": "",
+   "country": "Italy",
+   "taxCountry": "Italy",
+   "phone": "+39 02 7788 0011",
+   "email": "marco.rossi@als.com"
+  }
+ ],
+ "organizationUnits": [
+  {
+   "id": 10,
+   "partyId": 5,
+   "legalEntityId": 1
+  },
+  {
+   "id": 11,
+   "partyId": 6,
+   "legalEntityId": 2
+  },
+  {
+   "id": 12,
+   "partyId": 7,
+   "legalEntityId": 3
+  }
+ ],
+ "legalEntities": [
+  {
+   "id": 1,
+   "name": "Alliance Laundry (Netherlands) B.V.",
+   "description": "Alliance Laundry (Netherlands) B.V.",
+   "ownerPartyId": 5,
+   "ownerCode": "ALS NLD",
+   "baseCurrencyId": 7,
+   "revaluation": false,
+   "gliNumberSerie": 7414,
+   "coaId": 2,
+   "responsible": "Pierre Willard",
+   "endOfMonth": "202409",
+   "closedPeriod": "202409",
+   "glInterfaceDate": "2024-09-30",
+   "openPeriod": "202410",
+   "journalDifferences": 9,
+   "nextGli": 7414,
+   "responsiblePartyId": 10,
+   "controllerPartyId": 12
+  },
+  {
+   "id": 2,
+   "name": "Alliance Laundry Finance Ltd",
+   "description": "Alliance Laundry Finance Ltd",
+   "ownerPartyId": 6,
+   "ownerCode": "ALS SFB",
+   "baseCurrencyId": 7,
+   "revaluation": false,
+   "gliNumberSerie": 19379,
+   "coaId": 2,
+   "responsible": "James Whitmore",
+   "endOfMonth": "202409",
+   "closedPeriod": "202408",
+   "glInterfaceDate": "2024-09-30",
+   "openPeriod": "202410",
+   "journalDifferences": 9,
+   "nextGli": 19379,
+   "responsiblePartyId": 11,
+   "controllerPartyId": 13
+  },
+  {
+   "id": 3,
+   "name": "Alliance Laundry Italy SRL",
+   "description": "Alliance Laundry Italy SRL",
+   "ownerPartyId": 7,
+   "ownerCode": "ALS ITA",
+   "baseCurrencyId": 7,
+   "revaluation": false,
+   "gliNumberSerie": 8797,
+   "coaId": 2,
+   "responsible": "Pierre Willard",
+   "endOfMonth": "202409",
+   "closedPeriod": "202409",
+   "glInterfaceDate": "2024-09-30",
+   "openPeriod": "202410",
+   "journalDifferences": 9,
+   "nextGli": 8797,
+   "responsiblePartyId": 10,
+   "controllerPartyId": 12
+  }
+ ],
+ "accountingClasses": [
+  {
+   "id": 14,
+   "code": "PF",
+   "name": "PF-Agreement",
+   "description": "PF-Agreement"
+  },
+  {
+   "id": 15,
+   "code": "AR-Inv",
+   "name": "AR Invoicing",
+   "description": "Receivables - Invoicing"
+  },
+  {
+   "id": 16,
+   "code": "AR-Pay",
+   "name": "AR Payment",
+   "description": "Receivables - Customer Payments"
+  },
+  {
+   "id": 17,
+   "code": "AP-Inv",
+   "name": "AP Invoicing",
+   "description": "Payables - Invoicing"
+  },
+  {
+   "id": 18,
+   "code": "AP-Pay",
+   "name": "AP Payment",
+   "description": "Payables - Customer Payments"
+  }
+ ],
+ "legalAccountingClasses": [
+  {
+   "id": 1,
+   "legalEntityId": 1,
+   "accountingClassId": 14
+  },
+  {
+   "id": 2,
+   "legalEntityId": 1,
+   "accountingClassId": 15
+  },
+  {
+   "id": 3,
+   "legalEntityId": 1,
+   "accountingClassId": 16
+  },
+  {
+   "id": 4,
+   "legalEntityId": 2,
+   "accountingClassId": 14
+  },
+  {
+   "id": 5,
+   "legalEntityId": 2,
+   "accountingClassId": 15
+  },
+  {
+   "id": 6,
+   "legalEntityId": 2,
+   "accountingClassId": 16
+  },
+  {
+   "id": 7,
+   "legalEntityId": 3,
+   "accountingClassId": 14
+  },
+  {
+   "id": 8,
+   "legalEntityId": 3,
+   "accountingClassId": 15
+  },
+  {
+   "id": 9,
+   "legalEntityId": 3,
+   "accountingClassId": 16
+  }
+ ],
+ "ledgers": [
+  {
+   "id": 1,
+   "code": "0",
+   "name": "LL",
+   "description": "Local Legal"
+  },
+  {
+   "id": 2,
+   "code": "1",
+   "name": "US",
+   "description": "US GAAP"
+  },
+  {
+   "id": 3,
+   "code": "2",
+   "name": "CO",
+   "description": "Common"
+  }
+ ],
+ "legalAccountingLedgers": [
+  {
+   "id": 1,
+   "legalAccountingClassId": 1,
+   "ledgerId": 1
+  },
+  {
+   "id": 2,
+   "legalAccountingClassId": 1,
+   "ledgerId": 2
+  },
+  {
+   "id": 3,
+   "legalAccountingClassId": 2,
+   "ledgerId": 1
+  },
+  {
+   "id": 4,
+   "legalAccountingClassId": 3,
+   "ledgerId": 1
+  },
+  {
+   "id": 5,
+   "legalAccountingClassId": 4,
+   "ledgerId": 1
+  },
+  {
+   "id": 6,
+   "legalAccountingClassId": 4,
+   "ledgerId": 2
+  },
+  {
+   "id": 7,
+   "legalAccountingClassId": 5,
+   "ledgerId": 1
+  },
+  {
+   "id": 8,
+   "legalAccountingClassId": 6,
+   "ledgerId": 1
+  },
+  {
+   "id": 9,
+   "legalAccountingClassId": 7,
+   "ledgerId": 1
+  },
+  {
+   "id": 10,
+   "legalAccountingClassId": 7,
+   "ledgerId": 2
+  },
+  {
+   "id": 11,
+   "legalAccountingClassId": 8,
+   "ledgerId": 1
+  },
+  {
+   "id": 12,
+   "legalAccountingClassId": 8,
+   "ledgerId": 2
+  },
+  {
+   "id": 13,
+   "legalAccountingClassId": 9,
+   "ledgerId": 1
+  },
+  {
+   "id": 14,
+   "legalAccountingClassId": 9,
+   "ledgerId": 2
+  }
+ ],
+ "amountTypes": [
+  {
+   "id": 30,
+   "name": "Fixed Asset Value",
+   "description": "The Fixed Asset Value from the agreement Line.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 31,
+   "name": "Residual Value",
+   "description": "Residual Value at agreeement line end Date",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 32,
+   "name": "Deposit",
+   "description": "Deposit from agreement Line",
+   "amountGroup": "Accrual"
+  },
+  {
+   "id": 33,
+   "name": "Total Plan Rent",
+   "description": "Sum of all Period rents from starting date to ending date from the agreement Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 34,
+   "name": "Total Plan Amortization",
+   "description": "Sum of all Period amortizations from starting date to ending date from the agreement Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 35,
+   "name": "Total Plan Interest",
+   "description": "Sum of all Period interests from starting date to ending date from the agreement Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 36,
+   "name": "Total Amount",
+   "description": "Invoice Total from the Agreement/Invoice Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 37,
+   "name": "Amortization",
+   "description": "Invoice Amortization from the Agreement/Invoice Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 38,
+   "name": "Interest",
+   "description": "Invoice Interest from the Agreement/Invoice Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 39,
+   "name": "Added Cost",
+   "description": "Invoice/Payment added Cost for the Agreement/Invoice Line",
+   "amountGroup": "Accrual"
+  },
+  {
+   "id": 40,
+   "name": "Tax",
+   "description": "Invoice Tax from the Agreement/Invoice Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 41,
+   "name": "Rounding",
+   "description": "Decimal adjustment, roundings, from the  invoice",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 42,
+   "name": "Rent",
+   "description": "Invoice Rent = (Amortization + Interest) from the Agreement/Invoice Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 43,
+   "name": "Rent - Primary",
+   "description": "Invoice Rent Primary period= (Amortization + Interest) from the Agreement/Invoice Line -  not extended contracts.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 44,
+   "name": "On'account - Customer",
+   "description": "On'account that is placed on a customer",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 45,
+   "name": "On'account - Agreement",
+   "description": "On'account that is placed on an agreement",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 46,
+   "name": "Unallocated Amount",
+   "description": "Paid amount that is inallocated",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 47,
+   "name": "Settlement Value",
+   "description": "Chosed Settlement value in Settlement calculation.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 48,
+   "name": "Remaining Current Rent",
+   "description": "Remaining Contract Rent for the next 12 months. Calculated from CS_PresentValueDate.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 49,
+   "name": "Remaining Non Current Rent",
+   "description": "Remaining Contract Rent from month 13 up to the end of the contract. Calculated from CS_PresentValueDate.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 50,
+   "name": "Remaining Current Interest",
+   "description": "Remaining Interest for the next 12 months. Calculated from CS_PresentValueDate.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 51,
+   "name": "Remaining Non Current Interest",
+   "description": "Remaining Interest for month 13 and up to the end of the contract.",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 52,
+   "name": "Purchase Option Amount",
+   "description": "Purchase Option Amount at contracta end",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 53,
+   "name": "Profit",
+   "description": "Profit from a Settlement calculation",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 54,
+   "name": "Loss",
+   "description": "Loss from a Settlement calculation",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 55,
+   "name": "Invoice Net Amount",
+   "description": "Invoice Net amount from the Agreement/Invoice Line",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 56,
+   "name": "Monthly Interest(Primary)",
+   "description": "The Monthly Interest from  the Monthly Recognition Table using booking month. Only primary period.",
+   "amountGroup": "Monthly"
+  },
+  {
+   "id": 57,
+   "name": "Present Value on Basic Price",
+   "description": "Present Value on Basic Price",
+   "amountGroup": "Message"
+  },
+  {
+   "id": 58,
+   "name": "Monthly Depreciation",
+   "description": "The Monthly Depreciation from  the Monthly Recognition Table using Booking month.",
+   "amountGroup": "Monthly"
+  },
+  {
+   "id": 59,
+   "name": "Monthly Interest income",
+   "description": "The Monthly Interest from  the Monthly Recognition Table using booking month.",
+   "amountGroup": "Monthly"
+  },
+  {
+   "id": 60,
+   "name": "Insurance",
+   "description": "Asset insurance premium, accrued over the cover period",
+   "amountGroup": "Accrual"
+  }
+ ],
+ "conditionValues": [
+  {
+   "id": 7,
+   "name": "Accounting Type"
+  },
+  {
+   "id": 8,
+   "name": "Product"
+  },
+  {
+   "id": 9,
+   "name": "Portfolio"
+  },
+  {
+   "id": 10,
+   "name": "Customer"
+  },
+  {
+   "id": 11,
+   "name": "Supplier"
+  },
+  {
+   "id": 12,
+   "name": "Agreement"
+  },
+  {
+   "id": 13,
+   "name": "Agreement Line"
+  },
+  {
+   "id": 14,
+   "name": "Invoice Number"
+  },
+  {
+   "id": 15,
+   "name": "Reference Number"
+  },
+  {
+   "id": 16,
+   "name": "Currency Code"
+  },
+  {
+   "id": 17,
+   "name": "Term Reason"
+  },
+  {
+   "id": 18,
+   "name": "Amount Code"
+  },
+  {
+   "id": 19,
+   "name": "Payment Method"
+  },
+  {
+   "id": 20,
+   "name": "Supplier Invoice Type"
+  }
+ ],
+ "conditionValueOptions": [
+  {
+   "id": 1,
+   "conditionValueId": 18,
+   "code": "INS",
+   "description": "Insurance"
+  },
+  {
+   "id": 2,
+   "conditionValueId": 18,
+   "code": "ADMIN",
+   "description": "Administration fee"
+  },
+  {
+   "id": 3,
+   "conditionValueId": 18,
+   "code": "REM",
+   "description": "Reminder / late fee"
+  },
+  {
+   "id": 4,
+   "conditionValueId": 18,
+   "code": "FUEL",
+   "description": "Fuel card cost"
+  },
+  {
+   "id": 5,
+   "conditionValueId": 19,
+   "code": "DD",
+   "description": "Direct debit"
+  },
+  {
+   "id": 6,
+   "conditionValueId": 19,
+   "code": "BG",
+   "description": "Bank giro"
+  },
+  {
+   "id": 7,
+   "conditionValueId": 19,
+   "code": "CASH",
+   "description": "Cash"
+  },
+  {
+   "id": 8,
+   "conditionValueId": 19,
+   "code": "CARD",
+   "description": "Card payment"
+  },
+  {
+   "id": 9,
+   "conditionValueId": 17,
+   "code": "EARLY",
+   "description": "Early termination"
+  },
+  {
+   "id": 10,
+   "conditionValueId": 17,
+   "code": "END",
+   "description": "End of term"
+  },
+  {
+   "id": 11,
+   "conditionValueId": 17,
+   "code": "DEF",
+   "description": "Customer default"
+  },
+  {
+   "id": 12,
+   "conditionValueId": 20,
+   "code": "EFL",
+   "description": "Equipment Inv Fin Lease"
+  },
+  {
+   "id": 13,
+   "conditionValueId": 20,
+   "code": "FS",
+   "description": "Fixed Service"
+  },
+  {
+   "id": 14,
+   "conditionValueId": 20,
+   "code": "VS",
+   "description": "Variable Service"
+  },
+  {
+   "id": 15,
+   "conditionValueId": 20,
+   "code": "EOL",
+   "description": "Equipment Inv Op Lease"
+  },
+  {
+   "id": 16,
+   "conditionValueId": 20,
+   "code": "ORD",
+   "description": "At Order"
+  },
+  {
+   "id": 17,
+   "conditionValueId": 20,
+   "code": "SHIP",
+   "description": "At Shipping"
+  },
+  {
+   "id": 18,
+   "conditionValueId": 20,
+   "code": "DEL",
+   "description": "At Delivery"
+  },
+  {
+   "id": 19,
+   "conditionValueId": 20,
+   "code": "FDEL",
+   "description": "Final Delivery"
+  },
+  {
+   "id": 20,
+   "conditionValueId": 20,
+   "code": "INV",
+   "description": "Inventory Invoice"
+  },
+  {
+   "id": 21,
+   "conditionValueId": 20,
+   "code": "OTH",
+   "description": "Other"
+  },
+  {
+   "id": 22,
+   "conditionValueId": 7,
+   "code": "DL",
+   "description": "Operational Lease"
+  },
+  {
+   "id": 23,
+   "conditionValueId": 7,
+   "code": "MG",
+   "description": "Financial Lease"
+  },
+  {
+   "id": 24,
+   "conditionValueId": 7,
+   "code": "HP",
+   "description": "H. Purchase"
+  },
+  {
+   "id": 25,
+   "conditionValueId": 7,
+   "code": "LO",
+   "description": "Loan"
+  },
+  {
+   "id": 26,
+   "conditionValueId": 7,
+   "code": "OPF",
+   "description": "USGAAP Operating Lease"
+  },
+  {
+   "id": 27,
+   "conditionValueId": 8,
+   "code": "CVL",
+   "description": "Consumer Vehicle Leasing"
+  },
+  {
+   "id": 28,
+   "conditionValueId": 8,
+   "code": "BVL",
+   "description": "Business Vehicle Leasing"
+  },
+  {
+   "id": 29,
+   "conditionValueId": 8,
+   "code": "FML",
+   "description": "Fleet Management Leasing"
+  },
+  {
+   "id": 30,
+   "conditionValueId": 8,
+   "code": "CVF",
+   "description": "Commercial Vehicle Finance"
+  },
+  {
+   "id": 31,
+   "conditionValueId": 8,
+   "code": "CEF",
+   "description": "Construction Equipment Finance"
+  },
+  {
+   "id": 32,
+   "conditionValueId": 8,
+   "code": "ITL",
+   "description": "IT Equipment Leasing"
+  },
+  {
+   "id": 33,
+   "conditionValueId": 8,
+   "code": "REF",
+   "description": "Retail Equipment Finance"
+  },
+  {
+   "id": 34,
+   "conditionValueId": 16,
+   "code": "EUR",
+   "description": "Euro"
+  },
+  {
+   "id": 35,
+   "conditionValueId": 16,
+   "code": "SEK",
+   "description": "Swedish Kronor"
+  },
+  {
+   "id": 36,
+   "conditionValueId": 16,
+   "code": "RSD",
+   "description": "Serbian dinar"
+  },
+  {
+   "id": 37,
+   "conditionValueId": 16,
+   "code": "USD",
+   "description": "US Dollar"
+  },
+  {
+   "id": 38,
+   "conditionValueId": 16,
+   "code": "GBP",
+   "description": "British Pound"
+  },
+  {
+   "id": 39,
+   "conditionValueId": 16,
+   "code": "NOK",
+   "description": "Norwegian Krone"
+  },
+  {
+   "id": 40,
+   "conditionValueId": 18,
+   "code": "IFE",
+   "description": "Invoice Fee"
+  },
+  {
+   "id": 41,
+   "conditionValueId": 18,
+   "code": "OPC",
+   "description": "Operating Cost"
+  },
+  {
+   "id": 42,
+   "conditionValueId": 18,
+   "code": "SEB",
+   "description": "Service Agreement – Electric Bicycles"
+  },
+  {
+   "id": 43,
+   "conditionValueId": 18,
+   "code": "TEB",
+   "description": "Studded Tire Agreement – Electric Bicycles"
+  },
+  {
+   "id": 44,
+   "conditionValueId": 18,
+   "code": "TAB",
+   "description": "Transportation Agreement – Electric Bicycles"
+  }
+ ],
+ "eventCategories": [
+  {
+   "id": 1,
+   "name": "Normal",
+   "description": "Creating the different accounting transactions according to the accounting event"
+  },
+  {
+   "id": 2,
+   "name": "Reversal",
+   "description": "Is used for reversal of existing transactions that is created earlier"
+  }
+ ],
+ "accountingEvents": [
+  {
+   "id": 1,
+   "name": "Activation",
+   "description": "Activation accounting of the agreement",
+   "code": "s",
+   "bookingDate": 0,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 2,
+   "name": "Invoicing",
+   "description": "Invoicing bookings for a Contract.",
+   "code": "i",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 3,
+   "name": "AR Payment",
+   "description": "Customer payment bookings for a Contract",
+   "code": "cp",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 4,
+   "name": "Termination Invoicing",
+   "description": "Termination Invoicing",
+   "code": "si",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 5,
+   "name": "Termination Asset",
+   "description": "Termination of an agreement",
+   "code": "ta",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 6,
+   "name": "Write Off",
+   "description": "Used for write off a whole invoice or parts of it",
+   "code": "wo",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 7,
+   "name": "AP Arrival Registration",
+   "description": "Arrival Registration",
+   "code": "arc",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 8,
+   "name": "AP Definite Posting",
+   "description": "Final booking of supplier invoice",
+   "code": "db",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 9,
+   "name": "AP Definite Posting - Rev",
+   "description": "Reversal of supplier invoice",
+   "code": "dbc",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 8
+  },
+  {
+   "id": 10,
+   "name": "Repayment",
+   "description": "Repayment",
+   "code": "rep",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 11,
+   "name": "AP Payment",
+   "description": "Supplier Invoice Payment",
+   "code": "sup",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 12,
+   "name": "AP Undo Payment",
+   "description": "Undo of supplier payment",
+   "code": "usp",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 11
+  },
+  {
+   "id": 13,
+   "name": "Manual Invoice",
+   "description": "Invoicing bookings for an invoice that is not connected to an agreement",
+   "code": "mi",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 14,
+   "name": "Manual Inv - Payment",
+   "description": "Payment recived fo a manual invoice",
+   "code": "mip",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 15,
+   "name": "Assignment",
+   "description": "When an agreement is assigned to a new customer",
+   "code": "ca",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 16,
+   "name": "Undo Activation",
+   "description": "Reverse activation bookings for a Contract.",
+   "code": "us",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 1
+  },
+  {
+   "id": 17,
+   "name": "Credit Invoicing",
+   "description": "Reverse Invoice bookings for an Invoice",
+   "code": "ic",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 2
+  },
+  {
+   "id": 18,
+   "name": "Interest Adjustment",
+   "description": "Interest adjustment",
+   "code": "int",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 19,
+   "name": "Aggrement Change",
+   "description": "Reversal of booking in periods not invoice, i.e. accrued income/booked depreciation",
+   "code": "cc",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 20,
+   "name": "Manual Transaction",
+   "description": "Manual transactions generated within the accounting domain",
+   "code": "man",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 21,
+   "name": "Monthly Booking",
+   "description": "Monthly bookings for a Contract.",
+   "code": "m",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 22,
+   "name": "Monthly Booking reversal",
+   "description": "This booking type is used to reverse bookings from previous month, i.e accruals, to prevent double booking",
+   "code": "md",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 21
+  },
+  {
+   "id": 23,
+   "name": "Split",
+   "description": "Split generate new agreement line an d new accounting",
+   "code": "spl",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 24,
+   "name": "Split -Amortization",
+   "description": "Extra Amortization",
+   "code": "spE",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 25,
+   "name": "Undo Monthly Booking",
+   "description": "Agreement and agreement Line",
+   "code": "um",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 21
+  },
+  {
+   "id": 26,
+   "name": "Monthly revaluation of Balance",
+   "description": "Monthly revaluation of Balance Accounts",
+   "code": "mrb",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 27,
+   "name": "Monthly revaluation of Transaction",
+   "description": "Monthly revaluation of Balance Transactions",
+   "code": "mrt",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null
+  },
+  {
+   "id": 28,
+   "name": "AR Undo Payment",
+   "description": "Reverse an AR Payment (customer receipt) — mirrors the original payment booking.",
+   "code": "usar",
+   "bookingDate": 1,
+   "eventCategoryId": 2,
+   "originalEventId": 3
+  },
+  {
+   "id": 29,
+   "name": "Accrual",
+   "description": "Create a cost/income accrual (deferral); recognised over its term at Monthly Booking",
+   "code": "acr",
+   "bookingDate": 1,
+   "eventCategoryId": 1,
+   "originalEventId": null,
+   "usesAccountingRules": false
+  }
+ ],
+ "formulas": [
+  {
+   "id": 1,
+   "name": "014 -Fixed Asset",
+   "description": "The Fixed Asset Value from the agreement Line.",
+   "amountTypeId": 30,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 10,
+   "category": "Activation"
+  },
+  {
+   "id": 2,
+   "name": "040 -Deposit",
+   "description": "Deposit from agreement Line",
+   "amountTypeId": 32,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 48,
+   "category": "Activation"
+  },
+  {
+   "id": 3,
+   "name": "060 - Total Plan Rent",
+   "description": "Sum of all Period rents from starting date to ending date from the agreement Line",
+   "amountTypeId": 33,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 11,
+   "category": "Activation"
+  },
+  {
+   "id": 4,
+   "name": "016 - Residual Value",
+   "description": "Residual Value at agreeement line end",
+   "amountTypeId": 31,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 12,
+   "category": "Activation"
+  },
+  {
+   "id": 5,
+   "name": "062 - Total Plan Interest",
+   "description": "Sum of all Period interests from starting date to ending date from the agreement Line",
+   "amountTypeId": 35,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 13,
+   "category": "Activation"
+  },
+  {
+   "id": 6,
+   "name": "014 - Fixed Asset(US GAAP)",
+   "description": "The Fixed Asset Value from the agreement Line.",
+   "amountTypeId": 30,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 49,
+   "category": "Activation"
+  },
+  {
+   "id": 7,
+   "name": "061 - Total Plan Amortization",
+   "description": "Sum of all Period amortizations from starting date to ending date from the agreement Line",
+   "amountTypeId": 34,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 47,
+   "category": "Activation"
+  },
+  {
+   "id": 48,
+   "name": "014 -Fixed Asset(US GAAP)",
+   "description": "The Fixed Asset Value from the agreement Line.",
+   "amountTypeId": 30,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 48,
+   "category": "Activation"
+  },
+  {
+   "id": 8,
+   "name": "200 - Customer Invoice Total",
+   "description": "The Invoice Total from the customer invoice connected to the Contract Line.",
+   "amountTypeId": 36,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 14,
+   "category": "Invoicing"
+  },
+  {
+   "id": 9,
+   "name": "255 (US GAAP)  - Customer Invoice Added Cost",
+   "description": "Invoice added cost for the agreement/Invoice Line",
+   "amountTypeId": 39,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 59,
+   "category": "Invoicing"
+  },
+  {
+   "id": 10,
+   "name": "202 - Invoice Rounding",
+   "description": "Decimal adjustment, roundings",
+   "amountTypeId": 41,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 17,
+   "category": "Invoicing"
+  },
+  {
+   "id": 11,
+   "name": "222 -  Customer Invoice Rent",
+   "description": "Invoice Rent = (Amortization + Interest) from the Agreement/Invoice Line",
+   "amountTypeId": 42,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 60,
+   "category": "Invoicing"
+  },
+  {
+   "id": 12,
+   "name": "720 - Customer Primary Invoice Rent",
+   "description": "Invoice Rent Primary period= (Amortization + Interest) from the Agreement/Invoice Line -  not extended contracts.",
+   "amountTypeId": 43,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 15,
+   "category": "Invoicing"
+  },
+  {
+   "id": 13,
+   "name": "228 - Customer Invoice Interest",
+   "description": "Invoice Interest from the Agreement/Invoice Line",
+   "amountTypeId": 38,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 57,
+   "category": "Invoicing"
+  },
+  {
+   "id": 14,
+   "name": "226 - Customer Invoice Amortization",
+   "description": "Invoice Amortization from the Agreement/Invoice Line",
+   "amountTypeId": 37,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 58,
+   "category": "Invoicing"
+  },
+  {
+   "id": 15,
+   "name": "211 - Customer Invoice Tax",
+   "description": "Invoice Tax from the Agreement/Invoice Line",
+   "amountTypeId": 40,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 16,
+   "category": "Invoicing"
+  },
+  {
+   "id": 16,
+   "name": "255 - Customer Invoice Added Cost",
+   "description": "Invoice added cost for the agreement/Invoice Line",
+   "amountTypeId": 39,
+   "debitAccount": null,
+   "creditAccount": "420100",
+   "formulaConditionId": 18,
+   "category": "Invoicing"
+  },
+  {
+   "id": 57,
+   "name": "211 (US GAAP) - Customer Invoice Tax",
+   "description": "Invoice Tax from the Agreement/Invoice Line",
+   "amountTypeId": 40,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 58,
+   "category": "Invoicing"
+  },
+  {
+   "id": 17,
+   "name": "610 - Customer On-Account payment",
+   "description": "On'account that is placed on the customer",
+   "amountTypeId": 44,
+   "debitAccount": "963300",
+   "creditAccount": "192020",
+   "formulaConditionId": null,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 18,
+   "name": "611 - Agreement On-Account payment",
+   "description": "On'account that is placed on an Agreement",
+   "amountTypeId": 45,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 19,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 19,
+   "name": "612 - Unallocated Payment",
+   "description": "Unallocated Payment",
+   "amountTypeId": 46,
+   "debitAccount": "963300",
+   "creditAccount": "192020",
+   "formulaConditionId": null,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 20,
+   "name": "600 - Paid Amortization",
+   "description": "Paid Amortization from Customer",
+   "amountTypeId": 37,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 20,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 21,
+   "name": "601 - Paid Interest",
+   "description": "Paid Interest from Customer",
+   "amountTypeId": 38,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 21,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 22,
+   "name": "603 -Paid Added cost",
+   "description": "Paid Charges from Customer",
+   "amountTypeId": 39,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 22,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 23,
+   "name": "609 - Paid Amount",
+   "description": "Paid Amount from Customer",
+   "amountTypeId": 36,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 23,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 58,
+   "name": "610 ITA - Customer On-Account payment",
+   "description": "On'account that is placed on the customer",
+   "amountTypeId": 44,
+   "debitAccount": "192020",
+   "creditAccount": "192020",
+   "formulaConditionId": null,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 59,
+   "name": "611 ITA - Agreement On-Account payment",
+   "description": "On'account that is placed on an Agreement",
+   "amountTypeId": 45,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 61,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 60,
+   "name": "612 ITA - Unallocated Payment",
+   "description": "Unallocated Payment",
+   "amountTypeId": 46,
+   "debitAccount": "192020",
+   "creditAccount": "192020",
+   "formulaConditionId": null,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 61,
+   "name": "609 ITA - Paid Amount",
+   "description": "Paid Amount from Customer",
+   "amountTypeId": 36,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 62,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 62,
+   "name": "609 ITA US GAAP - Paid Amount",
+   "description": "Paid Amount from Customer",
+   "amountTypeId": 36,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 63,
+   "category": "Customer Payment"
+  },
+  {
+   "id": 24,
+   "name": "490 - Settlement Invoice total",
+   "description": "The Invoice Total from the customer invoice connected to the Settlement calculation",
+   "amountTypeId": 36,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 24,
+   "category": "Settlement Invoicing"
+  },
+  {
+   "id": 25,
+   "name": "464 - Settlement Added Cost",
+   "description": "Added cost as previous extra lines and overdue interest",
+   "amountTypeId": 39,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 25,
+   "category": "Settlement Invoicing"
+  },
+  {
+   "id": 26,
+   "name": "400 - Settlement Value",
+   "description": "Chosed Settlement value in Settlement calculation.",
+   "amountTypeId": 47,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 26,
+   "category": "Settlement Invoicing"
+  },
+  {
+   "id": 27,
+   "name": "498 - Invoice Roundingd Amortization",
+   "description": "Decimal adjustment, roundings, from the customer invoice",
+   "amountTypeId": 41,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 27,
+   "category": "Settlement Invoicing"
+  },
+  {
+   "id": 28,
+   "name": "481 - Invoice Tax amount",
+   "description": "Settlement invoice VAT.",
+   "amountTypeId": 40,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 28,
+   "category": "Settlement Invoicing"
+  },
+  {
+   "id": 29,
+   "name": "520 - Termination Profit",
+   "description": "Profit from a Settlement calculation",
+   "amountTypeId": 53,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 29,
+   "category": "Termination"
+  },
+  {
+   "id": 30,
+   "name": "522 - Termination Loss",
+   "description": "Loss from a Settlement calculation",
+   "amountTypeId": 54,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 30,
+   "category": "Termination"
+  },
+  {
+   "id": 31,
+   "name": "016 -Settlement  Residual Value",
+   "description": "Residual Value at contracta end",
+   "amountTypeId": 31,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 31,
+   "category": "Termination"
+  },
+  {
+   "id": 32,
+   "name": "400 - Termination Value",
+   "description": "Chosed Settlement value in Settlement calculation.",
+   "amountTypeId": 47,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 32,
+   "category": "Termination"
+  },
+  {
+   "id": 33,
+   "name": "USG400 -Remaining Current Rent",
+   "description": "Remaining Contract Rent for the next 12 months. Calculated from CS_PresentValueDate.",
+   "amountTypeId": 48,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 33,
+   "category": "Termination"
+  },
+  {
+   "id": 34,
+   "name": "USG401- Remaining Non Current Rent",
+   "description": "Remaining Contract Rent from month 13 up to the end of the contract. Calculated from CS_PresentValueDate.",
+   "amountTypeId": 49,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 34,
+   "category": "Termination"
+  },
+  {
+   "id": 35,
+   "name": "USG402 - Remaining Current Interest",
+   "description": "Remaining Interest for the next 12 months. Calculated from CS_PresentValueDate.",
+   "amountTypeId": 50,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 35,
+   "category": "Termination"
+  },
+  {
+   "id": 36,
+   "name": "USG403 - Remaining Non Current Interest",
+   "description": "Remaining Interest for month 13 and up to the end of the contract.",
+   "amountTypeId": 51,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 36,
+   "category": "Termination"
+  },
+  {
+   "id": 37,
+   "name": "070 - Purchase Option Amount",
+   "description": "Purchase Option Amount at contracta end",
+   "amountTypeId": 52,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 37,
+   "category": "Termination"
+  },
+  {
+   "id": 38,
+   "name": "470 - Settlement Net",
+   "description": "Net amount from settlement calculation",
+   "amountTypeId": 55,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 38,
+   "category": "Termination"
+  },
+  {
+   "id": 39,
+   "name": "016 -Settlement  Residual Value",
+   "description": "Residual Value at contracta end",
+   "amountTypeId": 31,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 39,
+   "category": "Termination"
+  },
+  {
+   "id": 49,
+   "name": "XUK410 - Present Value on Basic Price",
+   "description": "Present Value on Basic Price",
+   "amountTypeId": 57,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 49,
+   "category": "Termination"
+  },
+  {
+   "id": 50,
+   "name": "520 ITA - Termination Profit",
+   "description": "Profit from a Settlement calculation",
+   "amountTypeId": 53,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 50,
+   "category": "Termination"
+  },
+  {
+   "id": 51,
+   "name": "522 ITA  - Termination Loss",
+   "description": "Loss from a Settlement calculation",
+   "amountTypeId": 54,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 51,
+   "category": "Termination"
+  },
+  {
+   "id": 52,
+   "name": "400  ITA - Termination Value",
+   "description": "Chosed Settlement value in Settlement calculation.",
+   "amountTypeId": 47,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 52,
+   "category": "Termination"
+  },
+  {
+   "id": 53,
+   "name": "USG400 ITA -Remaining Current Rent",
+   "description": "Remaining Contract Rent for the next 12 months. Calculated from CS_PresentValueDate.",
+   "amountTypeId": 48,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 53,
+   "category": "Termination"
+  },
+  {
+   "id": 54,
+   "name": "USG401 ITA - Remaining Non Current Rent",
+   "description": "Remaining Contract Rent from month 13 up to the end of the contract. Calculated from CS_PresentValueDate.",
+   "amountTypeId": 49,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 54,
+   "category": "Termination"
+  },
+  {
+   "id": 55,
+   "name": "USG402  ITA - Remaining Current Interest",
+   "description": "Remaining Interest for the next 12 months. Calculated from CS_PresentValueDate.",
+   "amountTypeId": 50,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 55,
+   "category": "Termination"
+  },
+  {
+   "id": 56,
+   "name": "USG403  ITA - Remaining Non Current Interest",
+   "description": "Remaining Interest for month 13 and up to the end of the contract.",
+   "amountTypeId": 51,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 56,
+   "category": "Termination"
+  },
+  {
+   "id": 45,
+   "name": "XUK015 - Monthly Interest(Primary)",
+   "description": "The Monthly Interest from  the Monthly Recognition Table using booking month. Only primary period.",
+   "amountTypeId": 56,
+   "debitAccount": "192402",
+   "creditAccount": "420005",
+   "formulaConditionId": null,
+   "category": "Monthly booking"
+  },
+  {
+   "id": 46,
+   "name": "310 - Monthly Depreciation",
+   "description": "The Monthly Depreciation from  the Monthly Recognition",
+   "amountTypeId": 57,
+   "debitAccount": "FP5652",
+   "creditAccount": "AN3832",
+   "formulaConditionId": null,
+   "category": "Monthly booking"
+  },
+  {
+   "id": 47,
+   "name": "381 - Monthly Interest",
+   "description": "The Monthly Interest from  the Monthly Recognition",
+   "amountTypeId": 58,
+   "debitAccount": "192402",
+   "creditAccount": "420005",
+   "formulaConditionId": null,
+   "category": "Monthly booking"
+  },
+  {
+   "id": 63,
+   "name": "63 - Accrual Recognition (Insurance)",
+   "description": "Recognition (P&L) account for the Insurance accrual, routed by Accounting Type (condition part).",
+   "amountTypeId": null,
+   "debitAccount": null,
+   "creditAccount": null,
+   "formulaConditionId": 101,
+   "category": "Monthly Booking",
+   "appliesToEvents": [
+    21
+   ]
+  }
+ ],
+ "formulaConditions": [
+  {
+   "id": 10,
+   "name": "014 -Fixed Asset"
+  },
+  {
+   "id": 11,
+   "name": "060 - Total Plan Rent"
+  },
+  {
+   "id": 12,
+   "name": "016 - Residual Value"
+  },
+  {
+   "id": 13,
+   "name": "062 - Total Plan Interest"
+  },
+  {
+   "id": 14,
+   "name": "200 - Invoice Total Amount"
+  },
+  {
+   "id": 15,
+   "name": "720 - Customer Primary Invoice Rent"
+  },
+  {
+   "id": 16,
+   "name": "211 -Invoice Tax"
+  },
+  {
+   "id": 17,
+   "name": "202 - Invoice Rounding"
+  },
+  {
+   "id": 18,
+   "name": "255 - Invoice Added Cost"
+  },
+  {
+   "id": 19,
+   "name": "611 - Agreement On-Account payment"
+  },
+  {
+   "id": 20,
+   "name": "600 - Paid Amortization"
+  },
+  {
+   "id": 21,
+   "name": "601 - Paid Interest"
+  },
+  {
+   "id": 22,
+   "name": "603 -Paid Added cost"
+  },
+  {
+   "id": 23,
+   "name": "609 - Paid Amount"
+  },
+  {
+   "id": 24,
+   "name": "490 - Settlement Invoice total"
+  },
+  {
+   "id": 25,
+   "name": "464 - Settlement Added Cost"
+  },
+  {
+   "id": 26,
+   "name": "400 - Settlement Value"
+  },
+  {
+   "id": 27,
+   "name": "498 - Invoice Rounding"
+  },
+  {
+   "id": 28,
+   "name": "481 - Invoice Tax amount"
+  },
+  {
+   "id": 29,
+   "name": "520 - Termination Profit"
+  },
+  {
+   "id": 30,
+   "name": "522 - Termination Loss"
+  },
+  {
+   "id": 31,
+   "name": "016 -Settlement  Residual Value"
+  },
+  {
+   "id": 32,
+   "name": "400 - Termination Value"
+  },
+  {
+   "id": 33,
+   "name": "USG400 -Remaining Current Rent"
+  },
+  {
+   "id": 34,
+   "name": "USG401- Remaining Non Current Rent"
+  },
+  {
+   "id": 35,
+   "name": "USG402 - Remaining Current Interest"
+  },
+  {
+   "id": 36,
+   "name": "USG403 - Remaining Non Current Interest"
+  },
+  {
+   "id": 37,
+   "name": "070 - Purchase Option Amount"
+  },
+  {
+   "id": 38,
+   "name": "470 - Settlement Net"
+  },
+  {
+   "id": 39,
+   "name": "016 -Settlement  Residual Value"
+  },
+  {
+   "id": 40,
+   "name": "400 - Termination Value"
+  },
+  {
+   "id": 45,
+   "name": "XUK015 - Monthly Interest(Primary)"
+  },
+  {
+   "id": 46,
+   "name": "040 -Deposit"
+  },
+  {
+   "id": 47,
+   "name": "061 - Total Plan Amortization"
+  },
+  {
+   "id": 48,
+   "name": "014 - Fixed Asset(US GAAP)"
+  },
+  {
+   "id": 49,
+   "name": "XUK410 - Present Value on Basic Price"
+  },
+  {
+   "id": 50,
+   "name": "520 ITA - Termination Profit"
+  },
+  {
+   "id": 51,
+   "name": "522 ITA  - Termination Loss"
+  },
+  {
+   "id": 52,
+   "name": "400  ITA - Termination Value"
+  },
+  {
+   "id": 53,
+   "name": "USG400 ITA -Remaining Current Rent"
+  },
+  {
+   "id": 54,
+   "name": "USG401 ITA - Remaining Non Current Rent"
+  },
+  {
+   "id": 55,
+   "name": "USG402  ITA - Remaining Current Interest"
+  },
+  {
+   "id": 56,
+   "name": "USG403  ITA - Remaining Non Current Interest"
+  },
+  {
+   "id": 57,
+   "name": "228 - Customer Invoice Interest"
+  },
+  {
+   "id": 58,
+   "name": "211 (US GAAP) - Customer Invoice Tax"
+  },
+  {
+   "id": 59,
+   "name": "255 (US GAAP)  - Customer Invoice Added Cost"
+  },
+  {
+   "id": 60,
+   "name": "222 -  Customer Invoice Rent"
+  },
+  {
+   "id": 61,
+   "name": "611 ITA - Agreement On-Account payment"
+  },
+  {
+   "id": 62,
+   "name": "609 ITA - Paid Amount"
+  },
+  {
+   "id": 63,
+   "name": "609 ITA US GAAP - Paid Amount"
+  },
+  {
+   "id": 101,
+   "name": "63 - Accrual Recognition (Insurance)"
+  }
+ ],
+ "conditions": [
+  {
+   "id": 20,
+   "formulaConditionId": 10,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 19,
+   "operator": "OR"
+  },
+  {
+   "id": 21,
+   "formulaConditionId": 10,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 8,
+   "creditPseudoAccountId": 9,
+   "operator": null
+  },
+  {
+   "id": 22,
+   "formulaConditionId": 11,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 22,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 23,
+   "formulaConditionId": 11,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 22,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 24,
+   "formulaConditionId": 12,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 26,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 25,
+   "formulaConditionId": 13,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 27,
+   "operator": "OR"
+  },
+  {
+   "id": 26,
+   "formulaConditionId": 13,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 27,
+   "operator": null
+  },
+  {
+   "id": 27,
+   "formulaConditionId": 14,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 31,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 28,
+   "formulaConditionId": 14,
+   "level": 2,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 10,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 29,
+   "formulaConditionId": 15,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 31,
+   "operator": null
+  },
+  {
+   "id": 30,
+   "formulaConditionId": 16,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 1,
+   "operator": null
+  },
+  {
+   "id": 31,
+   "formulaConditionId": 16,
+   "level": 2,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 12,
+   "operator": null
+  },
+  {
+   "id": 32,
+   "formulaConditionId": 17,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 3,
+   "operator": null
+  },
+  {
+   "id": 35,
+   "formulaConditionId": 19,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 6,
+   "creditPseudoAccountId": 20,
+   "operator": null
+  },
+  {
+   "id": 36,
+   "formulaConditionId": 20,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 23,
+   "operator": null
+  },
+  {
+   "id": 37,
+   "formulaConditionId": 21,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 23,
+   "operator": null
+  },
+  {
+   "id": 38,
+   "formulaConditionId": 22,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 39,
+   "formulaConditionId": 22,
+   "level": 2,
+   "conditionValueId": 18,
+   "value": "907",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 3,
+   "operator": "OR"
+  },
+  {
+   "id": 40,
+   "formulaConditionId": 22,
+   "level": 3,
+   "conditionValueId": 18,
+   "value": "906",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 31,
+   "operator": null
+  },
+  {
+   "id": 41,
+   "formulaConditionId": 23,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 42,
+   "formulaConditionId": 24,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 31,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 43,
+   "formulaConditionId": 24,
+   "level": 2,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 32,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 44,
+   "formulaConditionId": 25,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 3,
+   "operator": null
+  },
+  {
+   "id": 45,
+   "formulaConditionId": 26,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 31,
+   "operator": "OR"
+  },
+  {
+   "id": 46,
+   "formulaConditionId": 26,
+   "level": 2,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 26,
+   "operator": null
+  },
+  {
+   "id": 47,
+   "formulaConditionId": 27,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 3,
+   "operator": null
+  },
+  {
+   "id": 48,
+   "formulaConditionId": 28,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 1,
+   "operator": "OR"
+  },
+  {
+   "id": 49,
+   "formulaConditionId": 28,
+   "level": 2,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 1,
+   "operator": null
+  },
+  {
+   "id": 50,
+   "formulaConditionId": 29,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 51,
+   "formulaConditionId": 29,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": "OR"
+  },
+  {
+   "id": 52,
+   "formulaConditionId": 29,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 4,
+   "operator": null
+  },
+  {
+   "id": 53,
+   "formulaConditionId": 29,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 54,
+   "formulaConditionId": 29,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 23,
+   "operator": null
+  },
+  {
+   "id": 55,
+   "formulaConditionId": 30,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 56,
+   "formulaConditionId": 30,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 57,
+   "formulaConditionId": 30,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 4,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 58,
+   "formulaConditionId": 30,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 59,
+   "formulaConditionId": 30,
+   "level": 5,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 60,
+   "formulaConditionId": 30,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 61,
+   "formulaConditionId": 30,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 23,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 62,
+   "formulaConditionId": 31,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 63,
+   "formulaConditionId": 31,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 25,
+   "creditPseudoAccountId": 26,
+   "operator": "OR"
+  },
+  {
+   "id": 64,
+   "formulaConditionId": 31,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": 24,
+   "creditPseudoAccountId": 26,
+   "operator": "OR"
+  },
+  {
+   "id": 65,
+   "formulaConditionId": 31,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": 26,
+   "operator": null
+  },
+  {
+   "id": 66,
+   "formulaConditionId": 32,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 67,
+   "formulaConditionId": 32,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 23,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 68,
+   "formulaConditionId": 32,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 69,
+   "formulaConditionId": 32,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 70,
+   "formulaConditionId": 32,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 71,
+   "formulaConditionId": 33,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 72,
+   "formulaConditionId": 33,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 73,
+   "formulaConditionId": 33,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": "OR"
+  },
+  {
+   "id": 74,
+   "formulaConditionId": 33,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": "OR"
+  },
+  {
+   "id": 75,
+   "formulaConditionId": 33,
+   "level": 5,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": null
+  },
+  {
+   "id": 76,
+   "formulaConditionId": 33,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 77,
+   "formulaConditionId": 33,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 78,
+   "formulaConditionId": 33,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": 24,
+   "operator": null
+  },
+  {
+   "id": 79,
+   "formulaConditionId": 34,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 80,
+   "formulaConditionId": 34,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 81,
+   "formulaConditionId": 34,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": "OR"
+  },
+  {
+   "id": 82,
+   "formulaConditionId": 34,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": null
+  },
+  {
+   "id": 83,
+   "formulaConditionId": 34,
+   "level": 5,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": "AND"
+  },
+  {
+   "id": 84,
+   "formulaConditionId": 34,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 85,
+   "formulaConditionId": 34,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 86,
+   "formulaConditionId": 24,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 24,
+   "operator": null
+  },
+  {
+   "id": 87,
+   "formulaConditionId": 35,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 88,
+   "formulaConditionId": 35,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 89,
+   "formulaConditionId": 35,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 90,
+   "formulaConditionId": 35,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 91,
+   "formulaConditionId": 35,
+   "level": 5,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 92,
+   "formulaConditionId": 35,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 93,
+   "formulaConditionId": 35,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 94,
+   "formulaConditionId": 35,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 95,
+   "formulaConditionId": 36,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 96,
+   "formulaConditionId": 36,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 97,
+   "formulaConditionId": 36,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 98,
+   "formulaConditionId": 26,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 99,
+   "formulaConditionId": 36,
+   "level": 5,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 100,
+   "formulaConditionId": 36,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 101,
+   "formulaConditionId": 36,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 102,
+   "formulaConditionId": 36,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 103,
+   "formulaConditionId": 37,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 104,
+   "formulaConditionId": 37,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 4,
+   "creditPseudoAccountId": 26,
+   "operator": "OR"
+  },
+  {
+   "id": 105,
+   "formulaConditionId": 37,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": 26,
+   "operator": "OR"
+  },
+  {
+   "id": 106,
+   "formulaConditionId": 37,
+   "level": 4,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": 26,
+   "operator": null
+  },
+  {
+   "id": 107,
+   "formulaConditionId": 38,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 108,
+   "formulaConditionId": 38,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "111",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 109,
+   "formulaConditionId": 38,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "st9",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 110,
+   "formulaConditionId": 39,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 111,
+   "formulaConditionId": 39,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 29,
+   "creditPseudoAccountId": 26,
+   "operator": null
+  },
+  {
+   "id": 112,
+   "formulaConditionId": 25,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 28,
+   "creditPseudoAccountId": 2,
+   "operator": null
+  },
+  {
+   "id": 113,
+   "formulaConditionId": 46,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 8,
+   "creditPseudoAccountId": 9,
+   "operator": null
+  },
+  {
+   "id": 114,
+   "formulaConditionId": 47,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 19,
+   "operator": null
+  },
+  {
+   "id": 115,
+   "formulaConditionId": 48,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 6,
+   "creditPseudoAccountId": 7,
+   "operator": null
+  },
+  {
+   "id": 116,
+   "formulaConditionId": 49,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 117,
+   "formulaConditionId": 49,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": 20,
+   "operator": "OR"
+  },
+  {
+   "id": 118,
+   "formulaConditionId": 49,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": 20,
+   "operator": null
+  },
+  {
+   "id": 119,
+   "formulaConditionId": 49,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 120,
+   "formulaConditionId": 49,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "st2",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 121,
+   "formulaConditionId": 50,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 122,
+   "formulaConditionId": 50,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 23,
+   "operator": "OR"
+  },
+  {
+   "id": 123,
+   "formulaConditionId": 50,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 23,
+   "operator": null
+  },
+  {
+   "id": 124,
+   "formulaConditionId": 51,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 125,
+   "formulaConditionId": 51,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 23,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 126,
+   "formulaConditionId": 51,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 23,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 127,
+   "formulaConditionId": 52,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 128,
+   "formulaConditionId": 52,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 129,
+   "formulaConditionId": 52,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 130,
+   "formulaConditionId": 53,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 131,
+   "formulaConditionId": 53,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 132,
+   "formulaConditionId": 53,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": null
+  },
+  {
+   "id": 133,
+   "formulaConditionId": 54,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 134,
+   "formulaConditionId": 54,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 135,
+   "formulaConditionId": 54,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 25,
+   "operator": null
+  },
+  {
+   "id": 136,
+   "formulaConditionId": 55,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 137,
+   "formulaConditionId": 55,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": 25,
+   "operator": "OR"
+  },
+  {
+   "id": 138,
+   "formulaConditionId": 55,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": 25,
+   "operator": null
+  },
+  {
+   "id": 139,
+   "formulaConditionId": 56,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": "AND"
+  },
+  {
+   "id": 140,
+   "formulaConditionId": 56,
+   "level": 2,
+   "conditionValueId": 17,
+   "value": "911",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": null,
+   "operator": "OR"
+  },
+  {
+   "id": 141,
+   "formulaConditionId": 56,
+   "level": 3,
+   "conditionValueId": 17,
+   "value": "el2",
+   "debitPseudoAccountId": 30,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 142,
+   "formulaConditionId": 57,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 14,
+   "operator": null
+  },
+  {
+   "id": 143,
+   "formulaConditionId": 58,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 13,
+   "operator": null
+  },
+  {
+   "id": 144,
+   "formulaConditionId": 59,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 3,
+   "operator": null
+  },
+  {
+   "id": 145,
+   "formulaConditionId": 60,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 23,
+   "operator": null
+  },
+  {
+   "id": 146,
+   "formulaConditionId": 61,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": 20,
+   "operator": null
+  },
+  {
+   "id": 147,
+   "formulaConditionId": 62,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 6,
+   "creditPseudoAccountId": 10,
+   "operator": null
+  },
+  {
+   "id": 148,
+   "formulaConditionId": 63,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 20,
+   "creditPseudoAccountId": 10,
+   "operator": null
+  },
+  {
+   "id": 151,
+   "formulaConditionId": 18,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 152,
+   "formulaConditionId": 18,
+   "level": 2,
+   "conditionValueId": 18,
+   "value": "IFE",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 39,
+   "operator": null
+  },
+  {
+   "id": 153,
+   "formulaConditionId": 18,
+   "level": 3,
+   "conditionValueId": 18,
+   "value": "OPC",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 40,
+   "operator": null
+  },
+  {
+   "id": 154,
+   "formulaConditionId": 18,
+   "level": 4,
+   "conditionValueId": 18,
+   "value": "SEB",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 41,
+   "operator": null
+  },
+  {
+   "id": 155,
+   "formulaConditionId": 18,
+   "level": 5,
+   "conditionValueId": 18,
+   "value": "TEB",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 42,
+   "operator": null
+  },
+  {
+   "id": 156,
+   "formulaConditionId": 18,
+   "level": 6,
+   "conditionValueId": 18,
+   "value": "TAB",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 43,
+   "operator": null
+  },
+  {
+   "id": 157,
+   "formulaConditionId": 18,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 158,
+   "formulaConditionId": 18,
+   "level": 2,
+   "conditionValueId": 18,
+   "value": "OPC",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 44,
+   "operator": null
+  },
+  {
+   "id": 159,
+   "formulaConditionId": 18,
+   "level": 3,
+   "conditionValueId": 18,
+   "value": "IFE",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 45,
+   "operator": null
+  },
+  {
+   "id": 160,
+   "formulaConditionId": 18,
+   "level": 4,
+   "conditionValueId": 18,
+   "value": "SEB",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 46,
+   "operator": null
+  },
+  {
+   "id": 161,
+   "formulaConditionId": 18,
+   "level": 5,
+   "conditionValueId": 18,
+   "value": "TEB",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 47,
+   "operator": null
+  },
+  {
+   "id": 162,
+   "formulaConditionId": 18,
+   "level": 6,
+   "conditionValueId": 18,
+   "value": "TAB",
+   "debitPseudoAccountId": null,
+   "creditPseudoAccountId": 48,
+   "operator": null
+  },
+  {
+   "id": 163,
+   "formulaConditionId": 101,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "DL",
+   "debitPseudoAccountId": 17,
+   "creditPseudoAccountId": null,
+   "operator": null
+  },
+  {
+   "id": 164,
+   "formulaConditionId": 101,
+   "level": 1,
+   "conditionValueId": 7,
+   "value": "MG",
+   "debitPseudoAccountId": 5,
+   "creditPseudoAccountId": null,
+   "operator": null
+  }
+ ],
+ "accountingRules": [
+  {
+   "id": 1,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 1,
+   "formulaId": 1,
+   "debitCredit": "C"
+  },
+  {
+   "id": 2,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 1,
+   "formulaId": 3,
+   "debitCredit": "D"
+  },
+  {
+   "id": 3,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 1,
+   "formulaId": 4,
+   "debitCredit": "D"
+  },
+  {
+   "id": 4,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 1,
+   "formulaId": 5,
+   "debitCredit": "C"
+  },
+  {
+   "id": 5,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 2,
+   "formulaId": 8,
+   "debitCredit": "D"
+  },
+  {
+   "id": 6,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 2,
+   "formulaId": 16,
+   "debitCredit": "C"
+  },
+  {
+   "id": 7,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 2,
+   "formulaId": 10,
+   "debitCredit": "C"
+  },
+  {
+   "id": 8,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 2,
+   "formulaId": 12,
+   "debitCredit": "C"
+  },
+  {
+   "id": 9,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 2,
+   "formulaId": 15,
+   "debitCredit": "C"
+  },
+  {
+   "id": 10,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 17,
+   "debitCredit": "C"
+  },
+  {
+   "id": 11,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 17,
+   "debitCredit": "D"
+  },
+  {
+   "id": 12,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "C"
+  },
+  {
+   "id": 13,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "D"
+  },
+  {
+   "id": 14,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 19,
+   "debitCredit": "C"
+  },
+  {
+   "id": 15,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 19,
+   "debitCredit": "D"
+  },
+  {
+   "id": 16,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 20,
+   "debitCredit": "D"
+  },
+  {
+   "id": 17,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 21,
+   "debitCredit": "C"
+  },
+  {
+   "id": 18,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 23,
+   "debitCredit": "C"
+  },
+  {
+   "id": 19,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 4,
+   "accountingEventId": 3,
+   "formulaId": 22,
+   "debitCredit": "C"
+  },
+  {
+   "id": 20,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 4,
+   "formulaId": 24,
+   "debitCredit": "D"
+  },
+  {
+   "id": 21,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 4,
+   "formulaId": 25,
+   "debitCredit": "C"
+  },
+  {
+   "id": 22,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 4,
+   "formulaId": 26,
+   "debitCredit": "C"
+  },
+  {
+   "id": 23,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 4,
+   "formulaId": 27,
+   "debitCredit": "C"
+  },
+  {
+   "id": 24,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 3,
+   "accountingEventId": 4,
+   "formulaId": 28,
+   "debitCredit": "C"
+  },
+  {
+   "id": 25,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 29,
+   "debitCredit": "C"
+  },
+  {
+   "id": 26,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 30,
+   "debitCredit": "D"
+  },
+  {
+   "id": 27,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "D"
+  },
+  {
+   "id": 28,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "C"
+  },
+  {
+   "id": 29,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 36,
+   "debitCredit": "D"
+  },
+  {
+   "id": 30,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 32,
+   "debitCredit": "D"
+  },
+  {
+   "id": 31,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 33,
+   "debitCredit": "C"
+  },
+  {
+   "id": 32,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 34,
+   "debitCredit": "C"
+  },
+  {
+   "id": 33,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 35,
+   "debitCredit": "D"
+  },
+  {
+   "id": 34,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 37,
+   "debitCredit": "C"
+  },
+  {
+   "id": 35,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 37,
+   "debitCredit": "D"
+  },
+  {
+   "id": 36,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 5,
+   "formulaId": 38,
+   "debitCredit": "D"
+  },
+  {
+   "id": 37,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "C"
+  },
+  {
+   "id": 38,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "D"
+  },
+  {
+   "id": 39,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 32,
+   "debitCredit": "D"
+  },
+  {
+   "id": 40,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 33,
+   "debitCredit": "C"
+  },
+  {
+   "id": 41,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 34,
+   "debitCredit": "C"
+  },
+  {
+   "id": 42,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 35,
+   "debitCredit": "D"
+  },
+  {
+   "id": 43,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 2,
+   "accountingEventId": 5,
+   "formulaId": 36,
+   "debitCredit": "D"
+  },
+  {
+   "id": 44,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 21,
+   "formulaId": 45,
+   "debitCredit": "D"
+  },
+  {
+   "id": 45,
+   "entityCode": "ALS NLD",
+   "legalAccountingLedgerId": 1,
+   "accountingEventId": 21,
+   "formulaId": 45,
+   "debitCredit": "C"
+  },
+  {
+   "id": 46,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 1,
+   "formulaId": 1,
+   "debitCredit": "C"
+  },
+  {
+   "id": 47,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 1,
+   "formulaId": 3,
+   "debitCredit": "D"
+  },
+  {
+   "id": 48,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 1,
+   "formulaId": 4,
+   "debitCredit": "D"
+  },
+  {
+   "id": 49,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 1,
+   "formulaId": 5,
+   "debitCredit": "C"
+  },
+  {
+   "id": 50,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 2,
+   "formulaId": 8,
+   "debitCredit": "D"
+  },
+  {
+   "id": 51,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 2,
+   "formulaId": 16,
+   "debitCredit": "C"
+  },
+  {
+   "id": 52,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 2,
+   "formulaId": 10,
+   "debitCredit": "C"
+  },
+  {
+   "id": 53,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 2,
+   "formulaId": 12,
+   "debitCredit": "C"
+  },
+  {
+   "id": 54,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 2,
+   "formulaId": 15,
+   "debitCredit": "C"
+  },
+  {
+   "id": 55,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 17,
+   "debitCredit": "C"
+  },
+  {
+   "id": 56,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 17,
+   "debitCredit": "D"
+  },
+  {
+   "id": 57,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "C"
+  },
+  {
+   "id": 58,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "D"
+  },
+  {
+   "id": 59,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 19,
+   "debitCredit": "C"
+  },
+  {
+   "id": 60,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 19,
+   "debitCredit": "D"
+  },
+  {
+   "id": 61,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 20,
+   "debitCredit": "D"
+  },
+  {
+   "id": 62,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 21,
+   "debitCredit": "C"
+  },
+  {
+   "id": 63,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 23,
+   "debitCredit": "C"
+  },
+  {
+   "id": 64,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 8,
+   "accountingEventId": 3,
+   "formulaId": 22,
+   "debitCredit": "C"
+  },
+  {
+   "id": 65,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 4,
+   "formulaId": 24,
+   "debitCredit": "D"
+  },
+  {
+   "id": 66,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 4,
+   "formulaId": 25,
+   "debitCredit": "C"
+  },
+  {
+   "id": 67,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 4,
+   "formulaId": 26,
+   "debitCredit": "C"
+  },
+  {
+   "id": 68,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 4,
+   "formulaId": 27,
+   "debitCredit": "C"
+  },
+  {
+   "id": 69,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 7,
+   "accountingEventId": 4,
+   "formulaId": 28,
+   "debitCredit": "C"
+  },
+  {
+   "id": 70,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 29,
+   "debitCredit": "C"
+  },
+  {
+   "id": 71,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 30,
+   "debitCredit": "D"
+  },
+  {
+   "id": 72,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "D"
+  },
+  {
+   "id": 73,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "C"
+  },
+  {
+   "id": 74,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 32,
+   "debitCredit": "D"
+  },
+  {
+   "id": 75,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 33,
+   "debitCredit": "C"
+  },
+  {
+   "id": 76,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 34,
+   "debitCredit": "C"
+  },
+  {
+   "id": 77,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 35,
+   "debitCredit": "D"
+  },
+  {
+   "id": 78,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 36,
+   "debitCredit": "D"
+  },
+  {
+   "id": 79,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 37,
+   "debitCredit": "C"
+  },
+  {
+   "id": 80,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 37,
+   "debitCredit": "D"
+  },
+  {
+   "id": 81,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 5,
+   "formulaId": 38,
+   "debitCredit": "D"
+  },
+  {
+   "id": 82,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "C"
+  },
+  {
+   "id": 83,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 31,
+   "debitCredit": "D"
+  },
+  {
+   "id": 84,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 32,
+   "debitCredit": "D"
+  },
+  {
+   "id": 85,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 33,
+   "debitCredit": "C"
+  },
+  {
+   "id": 86,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 34,
+   "debitCredit": "C"
+  },
+  {
+   "id": 87,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 35,
+   "debitCredit": "D"
+  },
+  {
+   "id": 88,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 6,
+   "accountingEventId": 5,
+   "formulaId": 36,
+   "debitCredit": "D"
+  },
+  {
+   "id": 89,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 21,
+   "formulaId": 45,
+   "debitCredit": "D"
+  },
+  {
+   "id": 90,
+   "entityCode": "ALS SFB",
+   "legalAccountingLedgerId": 5,
+   "accountingEventId": 21,
+   "formulaId": 45,
+   "debitCredit": "C"
+  },
+  {
+   "id": 91,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 1,
+   "formulaId": 1,
+   "debitCredit": "D"
+  },
+  {
+   "id": 92,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 1,
+   "formulaId": 1,
+   "debitCredit": "C"
+  },
+  {
+   "id": 93,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 1,
+   "formulaId": 2,
+   "debitCredit": "D"
+  },
+  {
+   "id": 94,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 1,
+   "formulaId": 2,
+   "debitCredit": "C"
+  },
+  {
+   "id": 95,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 1,
+   "formulaId": 7,
+   "debitCredit": "C"
+  },
+  {
+   "id": 96,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 1,
+   "formulaId": 3,
+   "debitCredit": "D"
+  },
+  {
+   "id": 97,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 1,
+   "formulaId": 5,
+   "debitCredit": "C"
+  },
+  {
+   "id": 98,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 1,
+   "formulaId": 48,
+   "debitCredit": "D"
+  },
+  {
+   "id": 99,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 1,
+   "formulaId": 48,
+   "debitCredit": "C"
+  },
+  {
+   "id": 100,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 5,
+   "formulaId": 50,
+   "debitCredit": "C"
+  },
+  {
+   "id": 101,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 5,
+   "formulaId": 51,
+   "debitCredit": "D"
+  },
+  {
+   "id": 102,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 5,
+   "formulaId": 49,
+   "debitCredit": "C"
+  },
+  {
+   "id": 103,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 5,
+   "formulaId": 52,
+   "debitCredit": "D"
+  },
+  {
+   "id": 104,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 5,
+   "formulaId": 49,
+   "debitCredit": "D"
+  },
+  {
+   "id": 105,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 5,
+   "formulaId": 53,
+   "debitCredit": "C"
+  },
+  {
+   "id": 106,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 5,
+   "formulaId": 54,
+   "debitCredit": "C"
+  },
+  {
+   "id": 107,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 5,
+   "formulaId": 55,
+   "debitCredit": "D"
+  },
+  {
+   "id": 108,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 5,
+   "formulaId": 56,
+   "debitCredit": "D"
+  },
+  {
+   "id": 109,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 11,
+   "accountingEventId": 2,
+   "formulaId": 8,
+   "debitCredit": "D"
+  },
+  {
+   "id": 110,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 11,
+   "accountingEventId": 2,
+   "formulaId": 16,
+   "debitCredit": "C"
+  },
+  {
+   "id": 111,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 11,
+   "accountingEventId": 2,
+   "formulaId": 13,
+   "debitCredit": "C"
+  },
+  {
+   "id": 112,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 11,
+   "accountingEventId": 2,
+   "formulaId": 14,
+   "debitCredit": "C"
+  },
+  {
+   "id": 113,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 11,
+   "accountingEventId": 2,
+   "formulaId": 15,
+   "debitCredit": "C"
+  },
+  {
+   "id": 114,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 2,
+   "formulaId": 8,
+   "debitCredit": "D"
+  },
+  {
+   "id": 115,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 2,
+   "formulaId": 16,
+   "debitCredit": "C"
+  },
+  {
+   "id": 116,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 2,
+   "formulaId": 11,
+   "debitCredit": "C"
+  },
+  {
+   "id": 117,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 2,
+   "formulaId": 15,
+   "debitCredit": "C"
+  },
+  {
+   "id": 118,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 4,
+   "formulaId": 24,
+   "debitCredit": "D"
+  },
+  {
+   "id": 119,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 4,
+   "formulaId": 26,
+   "debitCredit": "C"
+  },
+  {
+   "id": 120,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 12,
+   "accountingEventId": 4,
+   "formulaId": 28,
+   "debitCredit": "C"
+  },
+  {
+   "id": 121,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 17,
+   "debitCredit": "C"
+  },
+  {
+   "id": 122,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 17,
+   "debitCredit": "D"
+  },
+  {
+   "id": 123,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "C"
+  },
+  {
+   "id": 124,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "D"
+  },
+  {
+   "id": 125,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 19,
+   "debitCredit": "C"
+  },
+  {
+   "id": 126,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 19,
+   "debitCredit": "D"
+  },
+  {
+   "id": 127,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 23,
+   "debitCredit": "C"
+  },
+  {
+   "id": 128,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 13,
+   "accountingEventId": 3,
+   "formulaId": 23,
+   "debitCredit": "D"
+  },
+  {
+   "id": 129,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 14,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "C"
+  },
+  {
+   "id": 130,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 14,
+   "accountingEventId": 3,
+   "formulaId": 18,
+   "debitCredit": "D"
+  },
+  {
+   "id": 131,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 14,
+   "accountingEventId": 3,
+   "formulaId": 23,
+   "debitCredit": "D"
+  },
+  {
+   "id": 132,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 14,
+   "accountingEventId": 3,
+   "formulaId": 23,
+   "debitCredit": "C"
+  },
+  {
+   "id": 133,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 21,
+   "formulaId": 46,
+   "debitCredit": "C"
+  },
+  {
+   "id": 134,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 9,
+   "accountingEventId": 21,
+   "formulaId": 46,
+   "debitCredit": "D"
+  },
+  {
+   "id": 135,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 21,
+   "formulaId": 47,
+   "debitCredit": "D"
+  },
+  {
+   "id": 136,
+   "entityCode": "ALS ITA",
+   "legalAccountingLedgerId": 10,
+   "accountingEventId": 21,
+   "formulaId": 47,
+   "debitCredit": "C"
+  }
+ ],
+ "pseudoAccounts": [
+  {
+   "entityCode": "ALS ITA",
+   "id": 1,
+   "pseudo": "216505",
+   "description": "Vat Output",
+   "extPseudo": "002.0022.216505",
+   "extDescription": "Vat Output",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 1,
+   "pseudo": "216505",
+   "description": "Vat Output",
+   "extPseudo": "216505",
+   "extDescription": "Vat Output",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 1,
+   "pseudo": "216505",
+   "description": "Vat Output",
+   "extPseudo": "216505",
+   "extDescription": "Vat Output",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 2,
+   "pseudo": "420005",
+   "description": "Interest Revenue",
+   "extPseudo": "002.0022.420005",
+   "extDescription": "Interest Revenue",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 2,
+   "pseudo": "420005",
+   "description": "Interest Revenue",
+   "extPseudo": "420005",
+   "extDescription": "Interest Revenue",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 2,
+   "pseudo": "420005",
+   "description": "Interest Revenue",
+   "extPseudo": "420005",
+   "extDescription": "Interest Revenue",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 3,
+   "pseudo": "420100",
+   "description": "Fee Income",
+   "extPseudo": "002.0022.420100",
+   "extDescription": "Fee Income",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 3,
+   "pseudo": "420100",
+   "description": "Fee Income",
+   "extPseudo": "420100",
+   "extDescription": "Fee Income",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 3,
+   "pseudo": "420100",
+   "description": "Fee Income",
+   "extPseudo": "420100",
+   "extDescription": "Fee Income",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 4,
+   "pseudo": "420420",
+   "description": "Gain/Loss On Lease Termination",
+   "extPseudo": "002.0022.420420",
+   "extDescription": "Gain/Loss On Lease Termination",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 4,
+   "pseudo": "420420",
+   "description": "Gain/Loss On Early Termination",
+   "extPseudo": "420420",
+   "extDescription": "Gain/Loss On Early Termination",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 4,
+   "pseudo": "420420",
+   "description": "Gain/Loss On Early Termination",
+   "extPseudo": "420420",
+   "extDescription": "Gain/Loss On Early Termination",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 5,
+   "pseudo": "420700",
+   "description": "Bad Debt Expense",
+   "extPseudo": "002.0022.420700",
+   "extDescription": "Bad Debt Expense",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 5,
+   "pseudo": "420700",
+   "description": "Bad Debt Expense",
+   "extPseudo": "420700",
+   "extDescription": "Bad Debt Expense",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 5,
+   "pseudo": "420700",
+   "description": "Bad Debt Expense",
+   "extPseudo": "420700",
+   "extDescription": "Bad Debt Expense",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 6,
+   "pseudo": "963300",
+   "description": "Bank",
+   "extPseudo": "9633001",
+   "extDescription": "Bank",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 6,
+   "pseudo": "963300",
+   "description": "Bank",
+   "extPseudo": "9633001",
+   "extDescription": "Bank",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 6,
+   "pseudo": "963300",
+   "description": "Bank",
+   "extPseudo": "9633001",
+   "extDescription": "Bank",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 7,
+   "pseudo": "DT4970",
+   "description": "Deposit liability",
+   "extPseudo": "",
+   "extDescription": "Deposit liability",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 7,
+   "pseudo": "DT4970",
+   "description": "Deposit liability",
+   "extPseudo": "",
+   "extDescription": "Deposit liability",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 7,
+   "pseudo": "DT4970",
+   "description": "Deposit liability",
+   "extPseudo": "",
+   "extDescription": "Deposit liability",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 8,
+   "pseudo": "4A1544",
+   "description": "Fixed asset",
+   "extPseudo": "4A15441",
+   "extDescription": "Fixed asset",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 8,
+   "pseudo": "4A1544",
+   "description": "Fixed asset",
+   "extPseudo": "4A15441",
+   "extDescription": "Fixed asset",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 8,
+   "pseudo": "4A1544",
+   "description": "Fixed asset",
+   "extPseudo": "4A15441",
+   "extDescription": "Fixed asset",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 9,
+   "pseudo": "5K2060",
+   "description": "Inventory",
+   "extPseudo": "5K20600",
+   "extDescription": "Inventory",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 9,
+   "pseudo": "5K2060",
+   "description": "Inventory",
+   "extPseudo": "5K20600",
+   "extDescription": "Inventory",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 9,
+   "pseudo": "5K2060",
+   "description": "Inventory",
+   "extPseudo": "5K20600",
+   "extDescription": "Inventory",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 10,
+   "pseudo": "63A003",
+   "description": "AR customer",
+   "extPseudo": "63A00316",
+   "extDescription": "AR customer",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 10,
+   "pseudo": "63A003",
+   "description": "AR customer",
+   "extPseudo": "63A00316",
+   "extDescription": "AR customer",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 10,
+   "pseudo": "63A003",
+   "description": "AR customer",
+   "extPseudo": "63A00316",
+   "extDescription": "AR customer",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 11,
+   "pseudo": "EK5250",
+   "description": "Other fee income",
+   "extPseudo": "EK52505",
+   "extDescription": "Other fee income",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 11,
+   "pseudo": "EK5250",
+   "description": "Other fee income",
+   "extPseudo": "EK52505",
+   "extDescription": "Other fee income",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 11,
+   "pseudo": "EK5250",
+   "description": "Other fee income",
+   "extPseudo": "EK52505",
+   "extDescription": "Other fee income",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 12,
+   "pseudo": "8C3000",
+   "description": "VAT Payable",
+   "extPseudo": "8C30000",
+   "extDescription": "VAT Payable",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 12,
+   "pseudo": "8C3000",
+   "description": "VAT Payable",
+   "extPseudo": "8C30000",
+   "extDescription": "VAT Payable",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 12,
+   "pseudo": "8C3000",
+   "description": "VAT Payable",
+   "extPseudo": "8C30000",
+   "extDescription": "VAT Payable",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 13,
+   "pseudo": "EG5202",
+   "description": "Rent income (principle)",
+   "extPseudo": "EG52020",
+   "extDescription": "Rent income (principle)",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 13,
+   "pseudo": "EG5202",
+   "description": "Rent income (principle)",
+   "extPseudo": "EG52020",
+   "extDescription": "Rent income (principle)",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 13,
+   "pseudo": "EG5202",
+   "description": "Rent income (principle)",
+   "extPseudo": "EG52020",
+   "extDescription": "Rent income (principle)",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 14,
+   "pseudo": "I66540",
+   "description": "Interest revenue",
+   "extPseudo": "I665403",
+   "extDescription": "Interest revenue",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 14,
+   "pseudo": "I66540",
+   "description": "Interest revenue",
+   "extPseudo": "I665403",
+   "extDescription": "Interest revenue",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 14,
+   "pseudo": "I66540",
+   "description": "Interest revenue",
+   "extPseudo": "I665403",
+   "extDescription": "Interest revenue",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 15,
+   "pseudo": "FP5652",
+   "description": "Depreciation",
+   "extPseudo": "FP56520",
+   "extDescription": "Depreciation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 15,
+   "pseudo": "FP5652",
+   "description": "Depreciation",
+   "extPseudo": "FP56520",
+   "extDescription": "Depreciation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 15,
+   "pseudo": "FP5652",
+   "description": "Depreciation",
+   "extPseudo": "FP56520",
+   "extDescription": "Depreciation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 16,
+   "pseudo": "AN3832",
+   "description": "Cum. depreciation",
+   "extPseudo": "AN38325",
+   "extDescription": "Cum. depreciation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 16,
+   "pseudo": "AN3832",
+   "description": "Cum. depreciation",
+   "extPseudo": "AN38325",
+   "extDescription": "Cum. depreciation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 16,
+   "pseudo": "AN3832",
+   "description": "Cum. depreciation",
+   "extPseudo": "AN38325",
+   "extDescription": "Cum. depreciation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 17,
+   "pseudo": "134200",
+   "description": "Cost of goods sold",
+   "extPseudo": "134200",
+   "extDescription": "Cost of goods sold",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 17,
+   "pseudo": "134200",
+   "description": "Cost of goods sold",
+   "extPseudo": "134200",
+   "extDescription": "Cost of goods sold",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 17,
+   "pseudo": "134200",
+   "description": "Cost of goods sold",
+   "extPseudo": "134200",
+   "extDescription": "Cost of goods sold",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 18,
+   "pseudo": "500000",
+   "description": "Inventory",
+   "extPseudo": "500000",
+   "extDescription": "Inventory",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 18,
+   "pseudo": "500000",
+   "description": "Inventory",
+   "extPseudo": "500000",
+   "extDescription": "Inventory",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 18,
+   "pseudo": "500000",
+   "description": "Inventory",
+   "extPseudo": "500000",
+   "extDescription": "Inventory",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 19,
+   "pseudo": "140000",
+   "description": "Equipment Purchases",
+   "extPseudo": "002.0022.140000",
+   "extDescription": "Equipment Purchases",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 19,
+   "pseudo": "140000",
+   "description": "Equipment Purchases",
+   "extPseudo": "140000",
+   "extDescription": "Equipment Purchases",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 19,
+   "pseudo": "140000",
+   "description": "Equipment Purchases",
+   "extPseudo": "140000",
+   "extDescription": "Equipment Purchases",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 20,
+   "pseudo": "192020",
+   "description": "Unapplied Cash",
+   "extPseudo": "002.0022.192020",
+   "extDescription": "Unapplied Cash",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 20,
+   "pseudo": "192020",
+   "description": "Unapplied Cash",
+   "extPseudo": "192020",
+   "extDescription": "Unapplied Cash",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 20,
+   "pseudo": "192020",
+   "description": "Unapplied Cash",
+   "extPseudo": "192020",
+   "extDescription": "Unapplied Cash",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 22,
+   "pseudo": "192101",
+   "description": "Lease Rec - Curr Year Volume",
+   "extPseudo": "002.0022.192101",
+   "extDescription": "Lease Rec - Curr Year Volume",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 22,
+   "pseudo": "192101",
+   "description": "Lease Rec - Curr Year Volume",
+   "extPseudo": "192101",
+   "extDescription": "Lease Rec - Curr Year Volume",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 22,
+   "pseudo": "192101",
+   "description": "Lease Rec - Curr Year Volume",
+   "extPseudo": "192101",
+   "extDescription": "Lease Rec - Curr Year Volume",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 23,
+   "pseudo": "192102",
+   "description": "Lease Rec - Curr Year Collect",
+   "extPseudo": "2",
+   "extDescription": "Lease Rec - Curr Year Collect",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 23,
+   "pseudo": "192102",
+   "description": "Lease Rec - Curr Year Collect",
+   "extPseudo": "192102",
+   "extDescription": "Lease Rec - Curr Year Collect",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 23,
+   "pseudo": "192102",
+   "description": "Lease Rec - Curr Year Collect",
+   "extPseudo": "192102",
+   "extDescription": "Lease Rec - Curr Year Collect",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 24,
+   "pseudo": "192103",
+   "description": "Lease Rec - Curr Year Chargeo",
+   "extPseudo": "002.0022.192103",
+   "extDescription": "Lease Rec - Curr Year Chargeo",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 24,
+   "pseudo": "192103",
+   "description": "Lease Rec - Curr Year Chargeo",
+   "extPseudo": "192103",
+   "extDescription": "Lease Rec - Curr Year Chargeo",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 24,
+   "pseudo": "192103",
+   "description": "Lease Rec - Curr Year Chargeo",
+   "extPseudo": "192103",
+   "extDescription": "Lease Rec - Curr Year Chargeo",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 25,
+   "pseudo": "192107",
+   "description": "Lease Rec - Curr Terminations",
+   "extPseudo": "002.0022.192107",
+   "extDescription": "Lease Rec - Curr Terminations",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 25,
+   "pseudo": "192107",
+   "description": "Lease Rec - Curr Terminations",
+   "extPseudo": "192107",
+   "extDescription": "Lease Rec - Curr Terminations",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 25,
+   "pseudo": "192107",
+   "description": "Lease Rec - Curr Terminations",
+   "extPseudo": "192107",
+   "extDescription": "Lease Rec - Curr Terminations",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 26,
+   "pseudo": "192200",
+   "description": "Unguaranteed Residual",
+   "extPseudo": "002.0022.192200",
+   "extDescription": "Unguaranteed Residual",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 26,
+   "pseudo": "192200",
+   "description": "Unguaranteed Residual",
+   "extPseudo": "192200",
+   "extDescription": "Unguaranteed Residual",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 26,
+   "pseudo": "192200",
+   "description": "Unguaranteed Residual",
+   "extPseudo": "192200",
+   "extDescription": "Unguaranteed Residual",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 27,
+   "pseudo": "192401",
+   "description": "Unearn Inc- Curr Year Volume",
+   "extPseudo": "002.0022.192401",
+   "extDescription": "Unearn Inc- Curr Year Volume",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 27,
+   "pseudo": "192401",
+   "description": "Unearn Inc- Curr Year Volume",
+   "extPseudo": "192401",
+   "extDescription": "Unearn Inc- Curr Year Volume",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 27,
+   "pseudo": "192401",
+   "description": "Unearn Inc- Curr Year Volume",
+   "extPseudo": "192401",
+   "extDescription": "Unearn Inc- Curr Year Volume",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 28,
+   "pseudo": "192402",
+   "description": "Unearn Inc- Curr Year Amortiza",
+   "extPseudo": "2",
+   "extDescription": "Unearn Inc- Curr Year Amortiza",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 28,
+   "pseudo": "192402",
+   "description": "Unearn Inc- Curr Year Amortiza",
+   "extPseudo": "2",
+   "extDescription": "Unearn Inc- Curr Year Amortiza",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 28,
+   "pseudo": "192402",
+   "description": "Unearn Inc- Curr Year Amortiza",
+   "extPseudo": "2",
+   "extDescription": "Unearn Inc- Curr Year Amortiza",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 29,
+   "pseudo": "192403",
+   "description": "Unearn Inc- Curr Year Chargeof",
+   "extPseudo": "002.0022.192403",
+   "extDescription": "Unearn Inc- Curr Year Chargeof",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 29,
+   "pseudo": "192403",
+   "description": "Unearn Inc- Curr Year Chargeof",
+   "extPseudo": "192403",
+   "extDescription": "Unearn Inc- Curr Year Chargeof",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 29,
+   "pseudo": "192403",
+   "description": "Unearn Inc- Curr Year Chargeof",
+   "extPseudo": "192403",
+   "extDescription": "Unearn Inc- Curr Year Chargeof",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 30,
+   "pseudo": "192407",
+   "description": "Unearn Inc- Curr Year Terminat",
+   "extPseudo": "002.0022.192407",
+   "extDescription": "Unearn Inc- Curr Year Terminat",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 30,
+   "pseudo": "192407",
+   "description": "Unearn Inc- Curr Year Terminat",
+   "extPseudo": "192407",
+   "extDescription": "Unearn Inc- Curr Year Terminat",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 30,
+   "pseudo": "192407",
+   "description": "Unearn Inc- Curr Year Terminat",
+   "extPseudo": "192407",
+   "extDescription": "Unearn Inc- Curr Year Terminat",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 31,
+   "pseudo": "192500",
+   "description": "Customer Other Receivable-Fees",
+   "extPseudo": "002.0022.192500",
+   "extDescription": "Customer Other Receivable-Fees",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 31,
+   "pseudo": "192500",
+   "description": "Customer Other Receivable-Fees",
+   "extPseudo": "192500",
+   "extDescription": "Customer Other Receivable-Fees",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 31,
+   "pseudo": "192500",
+   "description": "Customer Other Receivable-Fees",
+   "extPseudo": "192500",
+   "extDescription": "Customer Other Receivable-Fees",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 32,
+   "pseudo": "192600",
+   "description": "Customer Receivable - Vat Rela",
+   "extPseudo": "002.0022.192600",
+   "extDescription": "Customer Receivable - Vat Rela",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 32,
+   "pseudo": "192600",
+   "description": "Customer Receivable - Vat Rela",
+   "extPseudo": "192600",
+   "extDescription": "Customer Receivable - Vat Rela",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 32,
+   "pseudo": "192600",
+   "description": "Customer Receivable - Vat Rela",
+   "extPseudo": "192600",
+   "extDescription": "Customer Receivable - Vat Rela",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 47,
+   "pseudo": "3883",
+   "description": "Studded Tire agreement",
+   "extPseudo": "002.0022.3883",
+   "extDescription": "Studded Tire agreement",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 44,
+   "pseudo": "3981",
+   "description": "Operating Cost",
+   "extPseudo": "002.0022.3981",
+   "extDescription": "Operating Cost",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 46,
+   "pseudo": "3982",
+   "description": "Service - Electrical Bicycles",
+   "extPseudo": "002.0022.3982",
+   "extDescription": "Service - Electrical Bicycles",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 45,
+   "pseudo": "3984",
+   "description": "Invoice fee",
+   "extPseudo": "002.0022.3984",
+   "extDescription": "Invoice fee",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 48,
+   "pseudo": "3986",
+   "description": "Transportation",
+   "extPseudo": "002.0022.3986",
+   "extDescription": "Transportation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 40,
+   "pseudo": "3991",
+   "description": "Operating Cost",
+   "extPseudo": "002.0022.3991",
+   "extDescription": "Operating Cost",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 41,
+   "pseudo": "3992",
+   "description": "Service - Electrical Bicycles",
+   "extPseudo": "002.0022.3992",
+   "extDescription": "Service - Electrical Bicycles",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 42,
+   "pseudo": "3993",
+   "description": "Studded Tire agreement",
+   "extPseudo": "002.0022.3993",
+   "extDescription": "Studded Tire agreement",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 39,
+   "pseudo": "3994",
+   "description": "Invoice Fee",
+   "extPseudo": "002.0022.3994",
+   "extDescription": "Invoice Fee",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS ITA",
+   "id": 43,
+   "pseudo": "3996",
+   "description": "Transportation",
+   "extPseudo": "002.0022.3996",
+   "extDescription": "Transportation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 47,
+   "pseudo": "3883",
+   "description": "Studded Tire agreement",
+   "extPseudo": "3883",
+   "extDescription": "Studded Tire agreement",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 44,
+   "pseudo": "3981",
+   "description": "Operating Cost",
+   "extPseudo": "3981",
+   "extDescription": "Operating Cost",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 46,
+   "pseudo": "3982",
+   "description": "Service - Electrical Bicycles",
+   "extPseudo": "3982",
+   "extDescription": "Service - Electrical Bicycles",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 45,
+   "pseudo": "3984",
+   "description": "Invoice fee",
+   "extPseudo": "3984",
+   "extDescription": "Invoice fee",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 48,
+   "pseudo": "3986",
+   "description": "Transportation",
+   "extPseudo": "3986",
+   "extDescription": "Transportation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 40,
+   "pseudo": "3991",
+   "description": "Operating Cost",
+   "extPseudo": "3991",
+   "extDescription": "Operating Cost",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 41,
+   "pseudo": "3992",
+   "description": "Service - Electrical Bicycles",
+   "extPseudo": "3992",
+   "extDescription": "Service - Electrical Bicycles",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 42,
+   "pseudo": "3993",
+   "description": "Studded Tire agreement",
+   "extPseudo": "3993",
+   "extDescription": "Studded Tire agreement",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 39,
+   "pseudo": "3994",
+   "description": "Invoice Fee",
+   "extPseudo": "3994",
+   "extDescription": "Invoice Fee",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS NLD",
+   "id": 43,
+   "pseudo": "3996",
+   "description": "Transportation",
+   "extPseudo": "3996",
+   "extDescription": "Transportation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 47,
+   "pseudo": "3883",
+   "description": "Studded Tire agreement",
+   "extPseudo": "3883",
+   "extDescription": "Studded Tire agreement",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 44,
+   "pseudo": "3981",
+   "description": "Operating Cost",
+   "extPseudo": "3981",
+   "extDescription": "Operating Cost",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 46,
+   "pseudo": "3982",
+   "description": "Service - Electrical Bicycles",
+   "extPseudo": "3982",
+   "extDescription": "Service - Electrical Bicycles",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 45,
+   "pseudo": "3984",
+   "description": "Invoice fee",
+   "extPseudo": "3984",
+   "extDescription": "Invoice fee",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 48,
+   "pseudo": "3986",
+   "description": "Transportation",
+   "extPseudo": "3986",
+   "extDescription": "Transportation",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 40,
+   "pseudo": "3991",
+   "description": "Operating Cost",
+   "extPseudo": "3991",
+   "extDescription": "Operating Cost",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 41,
+   "pseudo": "3992",
+   "description": "Service - Electrical Bicycles",
+   "extPseudo": "3992",
+   "extDescription": "Service - Electrical Bicycles",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 42,
+   "pseudo": "3993",
+   "description": "Studded Tire agreement",
+   "extPseudo": "3993",
+   "extDescription": "Studded Tire agreement",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 39,
+   "pseudo": "3994",
+   "description": "Invoice Fee",
+   "extPseudo": "3994",
+   "extDescription": "Invoice Fee",
+   "revaluation": false
+  },
+  {
+   "entityCode": "ALS SFB",
+   "id": 43,
+   "pseudo": "3996",
+   "description": "Transportation",
+   "extPseudo": "3996",
+   "extDescription": "Transportation",
+   "revaluation": false
+  }
+ ],
+ "chartOfAccounts": [
+  {
+   "id": 1,
+   "name": "IFRS Chart Of account",
+   "description": "IFRS Chart Of account"
+  },
+  {
+   "id": 2,
+   "name": "US GAAP Chart Of Account",
+   "description": "US GAAP Chart Of Account"
+  }
+ ],
+ "coaNodes": [
+  {
+   "id": 1,
+   "coaId": 2,
+   "name": "1000 Assets",
+   "description": "Account 1000–1999",
+   "order": "1",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 2,
+   "coaId": 2,
+   "name": "Cash And Financial Assets",
+   "description": "Account 1000–1199",
+   "order": "1.1",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 3,
+   "coaId": 2,
+   "name": "Cash And Cash Equivalents",
+   "description": "",
+   "order": "1.1.1",
+   "depth": 2,
+   "parentId": 2
+  },
+  {
+   "id": 4,
+   "coaId": 2,
+   "name": "Financial Assets (Investments)",
+   "description": "",
+   "order": "1.1.2",
+   "depth": 2,
+   "parentId": 2
+  },
+  {
+   "id": 5,
+   "coaId": 2,
+   "name": "Restricted Cash And Financial Assets",
+   "description": "",
+   "order": "1.1.3",
+   "depth": 2,
+   "parentId": 2
+  },
+  {
+   "id": 6,
+   "coaId": 2,
+   "name": "Additional Financial Assets And Investments",
+   "description": "",
+   "order": "1.1.4",
+   "depth": 2,
+   "parentId": 2
+  },
+  {
+   "id": 7,
+   "coaId": 2,
+   "name": "1200 Receivables And Contracts",
+   "description": "Account 1200–1299",
+   "order": "1.2",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 8,
+   "coaId": 2,
+   "name": "Accounts, Notes And Loans Receivable",
+   "description": "",
+   "order": "1.2.1",
+   "depth": 2,
+   "parentId": 7
+  },
+  {
+   "id": 9,
+   "coaId": 2,
+   "name": "Contracts",
+   "description": "",
+   "order": "1.2.2",
+   "depth": 2,
+   "parentId": 7
+  },
+  {
+   "id": 10,
+   "coaId": 2,
+   "name": "Nontrade And Other Receivables",
+   "description": "",
+   "order": "1.2.3",
+   "depth": 2,
+   "parentId": 7
+  },
+  {
+   "id": 11,
+   "coaId": 2,
+   "name": "1300 - Inventory",
+   "description": "Account 1300–1399",
+   "order": "1.3",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 12,
+   "coaId": 2,
+   "name": "Merchandise",
+   "description": "",
+   "order": "1.3.1",
+   "depth": 2,
+   "parentId": 11
+  },
+  {
+   "id": 13,
+   "coaId": 2,
+   "name": "Raw Material, Parts And Supplies",
+   "description": "",
+   "order": "1.3.2",
+   "depth": 2,
+   "parentId": 11
+  },
+  {
+   "id": 14,
+   "coaId": 2,
+   "name": "Work In Process",
+   "description": "",
+   "order": "1.3.3",
+   "depth": 2,
+   "parentId": 11
+  },
+  {
+   "id": 15,
+   "coaId": 2,
+   "name": "Finished Goods",
+   "description": "",
+   "order": "1.3.4",
+   "depth": 2,
+   "parentId": 11
+  },
+  {
+   "id": 16,
+   "coaId": 2,
+   "name": "Other Inventory",
+   "description": "",
+   "order": "1.3.5",
+   "depth": 2,
+   "parentId": 11
+  },
+  {
+   "id": 17,
+   "coaId": 2,
+   "name": "1400 - Prepaid expenses & other current assets",
+   "description": "Account 1400–1499",
+   "order": "1.4",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 18,
+   "coaId": 2,
+   "name": "Prepaid Expense",
+   "description": "",
+   "order": "1.4.1",
+   "depth": 2,
+   "parentId": 17
+  },
+  {
+   "id": 19,
+   "coaId": 2,
+   "name": "Accrued Income",
+   "description": "",
+   "order": "1.4.2",
+   "depth": 2,
+   "parentId": 17
+  },
+  {
+   "id": 20,
+   "coaId": 2,
+   "name": "Additional Assets",
+   "description": "",
+   "order": "1.4.3",
+   "depth": 2,
+   "parentId": 17
+  },
+  {
+   "id": 21,
+   "coaId": 2,
+   "name": "1500 - Property, Plant And Equipment",
+   "description": "Account 1500–1599",
+   "order": "1.5",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 22,
+   "coaId": 2,
+   "name": "Land And Land Improvements",
+   "description": "",
+   "order": "1.5.1",
+   "depth": 2,
+   "parentId": 21
+  },
+  {
+   "id": 23,
+   "coaId": 2,
+   "name": "Buildings, Structures And Improvements",
+   "description": "",
+   "order": "1.5.2",
+   "depth": 2,
+   "parentId": 21
+  },
+  {
+   "id": 24,
+   "coaId": 2,
+   "name": "Machinery And Equipment",
+   "description": "",
+   "order": "1.5.3",
+   "depth": 2,
+   "parentId": 21
+  },
+  {
+   "id": 25,
+   "coaId": 2,
+   "name": "Furniture And Fixtures",
+   "description": "",
+   "order": "1.5.4",
+   "depth": 2,
+   "parentId": 21
+  },
+  {
+   "id": 26,
+   "coaId": 2,
+   "name": "Additional Property, Plant And Equipment",
+   "description": "",
+   "order": "1.5.5",
+   "depth": 2,
+   "parentId": 21
+  },
+  {
+   "id": 27,
+   "coaId": 2,
+   "name": "Construction In Progress",
+   "description": "",
+   "order": "1.5.6",
+   "depth": 2,
+   "parentId": 21
+  },
+  {
+   "id": 28,
+   "coaId": 2,
+   "name": "1600 - Intangible Assets (Excluding Goodwill)",
+   "description": "Account 1600–1699",
+   "order": "1.6",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 29,
+   "coaId": 2,
+   "name": "Intellectual Property",
+   "description": "",
+   "order": "1.6.1",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 30,
+   "coaId": 2,
+   "name": "Computer Software",
+   "description": "",
+   "order": "1.6.2",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 31,
+   "coaId": 2,
+   "name": "Trade And Distribution Assets",
+   "description": "",
+   "order": "1.6.3",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 32,
+   "coaId": 2,
+   "name": "Contracts And Rights",
+   "description": "",
+   "order": "1.6.4",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 33,
+   "coaId": 2,
+   "name": "Right To Use Assets (Classified By Type)",
+   "description": "",
+   "order": "1.6.5",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 34,
+   "coaId": 2,
+   "name": "Other Intangible Assets",
+   "description": "",
+   "order": "1.6.6",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 35,
+   "coaId": 2,
+   "name": "Acquisition In Progress",
+   "description": "",
+   "order": "1.6.7",
+   "depth": 2,
+   "parentId": 28
+  },
+  {
+   "id": 36,
+   "coaId": 2,
+   "name": "1700 - Goodwill",
+   "description": "",
+   "order": "1.7",
+   "depth": 1,
+   "parentId": 1
+  },
+  {
+   "id": 37,
+   "coaId": 2,
+   "name": "2000 - Liabilities",
+   "description": "Account 2000–2999",
+   "order": "2",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 38,
+   "coaId": 2,
+   "name": "2100 - Payables",
+   "description": "Account 2000–2199",
+   "order": "2.1",
+   "depth": 1,
+   "parentId": 37
+  },
+  {
+   "id": 39,
+   "coaId": 2,
+   "name": "Trade Payables",
+   "description": "",
+   "order": "2.1.1",
+   "depth": 2,
+   "parentId": 38
+  },
+  {
+   "id": 40,
+   "coaId": 2,
+   "name": "Dividends Payable",
+   "description": "",
+   "order": "2.1.2",
+   "depth": 2,
+   "parentId": 38
+  },
+  {
+   "id": 41,
+   "coaId": 2,
+   "name": "Interest Payable",
+   "description": "",
+   "order": "2.1.3",
+   "depth": 2,
+   "parentId": 38
+  },
+  {
+   "id": 42,
+   "coaId": 2,
+   "name": "Other Payables",
+   "description": "",
+   "order": "2.1.4",
+   "depth": 2,
+   "parentId": 38
+  },
+  {
+   "id": 43,
+   "coaId": 2,
+   "name": "2200 - Accruals And Other Liabilities",
+   "description": "Account 2200–2299",
+   "order": "2.2",
+   "depth": 1,
+   "parentId": 37
+  },
+  {
+   "id": 44,
+   "coaId": 2,
+   "name": "Accrued Expenses",
+   "description": "",
+   "order": "2.2.1",
+   "depth": 2,
+   "parentId": 43
+  },
+  {
+   "id": 45,
+   "coaId": 2,
+   "name": "Deferred Income And Refund Liabilities",
+   "description": "",
+   "order": "2.2.2",
+   "depth": 2,
+   "parentId": 43
+  },
+  {
+   "id": 46,
+   "coaId": 2,
+   "name": "Accrued Taxes (Other Than Payroll)",
+   "description": "",
+   "order": "2.2.3",
+   "depth": 2,
+   "parentId": 43
+  },
+  {
+   "id": 47,
+   "coaId": 2,
+   "name": "Other Liabilities",
+   "description": "",
+   "order": "2.2.4",
+   "depth": 2,
+   "parentId": 43
+  },
+  {
+   "id": 48,
+   "coaId": 2,
+   "name": "2300 - Financial Labilities",
+   "description": "Account 2300–2399",
+   "order": "2.3",
+   "depth": 1,
+   "parentId": 37
+  },
+  {
+   "id": 49,
+   "coaId": 2,
+   "name": "Notes Payable",
+   "description": "",
+   "order": "2.3.1",
+   "depth": 2,
+   "parentId": 48
+  },
+  {
+   "id": 50,
+   "coaId": 2,
+   "name": "Loans Payable",
+   "description": "",
+   "order": "2.3.2",
+   "depth": 2,
+   "parentId": 48
+  },
+  {
+   "id": 51,
+   "coaId": 2,
+   "name": "Bonds (Debentures)",
+   "description": "",
+   "order": "2.3.3",
+   "depth": 2,
+   "parentId": 48
+  },
+  {
+   "id": 52,
+   "coaId": 2,
+   "name": "Other Debts And Borrowings",
+   "description": "",
+   "order": "2.3.4",
+   "depth": 2,
+   "parentId": 48
+  },
+  {
+   "id": 53,
+   "coaId": 2,
+   "name": "Lease Obligations",
+   "description": "",
+   "order": "2.3.5",
+   "depth": 2,
+   "parentId": 48
+  },
+  {
+   "id": 54,
+   "coaId": 2,
+   "name": "Derivative Financial Liabilities",
+   "description": "",
+   "order": "2.3.6",
+   "depth": 2,
+   "parentId": 48
+  },
+  {
+   "id": 55,
+   "coaId": 2,
+   "name": "2400 - Provisions (Contingencies)",
+   "description": "Account 2400–2499",
+   "order": "2.4",
+   "depth": 1,
+   "parentId": 37
+  },
+  {
+   "id": 56,
+   "coaId": 2,
+   "name": "Customer Related Provisions",
+   "description": "",
+   "order": "2.4.1",
+   "depth": 2,
+   "parentId": 55
+  },
+  {
+   "id": 57,
+   "coaId": 2,
+   "name": "Litigation And Regulatory",
+   "description": "",
+   "order": "2.4.2",
+   "depth": 2,
+   "parentId": 55
+  },
+  {
+   "id": 58,
+   "coaId": 2,
+   "name": "Additional Provisions",
+   "description": "",
+   "order": "2.4.3",
+   "depth": 2,
+   "parentId": 55
+  },
+  {
+   "id": 59,
+   "coaId": 2,
+   "name": "3000 - Equity",
+   "description": "Account 3000–3999",
+   "order": "3",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 60,
+   "coaId": 2,
+   "name": "3100 - Owners Equity (Attributable To Owners Of Parent)",
+   "description": "Account 3000–3199",
+   "order": "3.1",
+   "depth": 1,
+   "parentId": 59
+  },
+  {
+   "id": 61,
+   "coaId": 2,
+   "name": "Equity At Par (Issued Capital)",
+   "description": "",
+   "order": "3.1.1",
+   "depth": 2,
+   "parentId": 60
+  },
+  {
+   "id": 62,
+   "coaId": 2,
+   "name": "Additional Paid-In Capital",
+   "description": "",
+   "order": "3.1.2",
+   "depth": 2,
+   "parentId": 60
+  },
+  {
+   "id": 63,
+   "coaId": 2,
+   "name": "3200 - Retained Earnings",
+   "description": "Account 3200–3299",
+   "order": "3.2",
+   "depth": 1,
+   "parentId": 59
+  },
+  {
+   "id": 64,
+   "coaId": 2,
+   "name": "Appropriated",
+   "description": "",
+   "order": "3.2.1",
+   "depth": 2,
+   "parentId": 63
+  },
+  {
+   "id": 65,
+   "coaId": 2,
+   "name": "Unappropriated",
+   "description": "",
+   "order": "3.2.2",
+   "depth": 2,
+   "parentId": 63
+  },
+  {
+   "id": 66,
+   "coaId": 2,
+   "name": "Deficit",
+   "description": "",
+   "order": "3.2.3",
+   "depth": 2,
+   "parentId": 63
+  },
+  {
+   "id": 67,
+   "coaId": 2,
+   "name": "In Suspense",
+   "description": "",
+   "order": "3.2.4",
+   "depth": 2,
+   "parentId": 63
+  },
+  {
+   "id": 68,
+   "coaId": 2,
+   "name": "3300 - Accumulated OCI",
+   "description": "Account 3300–3399",
+   "order": "3.3",
+   "depth": 1,
+   "parentId": 59
+  },
+  {
+   "id": 69,
+   "coaId": 2,
+   "name": "Exchange Differences On Translation",
+   "description": "",
+   "order": "3.3.1",
+   "depth": 2,
+   "parentId": 68
+  },
+  {
+   "id": 70,
+   "coaId": 2,
+   "name": "Remeasurements Cash Flow Hedges",
+   "description": "",
+   "order": "3.3.2",
+   "depth": 2,
+   "parentId": 68
+  },
+  {
+   "id": 71,
+   "coaId": 2,
+   "name": "Remeasurements Available-For-Sale Financial Assets",
+   "description": "",
+   "order": "3.3.3",
+   "depth": 2,
+   "parentId": 68
+  },
+  {
+   "id": 72,
+   "coaId": 2,
+   "name": "Remeasurement Of Defined Benefit Plans",
+   "description": "",
+   "order": "3.3.4",
+   "depth": 2,
+   "parentId": 68
+  },
+  {
+   "id": 73,
+   "coaId": 2,
+   "name": "3400 - Other Equity Items",
+   "description": "Account 3400–3499",
+   "order": "3.4",
+   "depth": 1,
+   "parentId": 59
+  },
+  {
+   "id": 74,
+   "coaId": 2,
+   "name": "ESOP Related Items",
+   "description": "",
+   "order": "3.4.1",
+   "depth": 2,
+   "parentId": 73
+  },
+  {
+   "id": 75,
+   "coaId": 2,
+   "name": "Subscribed Stock Receivables",
+   "description": "",
+   "order": "3.4.2",
+   "depth": 2,
+   "parentId": 73
+  },
+  {
+   "id": 76,
+   "coaId": 2,
+   "name": "Treasury Stock",
+   "description": "",
+   "order": "3.4.3",
+   "depth": 2,
+   "parentId": 73
+  },
+  {
+   "id": 77,
+   "coaId": 2,
+   "name": "Miscellaneous Equity",
+   "description": "",
+   "order": "3.4.4",
+   "depth": 2,
+   "parentId": 73
+  },
+  {
+   "id": 78,
+   "coaId": 2,
+   "name": "3500 - Non-controlling (Minority) Interest",
+   "description": "Account 3500–3599",
+   "order": "3.5",
+   "depth": 1,
+   "parentId": 59
+  },
+  {
+   "id": 79,
+   "coaId": 2,
+   "name": "4000 - Revenue",
+   "description": "Account 4000–4999",
+   "order": "4",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 80,
+   "coaId": 2,
+   "name": "4100 - Recognized Point Of Time",
+   "description": "Account 4100–4199",
+   "order": "4.1",
+   "depth": 1,
+   "parentId": 79
+  },
+  {
+   "id": 81,
+   "coaId": 2,
+   "name": "Goods",
+   "description": "",
+   "order": "4.1.1",
+   "depth": 2,
+   "parentId": 80
+  },
+  {
+   "id": 82,
+   "coaId": 2,
+   "name": "Services",
+   "description": "",
+   "order": "4.1.2",
+   "depth": 2,
+   "parentId": 80
+  },
+  {
+   "id": 83,
+   "coaId": 2,
+   "name": "4200 - Recognized Over Time",
+   "description": "Account 4200–4299",
+   "order": "4.2",
+   "depth": 1,
+   "parentId": 79
+  },
+  {
+   "id": 84,
+   "coaId": 2,
+   "name": "Products",
+   "description": "",
+   "order": "4.2.1",
+   "depth": 2,
+   "parentId": 83
+  },
+  {
+   "id": 85,
+   "coaId": 2,
+   "name": "Services",
+   "description": "",
+   "order": "4.2.2",
+   "depth": 2,
+   "parentId": 83
+  },
+  {
+   "id": 86,
+   "coaId": 2,
+   "name": "4300 - Adjustments",
+   "description": "Account 4300–4399",
+   "order": "4.3",
+   "depth": 1,
+   "parentId": 79
+  },
+  {
+   "id": 87,
+   "coaId": 2,
+   "name": "Variable Consideration",
+   "description": "",
+   "order": "4.3.1",
+   "depth": 2,
+   "parentId": 86
+  },
+  {
+   "id": 88,
+   "coaId": 2,
+   "name": "Consideration Paid (Payable) To Customers",
+   "description": "",
+   "order": "4.3.2",
+   "depth": 2,
+   "parentId": 86
+  },
+  {
+   "id": 89,
+   "coaId": 2,
+   "name": "Other Adjustments",
+   "description": "",
+   "order": "4.3.3",
+   "depth": 2,
+   "parentId": 86
+  },
+  {
+   "id": 90,
+   "coaId": 2,
+   "name": "5000 - Expenses(Cost of goods)",
+   "description": "Account 5000–5999",
+   "order": "5",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 91,
+   "coaId": 2,
+   "name": "Expenses Classified By Nature",
+   "description": "Account 5100–5199",
+   "order": "5.1",
+   "depth": 1,
+   "parentId": 90
+  },
+  {
+   "id": 92,
+   "coaId": 2,
+   "name": "Material And Merchandise",
+   "description": "",
+   "order": "5.1.1",
+   "depth": 2,
+   "parentId": 91
+  },
+  {
+   "id": 93,
+   "coaId": 2,
+   "name": "Employee Benefits",
+   "description": "",
+   "order": "5.1.2",
+   "depth": 2,
+   "parentId": 91
+  },
+  {
+   "id": 94,
+   "coaId": 2,
+   "name": "Services",
+   "description": "",
+   "order": "5.1.3",
+   "depth": 2,
+   "parentId": 91
+  },
+  {
+   "id": 95,
+   "coaId": 2,
+   "name": "Rent, Depreciation, Amortization And Depletion",
+   "description": "",
+   "order": "5.1.4",
+   "depth": 2,
+   "parentId": 91
+  },
+  {
+   "id": 96,
+   "coaId": 2,
+   "name": "Expenses Classified By Function",
+   "description": "Account 5200–5299",
+   "order": "5.2",
+   "depth": 1,
+   "parentId": 90
+  },
+  {
+   "id": 97,
+   "coaId": 2,
+   "name": "Cost Of Sales",
+   "description": "",
+   "order": "5.2.1",
+   "depth": 2,
+   "parentId": 96
+  },
+  {
+   "id": 98,
+   "coaId": 2,
+   "name": "Selling, General And Administrative",
+   "description": "",
+   "order": "5.2.2",
+   "depth": 2,
+   "parentId": 96
+  },
+  {
+   "id": 99,
+   "coaId": 2,
+   "name": "Uncollectible Accounts Expense",
+   "description": "",
+   "order": "5.2.3",
+   "depth": 2,
+   "parentId": 96
+  },
+  {
+   "id": 100,
+   "coaId": 2,
+   "name": "6000 - Other (Non-Operating) Income And Expenses",
+   "description": "Account 6000–6999",
+   "order": "6",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 101,
+   "coaId": 2,
+   "name": "Other Revenue And Expenses",
+   "description": "Account 6100–6199",
+   "order": "6.1",
+   "depth": 1,
+   "parentId": 100
+  },
+  {
+   "id": 102,
+   "coaId": 2,
+   "name": "Other Revenue",
+   "description": "",
+   "order": "6.1.1",
+   "depth": 2,
+   "parentId": 101
+  },
+  {
+   "id": 103,
+   "coaId": 2,
+   "name": "Other Expenses",
+   "description": "",
+   "order": "6.1.2",
+   "depth": 2,
+   "parentId": 101
+  },
+  {
+   "id": 104,
+   "coaId": 2,
+   "name": "Gains And Losses",
+   "description": "Account 6200–6299",
+   "order": "6.2",
+   "depth": 1,
+   "parentId": 100
+  },
+  {
+   "id": 105,
+   "coaId": 2,
+   "name": "Foreign Currency Transaction Gain (Loss)",
+   "description": "",
+   "order": "6.2.1",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 106,
+   "coaId": 2,
+   "name": "Gain (Loss) On Investments",
+   "description": "",
+   "order": "6.2.2",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 107,
+   "coaId": 2,
+   "name": "Gain (Loss) On Derivatives",
+   "description": "",
+   "order": "6.2.3",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 108,
+   "coaId": 2,
+   "name": "Gain (Loss) On Disposal Of Assets",
+   "description": "",
+   "order": "6.2.4",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 109,
+   "coaId": 2,
+   "name": "Debt Related Gain (Loss)",
+   "description": "",
+   "order": "6.2.5",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 110,
+   "coaId": 2,
+   "name": "Impairment Loss",
+   "description": "",
+   "order": "6.2.6",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 111,
+   "coaId": 2,
+   "name": "Other Gains And (Losses)",
+   "description": "",
+   "order": "6.2.7",
+   "depth": 2,
+   "parentId": 104
+  },
+  {
+   "id": 112,
+   "coaId": 2,
+   "name": "Taxes (Other Than Income And Payroll) And Fees",
+   "description": "Account 6300–6399",
+   "order": "6.3",
+   "depth": 1,
+   "parentId": 100
+  },
+  {
+   "id": 113,
+   "coaId": 2,
+   "name": "Real Estate Taxes And Insurance",
+   "description": "",
+   "order": "6.3.1",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 114,
+   "coaId": 2,
+   "name": "Highway (Road) Taxes And Tolls",
+   "description": "",
+   "order": "6.3.2",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 115,
+   "coaId": 2,
+   "name": "Direct Tax And License Fees",
+   "description": "",
+   "order": "6.3.3",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 116,
+   "coaId": 2,
+   "name": "Excise And Sales Taxes",
+   "description": "",
+   "order": "6.3.4",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 117,
+   "coaId": 2,
+   "name": "Customs Fees And Duties (Not Classified As Sales Or Excise)",
+   "description": "",
+   "order": "6.3.5",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 118,
+   "coaId": 2,
+   "name": "Non-Deductible VAT (GST)",
+   "description": "",
+   "order": "6.3.6",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 119,
+   "coaId": 2,
+   "name": "General Insurance Expense",
+   "description": "",
+   "order": "6.3.7",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 120,
+   "coaId": 2,
+   "name": "Administrative Fees (Revenue Stamps)",
+   "description": "",
+   "order": "6.3.8",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 121,
+   "coaId": 2,
+   "name": "Fines And Penalties",
+   "description": "",
+   "order": "6.3.9",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 122,
+   "coaId": 2,
+   "name": "Miscellaneous Taxes",
+   "description": "",
+   "order": "6.3.10",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 123,
+   "coaId": 2,
+   "name": "Other Taxes And Fees",
+   "description": "",
+   "order": "6.3.11",
+   "depth": 2,
+   "parentId": 112
+  },
+  {
+   "id": 124,
+   "coaId": 2,
+   "name": "Income Tax Expense (Benefit)",
+   "description": "Account 6400–6499",
+   "order": "6.4",
+   "depth": 1,
+   "parentId": 100
+  },
+  {
+   "id": 125,
+   "coaId": 2,
+   "name": "7000 - Intercompany And Related Party Accounts",
+   "description": "Account 7000–7999",
+   "order": "7",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 126,
+   "coaId": 2,
+   "name": "Intercompany And Related Party Assets",
+   "description": "Account 7100–7199",
+   "order": "7.1",
+   "depth": 1,
+   "parentId": 125
+  },
+  {
+   "id": 127,
+   "coaId": 2,
+   "name": "Intercompany Balances (Eliminated In Consolidation)",
+   "description": "",
+   "order": "7.1.1",
+   "depth": 2,
+   "parentId": 126
+  },
+  {
+   "id": 128,
+   "coaId": 2,
+   "name": "Related Party Balances (Reported Or Disclosed)",
+   "description": "",
+   "order": "7.1.2",
+   "depth": 2,
+   "parentId": 126
+  },
+  {
+   "id": 129,
+   "coaId": 2,
+   "name": "Intercompany Investments",
+   "description": "",
+   "order": "7.1.3",
+   "depth": 2,
+   "parentId": 126
+  },
+  {
+   "id": 130,
+   "coaId": 2,
+   "name": "Intercompany And Related Party Liabilities",
+   "description": "Account 7200–7299",
+   "order": "7.2",
+   "depth": 1,
+   "parentId": 125
+  },
+  {
+   "id": 131,
+   "coaId": 2,
+   "name": "Intercompany Balances (Eliminated In Consolidation)",
+   "description": "",
+   "order": "7.2.1",
+   "depth": 2,
+   "parentId": 130
+  },
+  {
+   "id": 132,
+   "coaId": 2,
+   "name": "Related Party Balances (Reported Or Disclosed)",
+   "description": "",
+   "order": "7.2.2",
+   "depth": 2,
+   "parentId": 130
+  },
+  {
+   "id": 133,
+   "coaId": 2,
+   "name": "Intercompany And Related Party Income And Expense",
+   "description": "Account 7300–7399",
+   "order": "7.3",
+   "depth": 1,
+   "parentId": 125
+  },
+  {
+   "id": 134,
+   "coaId": 2,
+   "name": "Intercompany And Related Party Income",
+   "description": "",
+   "order": "7.3.1",
+   "depth": 2,
+   "parentId": 133
+  },
+  {
+   "id": 135,
+   "coaId": 2,
+   "name": "Intercompany And Related Party Expenses",
+   "description": "",
+   "order": "7.3.2",
+   "depth": 2,
+   "parentId": 133
+  },
+  {
+   "id": 136,
+   "coaId": 2,
+   "name": "Income (Loss) From Equity Method Investments",
+   "description": "",
+   "order": "7.3.3",
+   "depth": 2,
+   "parentId": 133
+  },
+  {
+   "id": 137,
+   "coaId": 1,
+   "name": "1000 Assets",
+   "description": "Account 1000-1999",
+   "order": "1",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 138,
+   "coaId": 1,
+   "name": "1100 Non-current assets",
+   "description": "Account 1100-1499",
+   "order": "1.1",
+   "depth": 1,
+   "parentId": 137
+  },
+  {
+   "id": 139,
+   "coaId": 1,
+   "name": "Net investment in finance leases - non-current",
+   "description": "Finance leases & hire purchase, IFRS 16 lessor",
+   "order": "1.1.1",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 140,
+   "coaId": 1,
+   "name": "Loans and advances to customers - non-current",
+   "description": "Lending receivables, IFRS 9",
+   "order": "1.1.2",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 141,
+   "coaId": 1,
+   "name": "Assets under operating leases",
+   "description": "Leased assets on balance sheet, IFRS 16 lessor",
+   "order": "1.1.3",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 142,
+   "coaId": 1,
+   "name": "Accumulated depreciation - operating lease assets",
+   "description": "Contra to assets under operating leases",
+   "order": "1.1.4",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 143,
+   "coaId": 1,
+   "name": "Property, plant and equipment (own use)",
+   "description": "IAS 16",
+   "order": "1.1.5",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 144,
+   "coaId": 1,
+   "name": "Right-of-use assets",
+   "description": "Where the entity is a lessee, IFRS 16",
+   "order": "1.1.6",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 145,
+   "coaId": 1,
+   "name": "Intangible assets",
+   "description": "IAS 38",
+   "order": "1.1.7",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 146,
+   "coaId": 1,
+   "name": "Goodwill",
+   "description": "IFRS 3",
+   "order": "1.1.8",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 147,
+   "coaId": 1,
+   "name": "Investments and other financial assets",
+   "description": "IFRS 9 non-current",
+   "order": "1.1.9",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 148,
+   "coaId": 1,
+   "name": "Deferred tax assets",
+   "description": "IAS 12",
+   "order": "1.1.10",
+   "depth": 2,
+   "parentId": 138
+  },
+  {
+   "id": 149,
+   "coaId": 1,
+   "name": "1200 Current assets",
+   "description": "Account 1200-1499",
+   "order": "1.2",
+   "depth": 1,
+   "parentId": 137
+  },
+  {
+   "id": 150,
+   "coaId": 1,
+   "name": "Net investment in finance leases - current",
+   "description": "Current portion of finance lease & HP receivables",
+   "order": "1.2.1",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 151,
+   "coaId": 1,
+   "name": "Loans and advances to customers - current",
+   "description": "Current portion of lending receivables",
+   "order": "1.2.2",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 152,
+   "coaId": 1,
+   "name": "Inventories - equipment held for lease or sale",
+   "description": "Equipment stock, IAS 2",
+   "order": "1.2.3",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 153,
+   "coaId": 1,
+   "name": "Assets held for sale and repossessed assets",
+   "description": "Returned / repossessed assets, IFRS 5",
+   "order": "1.2.4",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 154,
+   "coaId": 1,
+   "name": "Trade and other receivables",
+   "description": "Invoiced rentals and instalments",
+   "order": "1.2.5",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 155,
+   "coaId": 1,
+   "name": "Contract assets",
+   "description": "IFRS 15 accrued income not yet invoiced",
+   "order": "1.2.6",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 156,
+   "coaId": 1,
+   "name": "Prepayments and accrued income",
+   "description": "IAS 1",
+   "order": "1.2.7",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 157,
+   "coaId": 1,
+   "name": "Current tax assets",
+   "description": "IAS 12",
+   "order": "1.2.8",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 158,
+   "coaId": 1,
+   "name": "Cash and cash equivalents",
+   "description": "IAS 7",
+   "order": "1.2.9",
+   "depth": 2,
+   "parentId": 149
+  },
+  {
+   "id": 159,
+   "coaId": 1,
+   "name": "2000 Liabilities",
+   "description": "Account 2000-2999",
+   "order": "2",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 160,
+   "coaId": 1,
+   "name": "2100 Non-current liabilities",
+   "description": "Account 2100-2499",
+   "order": "2.1",
+   "depth": 1,
+   "parentId": 159
+  },
+  {
+   "id": 161,
+   "coaId": 1,
+   "name": "Borrowings and funding - non-current",
+   "description": "Debt funding the lease/loan book, IFRS 9",
+   "order": "2.1.1",
+   "depth": 2,
+   "parentId": 160
+  },
+  {
+   "id": 162,
+   "coaId": 1,
+   "name": "Lease liabilities - non-current",
+   "description": "Entity as lessee, IFRS 16",
+   "order": "2.1.2",
+   "depth": 2,
+   "parentId": 160
+  },
+  {
+   "id": 163,
+   "coaId": 1,
+   "name": "Customer deposits and guarantees",
+   "description": "Deposits held on financial agreements",
+   "order": "2.1.3",
+   "depth": 2,
+   "parentId": 160
+  },
+  {
+   "id": 164,
+   "coaId": 1,
+   "name": "Deferred income - non-current",
+   "description": "Unearned income and deferred fees",
+   "order": "2.1.4",
+   "depth": 2,
+   "parentId": 160
+  },
+  {
+   "id": 165,
+   "coaId": 1,
+   "name": "Provisions - non-current",
+   "description": "IAS 37",
+   "order": "2.1.5",
+   "depth": 2,
+   "parentId": 160
+  },
+  {
+   "id": 166,
+   "coaId": 1,
+   "name": "Deferred tax liabilities",
+   "description": "IAS 12",
+   "order": "2.1.6",
+   "depth": 2,
+   "parentId": 160
+  },
+  {
+   "id": 167,
+   "coaId": 1,
+   "name": "2200 Current liabilities",
+   "description": "Account 2200-2499",
+   "order": "2.2",
+   "depth": 1,
+   "parentId": 159
+  },
+  {
+   "id": 168,
+   "coaId": 1,
+   "name": "Borrowings and funding - current",
+   "description": "Current portion of debt funding",
+   "order": "2.2.1",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 169,
+   "coaId": 1,
+   "name": "Lease liabilities - current",
+   "description": "Current portion, IFRS 16 lessee",
+   "order": "2.2.2",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 170,
+   "coaId": 1,
+   "name": "Trade and other payables",
+   "description": "Supplier and equipment payables",
+   "order": "2.2.3",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 171,
+   "coaId": 1,
+   "name": "Contract liabilities",
+   "description": "IFRS 15 advances from customers",
+   "order": "2.2.4",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 172,
+   "coaId": 1,
+   "name": "Deferred income - current",
+   "description": "Unearned income, current portion",
+   "order": "2.2.5",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 173,
+   "coaId": 1,
+   "name": "VAT and other tax payables",
+   "description": "Output VAT, withholding, etc.",
+   "order": "2.2.6",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 174,
+   "coaId": 1,
+   "name": "Current tax liabilities",
+   "description": "IAS 12",
+   "order": "2.2.7",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 175,
+   "coaId": 1,
+   "name": "Provisions - current",
+   "description": "IAS 37",
+   "order": "2.2.8",
+   "depth": 2,
+   "parentId": 167
+  },
+  {
+   "id": 176,
+   "coaId": 1,
+   "name": "3000 Equity",
+   "description": "Account 3000-3999",
+   "order": "3",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 177,
+   "coaId": 1,
+   "name": "Share capital",
+   "description": "Issued capital",
+   "order": "3.1",
+   "depth": 1,
+   "parentId": 176
+  },
+  {
+   "id": 178,
+   "coaId": 1,
+   "name": "Share premium",
+   "description": "Additional paid-in capital",
+   "order": "3.2",
+   "depth": 1,
+   "parentId": 176
+  },
+  {
+   "id": 179,
+   "coaId": 1,
+   "name": "Retained earnings",
+   "description": "Accumulated results",
+   "order": "3.3",
+   "depth": 1,
+   "parentId": 176
+  },
+  {
+   "id": 180,
+   "coaId": 1,
+   "name": "3400 Other reserves",
+   "description": "Account 3400-3499",
+   "order": "3.4",
+   "depth": 1,
+   "parentId": 176
+  },
+  {
+   "id": 181,
+   "coaId": 1,
+   "name": "Foreign currency translation reserve",
+   "description": "IAS 21",
+   "order": "3.4.1",
+   "depth": 2,
+   "parentId": 180
+  },
+  {
+   "id": 182,
+   "coaId": 1,
+   "name": "Cash flow hedge reserve",
+   "description": "IFRS 9 hedge accounting",
+   "order": "3.4.2",
+   "depth": 2,
+   "parentId": 180
+  },
+  {
+   "id": 183,
+   "coaId": 1,
+   "name": "Fair value (FVOCI) reserve",
+   "description": "IFRS 9",
+   "order": "3.4.3",
+   "depth": 2,
+   "parentId": 180
+  },
+  {
+   "id": 184,
+   "coaId": 1,
+   "name": "Non-controlling interests",
+   "description": "IFRS 10",
+   "order": "3.5",
+   "depth": 1,
+   "parentId": 176
+  },
+  {
+   "id": 185,
+   "coaId": 1,
+   "name": "4000 Income",
+   "description": "Account 4000-4999",
+   "order": "4",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 186,
+   "coaId": 1,
+   "name": "4100 Finance income",
+   "description": "Account 4100-4199",
+   "order": "4.1",
+   "depth": 1,
+   "parentId": 185
+  },
+  {
+   "id": 187,
+   "coaId": 1,
+   "name": "Finance lease interest income",
+   "description": "Interest on finance leases & hire purchase",
+   "order": "4.1.1",
+   "depth": 2,
+   "parentId": 186
+  },
+  {
+   "id": 188,
+   "coaId": 1,
+   "name": "Interest income on loans and advances",
+   "description": "Lending interest, IFRS 9 effective interest",
+   "order": "4.1.2",
+   "depth": 2,
+   "parentId": 186
+  },
+  {
+   "id": 189,
+   "coaId": 1,
+   "name": "Interest income on other financial assets",
+   "description": "Deposits and investments",
+   "order": "4.1.3",
+   "depth": 2,
+   "parentId": 186
+  },
+  {
+   "id": 190,
+   "coaId": 1,
+   "name": "4200 Operating lease income",
+   "description": "Account 4200-4249",
+   "order": "4.2",
+   "depth": 1,
+   "parentId": 185
+  },
+  {
+   "id": 191,
+   "coaId": 1,
+   "name": "Operating lease rental income",
+   "description": "Rentals on operating leases, IFRS 16",
+   "order": "4.2.1",
+   "depth": 2,
+   "parentId": 190
+  },
+  {
+   "id": 192,
+   "coaId": 1,
+   "name": "4300 Fee and commission income",
+   "description": "Account 4300-4399",
+   "order": "4.3",
+   "depth": 1,
+   "parentId": 185
+  },
+  {
+   "id": 193,
+   "coaId": 1,
+   "name": "Arrangement and documentation fees",
+   "description": "Origination fees",
+   "order": "4.3.1",
+   "depth": 2,
+   "parentId": 192
+  },
+  {
+   "id": 194,
+   "coaId": 1,
+   "name": "Servicing and administration fees",
+   "description": "Ongoing service charges",
+   "order": "4.3.2",
+   "depth": 2,
+   "parentId": 192
+  },
+  {
+   "id": 195,
+   "coaId": 1,
+   "name": "Early settlement and termination fees",
+   "description": "Settlement / termination charges",
+   "order": "4.3.3",
+   "depth": 2,
+   "parentId": 192
+  },
+  {
+   "id": 196,
+   "coaId": 1,
+   "name": "4400 Other operating income",
+   "description": "Account 4400-4499",
+   "order": "4.4",
+   "depth": 1,
+   "parentId": 185
+  },
+  {
+   "id": 197,
+   "coaId": 1,
+   "name": "Gain on disposal of leased assets",
+   "description": "Disposal of operating lease assets",
+   "order": "4.4.1",
+   "depth": 2,
+   "parentId": 196
+  },
+  {
+   "id": 198,
+   "coaId": 1,
+   "name": "Gain on sale of inventory equipment",
+   "description": "Sale of equipment held in inventory",
+   "order": "4.4.2",
+   "depth": 2,
+   "parentId": 196
+  },
+  {
+   "id": 199,
+   "coaId": 1,
+   "name": "Sundry income",
+   "description": "Other operating income",
+   "order": "4.4.3",
+   "depth": 2,
+   "parentId": 196
+  },
+  {
+   "id": 200,
+   "coaId": 1,
+   "name": "5000 Expenses",
+   "description": "Account 5000-5999",
+   "order": "5",
+   "depth": 0,
+   "parentId": null
+  },
+  {
+   "id": 201,
+   "coaId": 1,
+   "name": "5100 Cost of sales",
+   "description": "Account 5100-5199",
+   "order": "5.1",
+   "depth": 1,
+   "parentId": 200
+  },
+  {
+   "id": 202,
+   "coaId": 1,
+   "name": "Cost of equipment sold",
+   "description": "Carrying amount of inventory sold, IAS 2",
+   "order": "5.1.1",
+   "depth": 2,
+   "parentId": 201
+  },
+  {
+   "id": 203,
+   "coaId": 1,
+   "name": "Depreciation of operating lease assets",
+   "description": "Depreciation of leased-out assets, IFRS 16",
+   "order": "5.1.2",
+   "depth": 2,
+   "parentId": 201
+  },
+  {
+   "id": 204,
+   "coaId": 1,
+   "name": "5200 Finance costs",
+   "description": "Account 5200-5299",
+   "order": "5.2",
+   "depth": 1,
+   "parentId": 200
+  },
+  {
+   "id": 205,
+   "coaId": 1,
+   "name": "Interest expense on borrowings",
+   "description": "Cost of funding",
+   "order": "5.2.1",
+   "depth": 2,
+   "parentId": 204
+  },
+  {
+   "id": 206,
+   "coaId": 1,
+   "name": "Interest expense on lease liabilities",
+   "description": "IFRS 16 lessee interest",
+   "order": "5.2.2",
+   "depth": 2,
+   "parentId": 204
+  },
+  {
+   "id": 207,
+   "coaId": 1,
+   "name": "5300 Impairment losses",
+   "description": "Account 5300-5399",
+   "order": "5.3",
+   "depth": 1,
+   "parentId": 200
+  },
+  {
+   "id": 208,
+   "coaId": 1,
+   "name": "Impairment on finance lease receivables",
+   "description": "Expected credit losses, IFRS 9",
+   "order": "5.3.1",
+   "depth": 2,
+   "parentId": 207
+  },
+  {
+   "id": 209,
+   "coaId": 1,
+   "name": "Impairment on loans and advances",
+   "description": "Expected credit losses, IFRS 9",
+   "order": "5.3.2",
+   "depth": 2,
+   "parentId": 207
+  },
+  {
+   "id": 210,
+   "coaId": 1,
+   "name": "Impairment on inventory and repossessed assets",
+   "description": "Write-down to net realisable value",
+   "order": "5.3.3",
+   "depth": 2,
+   "parentId": 207
+  },
+  {
+   "id": 211,
+   "coaId": 1,
+   "name": "5400 Operating expenses",
+   "description": "Account 5400-5499",
+   "order": "5.4",
+   "depth": 1,
+   "parentId": 200
+  },
+  {
+   "id": 212,
+   "coaId": 1,
+   "name": "Staff costs",
+   "description": "Salaries and benefits",
+   "order": "5.4.1",
+   "depth": 2,
+   "parentId": 211
+  },
+  {
+   "id": 213,
+   "coaId": 1,
+   "name": "Depreciation and amortisation (own assets)",
+   "description": "Own-use PP&E and intangibles",
+   "order": "5.4.2",
+   "depth": 2,
+   "parentId": 211
+  },
+  {
+   "id": 214,
+   "coaId": 1,
+   "name": "Administrative expenses",
+   "description": "General administration",
+   "order": "5.4.3",
+   "depth": 2,
+   "parentId": 211
+  },
+  {
+   "id": 215,
+   "coaId": 1,
+   "name": "Selling and marketing expenses",
+   "description": "Distribution costs",
+   "order": "5.4.4",
+   "depth": 2,
+   "parentId": 211
+  },
+  {
+   "id": 216,
+   "coaId": 1,
+   "name": "Other operating expenses",
+   "description": "Sundry costs",
+   "order": "5.4.5",
+   "depth": 2,
+   "parentId": 211
+  },
+  {
+   "id": 217,
+   "coaId": 1,
+   "name": "5500 Taxation",
+   "description": "Account 5500-5599",
+   "order": "5.5",
+   "depth": 1,
+   "parentId": 200
+  },
+  {
+   "id": 218,
+   "coaId": 1,
+   "name": "Income tax expense",
+   "description": "Current and deferred tax, IAS 12",
+   "order": "5.5.1",
+   "depth": 2,
+   "parentId": 217
+  }
+ ]
+}

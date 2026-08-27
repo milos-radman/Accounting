@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/ar-undo-payment.schema.json",
+  "title": "AR Undo Payment message",
+  "description": "Reverses a specific payment (matched by payment id) and reinstates the receivable. Mirrors the original journal — no accounting rules.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/eventMessageBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accountingEventId": {
+          "const": 28
+        },
+        "reversalReference": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reversalReference"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "messageId": "AR-UNDO-PAY-88041-A-20241125-001",
+      "schemaVersion": "1.0",
+      "source": "Receivables domain",
+      "legalEntityId": 1,
+      "accountingClassId": 16,
+      "accountingEventId": 28,
+      "bookingDate": "2024-11-25",
+      "agreement": "700500",
+      "agreementLine": "1",
+      "customer": "ACME Transport BV",
+      "invoice": "1700120",
+      "reversalReference": "PAY-88041-A",
+      "currency": "EUR",
+      "currencyRate": 1,
+      "conditionInputs": {},
+      "amounts": {}
+    }
+  ]
+}

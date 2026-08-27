@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/activation.schema.json",
+  "title": "Activation message",
+  "description": "Activates an agreement + line and delivers the recognition plan. Books on the Calculation-Date basis.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/eventMessageBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accountingEventId": {
+          "const": 1
+        },
+        "recognitionPlan": {
+          "$ref": "common.schema.json#/$defs/recognitionPlan"
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "messageId": "AGR-ACT-700500-1-20241101-001",
+      "schemaVersion": "1.0",
+      "source": "Agreement domain",
+      "legalEntityId": 1,
+      "accountingClassId": 14,
+      "accountingEventId": 1,
+      "bookingDate": "2024-11-05",
+      "calculationDate": "2024-11-01",
+      "agreement": "700500",
+      "agreementLine": "1",
+      "portfolio": "23",
+      "product": "CVL",
+      "customer": "ACME Transport BV",
+      "currency": "EUR",
+      "currencyRate": 1,
+      "conditionInputs": {
+        "7": "MG",
+        "8": "CVL"
+      },
+      "amounts": {
+        "30": 12500,
+        "31": 0,
+        "32": 500,
+        "33": 14640,
+        "34": 12500,
+        "35": 2140
+      },
+      "accountValues": {
+        "Asset Number": "AS-4471",
+        "Reg. Number": "XY-812-K"
+      },
+      "recognitionPlan": {
+        "agreement": "700500",
+        "agreementDescription": "Fleet lease — ACME Transport",
+        "customer": "ACME Transport BV",
+        "currency": "EUR",
+        "classification": "Finance",
+        "status": "Active",
+        "goingForward": true,
+        "receivedDate": "2024-11-05",
+        "source": "Agreement domain",
+        "lines": [
+          {
+            "agreementLine": 1,
+            "assetDescription": "Consumer vehicle — VW ID.4",
+            "schedule": [
+              {
+                "period": "202411",
+                "categoryId": 1,
+                "amount": 330.5
+              },
+              {
+                "period": "202411",
+                "categoryId": 2,
+                "amount": 89.17
+              },
+              {
+                "period": "202412",
+                "categoryId": 1,
+                "amount": 332.8
+              },
+              {
+                "period": "202412",
+                "categoryId": 2,
+                "amount": 86.87
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

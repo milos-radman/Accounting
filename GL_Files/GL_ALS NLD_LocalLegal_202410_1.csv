@@ -1,0 +1,4 @@
+ExternalAccount;Description;BookingDate;Period;Currency;Debit;Credit;Dimensions;SourceGLI
+63A00316;AR customer;2024-10-01;202410;EUR;850.00;0.00;;
+420100;Fee Income;2024-10-01;202410;EUR;0.00;100.00;;
+EG52020;Rent income (principle);2024-10-01;202410;EUR;0.00;750.00;;

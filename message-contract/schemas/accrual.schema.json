@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/accrual.schema.json",
+  "title": "Accrual message",
+  "description": "Creates a standalone cost/income accrual (e.g. a yearly insurance premium) spread over its term. Carries one or more accrualLines.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/eventMessageBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accountingEventId": {
+          "const": 29
+        },
+        "accrualLines": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/accrualLine"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "accrualLines"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "messageId": "ACR-INS-700500-1-20241101-001",
+      "schemaVersion": "1.0",
+      "source": "Asset domain",
+      "legalEntityId": 1,
+      "accountingClassId": 14,
+      "accountingEventId": 29,
+      "bookingDate": "2024-11-01",
+      "agreement": "700500",
+      "agreementLine": "1",
+      "portfolio": "23",
+      "product": "CVL",
+      "customer": "ACME Transport BV",
+      "currency": "EUR",
+      "currencyRate": 1,
+      "conditionInputs": {
+        "7": "MG",
+        "8": "CVL"
+      },
+      "amounts": {},
+      "accountValues": {
+        "Asset Number": "AS-4471"
+      },
+      "accrualLines": [
+        {
+          "amountTypeId": 60,
+          "amount": 1200,
+          "months": 12
+        }
+      ]
+    }
+  ]
+}

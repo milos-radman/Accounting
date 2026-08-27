@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/common.schema.json",
+  "title": "OCE Accounting — common message definitions",
+  "description": "Shared envelope and payload fragments for messages sent to the accounting domain. Values keyed by id (conditionInputs → ConditionValue id, amounts → AmountType id) are reference data configured per legal entity — see reference-data.md.",
+  "$defs": {
+    "eventMessageBase": {
+      "type": "object",
+      "description": "Common envelope every inbound message shares. Specific events add/constrain fields.",
+      "required": [
+        "legalEntityId",
+        "accountingClassId",
+        "accountingEventId",
+        "bookingDate",
+        "agreement",
+        "agreementLine",
+        "conditionInputs",
+        "amounts"
+      ],
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "Correlation id the sender stamps; echoed on the outbound Journal-posted event."
+        },
+        "schemaVersion": {
+          "type": "string",
+          "description": "Contract version this message conforms to, e.g. \"1.0\"."
+        },
+        "source": {
+          "type": "string",
+          "description": "Sending domain, e.g. \"Agreement domain\"."
+        },
+        "legalEntityId": {
+          "type": "integer",
+          "description": "Target legal entity."
+        },
+        "accountingClassId": {
+          "type": "integer",
+          "description": "14 PF-Agreement · 15 AR Invoicing · 16 AR Payment · 17 AP Invoicing · 18 AP Payment."
+        },
+        "accountingEventId": {
+          "type": "integer",
+          "description": "The accounting event — see reference-data.md."
+        },
+        "bookingDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Event date (YYYY-MM-DD) — the day the event ran."
+        },
+        "calculationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Agreement/line date, used when the event books on the Calculation-Date basis (e.g. Activation)."
+        },
+        "period": {
+          "type": "string",
+          "pattern": "^\\d{6}$",
+          "description": "Accounting period YYYYMM. Usually derived from the date; not typically sent."
+        },
+        "invoicingPeriod": {
+          "type": "integer",
+          "description": "Billing/installment period index (a number, not a month)."
+        },
+        "agreement": {
+          "type": "string"
+        },
+        "agreementLine": {
+          "type": "string",
+          "description": "One agreement line = one asset."
+        },
+        "portfolio": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string",
+          "description": "Product code (ConditionValue 8) — reference data, e.g. CVL, BVL."
+        },
+        "customer": {
+          "type": "string"
+        },
+        "supplier": {
+          "type": "string"
+        },
+        "invoice": {
+          "type": "string"
+        },
+        "referenceNumber": {
+          "type": "string",
+          "description": "External reference (our id for a supplier invoice)."
+        },
+        "paymentId": {
+          "type": "string",
+          "description": "Unique id of this payment (AR/AP payment messages)."
+        },
+        "reversalReference": {
+          "type": "string",
+          "description": "Reversal-only: reference to the original booking to reverse (invoice no. / payment id / …)."
+        },
+        "currency": {
+          "type": "string"
+        },
+        "currencyRate": {
+          "type": "number",
+          "description": "Rate of currency to the entity base currency."
+        },
+        "conditionInputs": {
+          "$ref": "#/$defs/conditionInputs"
+        },
+        "amounts": {
+          "$ref": "#/$defs/amounts"
+        },
+        "amountCodeLines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/amountCodeLine"
+          },
+          "description": "For multi-code amount types (e.g. Added Cost): one entry per code."
+        },
+        "accrualLines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/accrualLine"
+          },
+          "description": "Accruals to create/spread from this message (may accompany Activation, Invoicing or the dedicated Accrual event)."
+        },
+        "accountValues": {
+          "$ref": "#/$defs/accountValues"
+        }
+      },
+      "additionalProperties": true
+    },
+    "conditionInputs": {
+      "type": "object",
+      "description": "Message attributes keyed by ConditionValue id (7 Accounting Type, 8 Product, 18 Amount Code, …). Values are reference-data CODES.",
+      "propertyNames": {
+        "pattern": "^\\d+$"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "amounts": {
+      "type": "object",
+      "description": "Amounts keyed by AmountType id (see reference-data.md). Values are the amount in the message currency.",
+      "propertyNames": {
+        "pattern": "^\\d+$"
+      },
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "amountCodeLine": {
+      "type": "object",
+      "required": [
+        "amountTypeId",
+        "amountCode",
+        "amount"
+      ],
+      "properties": {
+        "amountTypeId": {
+          "type": "integer"
+        },
+        "amountCode": {
+          "type": "string",
+          "description": "Amount Code (ConditionValue 18) — reference data."
+        },
+        "amount": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "accrualLine": {
+      "type": "object",
+      "required": [
+        "amountTypeId",
+        "amount"
+      ],
+      "properties": {
+        "amountTypeId": {
+          "type": "integer",
+          "description": "Trigger amount type (e.g. 60 Insurance, 40 Tax)."
+        },
+        "amountCode": {
+          "type": "string",
+          "description": "Disambiguates when several accrual codes share the amount type (e.g. PTAX vs VTAX)."
+        },
+        "amount": {
+          "type": "number"
+        },
+        "months": {
+          "type": "integer",
+          "description": "Spread length (the agreement term). Falls back to the accrual code default when omitted."
+        }
+      },
+      "additionalProperties": false
+    },
+    "accountValues": {
+      "type": "object",
+      "description": "Dimension bag keyed by ExtAccountValue name (e.g. 'Asset Number', 'Reg. Number'). Feeds the external account string.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "recognitionScheduleRow": {
+      "type": "object",
+      "required": [
+        "period",
+        "categoryId",
+        "amount"
+      ],
+      "properties": {
+        "period": {
+          "type": "string",
+          "pattern": "^\\d{6}$",
+          "description": "YYYYMM the amount is earned in."
+        },
+        "categoryId": {
+          "type": "integer",
+          "description": "1 Rent (= amortization component) · 2 Interest · 3 Depreciation."
+        },
+        "amount": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "recognitionPlanLine": {
+      "type": "object",
+      "required": [
+        "agreementLine",
+        "schedule"
+      ],
+      "properties": {
+        "agreementLine": {
+          "type": "integer",
+          "description": "One line = one asset."
+        },
+        "assetDescription": {
+          "type": "string"
+        },
+        "schedule": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/recognitionScheduleRow"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "recognitionPlan": {
+      "type": "object",
+      "description": "The earning schedule the agreement domain owns; sent at Activation and re-sent on Agreement Change.",
+      "required": [
+        "agreement",
+        "classification",
+        "lines"
+      ],
+      "properties": {
+        "legalEntityId": {
+          "type": "integer"
+        },
+        "entityCode": {
+          "type": "string"
+        },
+        "agreement": {
+          "type": "string"
+        },
+        "agreementDescription": {
+          "type": "string"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "classification": {
+          "enum": [
+            "Finance",
+            "Operating"
+          ]
+        },
+        "status": {
+          "enum": [
+            "Proposed",
+            "Active",
+            "Terminated"
+          ]
+        },
+        "goingForward": {
+          "type": "boolean"
+        },
+        "receivedDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "source": {
+          "type": "string"
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/recognitionPlanLine"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

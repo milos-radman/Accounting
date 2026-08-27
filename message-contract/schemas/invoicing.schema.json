@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/invoicing.schema.json",
+  "title": "Invoicing message",
+  "description": "Bills a period: debits AR with the total, credits rent / added cost / tax / rounding. Books on the Event-Date basis.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/eventMessageBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accountingEventId": {
+          "const": 2
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "messageId": "AGR-INV-700500-1-202411-001",
+      "schemaVersion": "1.0",
+      "source": "Agreement domain",
+      "legalEntityId": 1,
+      "accountingClassId": 15,
+      "accountingEventId": 2,
+      "bookingDate": "2024-11-10",
+      "invoicingPeriod": 1,
+      "agreement": "700500",
+      "agreementLine": "1",
+      "portfolio": "23",
+      "product": "CVL",
+      "customer": "ACME Transport BV",
+      "invoice": "1700120",
+      "currency": "EUR",
+      "currencyRate": 1,
+      "conditionInputs": {
+        "7": "MG",
+        "8": "CVL"
+      },
+      "amounts": {
+        "36": 523,
+        "40": 90.72,
+        "41": 0.28,
+        "43": 407
+      },
+      "amountCodeLines": [
+        {
+          "amountTypeId": 39,
+          "amountCode": "IFE",
+          "amount": 25
+        }
+      ]
+    }
+  ]
+}

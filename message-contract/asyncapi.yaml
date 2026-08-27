@@ -1,0 +1,78 @@
+asyncapi: 3.0.0
+info:
+  title: OCE Accounting Domain — inbound message contract
+  version: 1.0.0
+  description: >
+    Messages other domains (Agreement, Asset, Receivables, Payables) send to the One Credit Engine
+    accounting domain. Each event has its own payload schema (see ./schemas). Values keyed by id
+    (conditionInputs → ConditionValue id, amounts → AmountType id) are reference data configured per
+    legal entity — see reference-data.md. Tieto · illustrative contract for the prototype.
+defaultContentType: application/json
+channels:
+  accountingInbound:
+    address: accounting.inbound
+    description: The accounting domain's inbound message channel (bus topic / outbox consumer).
+    messages:
+      activation: { $ref: '#/components/messages/Activation' }
+      invoicing: { $ref: '#/components/messages/Invoicing' }
+      arPayment: { $ref: '#/components/messages/ARPayment' }
+      arUndoPayment: { $ref: '#/components/messages/ARUndoPayment' }
+      agreementChange: { $ref: '#/components/messages/AgreementChange' }
+      accrual: { $ref: '#/components/messages/Accrual' }
+operations:
+  sendToAccounting:
+    action: send
+    channel: { $ref: '#/channels/accountingInbound' }
+    summary: A domain posts an event message to the accounting domain.
+    messages:
+      - { $ref: '#/channels/accountingInbound/messages/activation' }
+      - { $ref: '#/channels/accountingInbound/messages/invoicing' }
+      - { $ref: '#/channels/accountingInbound/messages/arPayment' }
+      - { $ref: '#/channels/accountingInbound/messages/arUndoPayment' }
+      - { $ref: '#/channels/accountingInbound/messages/agreementChange' }
+      - { $ref: '#/channels/accountingInbound/messages/accrual' }
+components:
+  messages:
+    Activation:
+      name: Activation
+      title: Activation
+      summary: Activate an agreement + line and deliver the recognition plan.
+      contentType: application/json
+      payload:
+        schemaFormat: application/vnd.aai.asyncapi;version=3.0.0
+        schema: { $ref: './schemas/activation.schema.json' }
+    Invoicing:
+      name: Invoicing
+      title: Invoicing
+      summary: Bill a period (customer invoice).
+      contentType: application/json
+      payload:
+        schema: { $ref: './schemas/invoicing.schema.json' }
+    ARPayment:
+      name: ARPayment
+      title: AR Payment
+      summary: A customer payment applied to an invoice.
+      contentType: application/json
+      payload:
+        schema: { $ref: './schemas/ar-payment.schema.json' }
+    ARUndoPayment:
+      name: ARUndoPayment
+      title: AR Undo Payment
+      summary: Reverse a specific payment (rejection).
+      contentType: application/json
+      payload:
+        schema: { $ref: './schemas/ar-undo-payment.schema.json' }
+    AgreementChange:
+      name: AgreementChange
+      title: Agreement Change
+      summary: Re-send the revised recognition plan.
+      contentType: application/json
+      payload:
+        schema: { $ref: './schemas/agreement-change.schema.json' }
+    Accrual:
+      name: Accrual
+      title: Accrual
+      summary: Create a standalone cost/income accrual spread over its term.
+      contentType: application/json
+      payload:
+        schema: { $ref: './schemas/accrual.schema.json' }

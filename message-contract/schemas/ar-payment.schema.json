@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/ar-payment.schema.json",
+  "title": "AR Payment message",
+  "description": "A customer payment (e.g. direct debit) applied to an invoice — booked as settled from the outset; a rejection is handled by AR Undo Payment.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/eventMessageBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accountingEventId": {
+          "const": 3
+        },
+        "paymentId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "paymentId"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "messageId": "AR-PAY-1700120-A-20241118-001",
+      "schemaVersion": "1.0",
+      "source": "Receivables domain",
+      "legalEntityId": 1,
+      "accountingClassId": 16,
+      "accountingEventId": 3,
+      "bookingDate": "2024-11-18",
+      "agreement": "700500",
+      "agreementLine": "1",
+      "customer": "ACME Transport BV",
+      "invoice": "1700120",
+      "paymentId": "PAY-88041-A",
+      "currency": "EUR",
+      "currencyRate": 1,
+      "conditionInputs": {
+        "7": "MG",
+        "8": "CVL"
+      },
+      "amounts": {
+        "36": 523
+      }
+    }
+  ]
+}

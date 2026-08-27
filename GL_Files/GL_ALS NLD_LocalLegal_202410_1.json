@@ -1,0 +1,46 @@
+{
+  "batchId": 1,
+  "legalEntityId": 1,
+  "ledger": "Local Legal",
+  "period": "202410",
+  "generatedAt": "2026-07-16",
+  "summarized": true,
+  "control": {
+    "lineCount": 3,
+    "totalDebit": 850,
+    "totalCredit": 850,
+    "sourceGliList": [
+      124841,
+      124842
+    ]
+  },
+  "lines": [
+    {
+      "account": "63A00316",
+      "description": "AR customer",
+      "bookingDate": "2024-10-01",
+      "period": "202410",
+      "currency": "EUR",
+      "debit": 850,
+      "credit": 0
+    },
+    {
+      "account": "420100",
+      "description": "Fee Income",
+      "bookingDate": "2024-10-01",
+      "period": "202410",
+      "currency": "EUR",
+      "debit": 0,
+      "credit": 100
+    },
+    {
+      "account": "EG52020",
+      "description": "Rent income (principle)",
+      "bookingDate": "2024-10-01",
+      "period": "202410",
+      "currency": "EUR",
+      "debit": 0,
+      "credit": 750
+    }
+  ]
+}

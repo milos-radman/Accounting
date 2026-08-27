@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tieto.example/oce/accounting/agreement-change.schema.json",
+  "title": "Agreement Change message",
+  "description": "Re-sends the revised recognition plan; the accounting domain undoes affected monthly bookings and re-derives forward. The amounts block is informational — the plan drives recognition.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/eventMessageBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accountingEventId": {
+          "const": 19
+        },
+        "recognitionPlan": {
+          "$ref": "common.schema.json#/$defs/recognitionPlan"
+        }
+      },
+      "required": [
+        "recognitionPlan"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "messageId": "AGR-CHG-700500-1-20250601-001",
+      "schemaVersion": "1.0",
+      "source": "Agreement domain",
+      "legalEntityId": 1,
+      "accountingClassId": 14,
+      "accountingEventId": 19,
+      "bookingDate": "2025-06-01",
+      "agreement": "700500",
+      "agreementLine": "1",
+      "product": "CVL",
+      "customer": "ACME Transport BV",
+      "currency": "EUR",
+      "currencyRate": 1,
+      "conditionInputs": {
+        "7": "MG",
+        "8": "CVL"
+      },
+      "amounts": {
+        "33": 14980,
+        "34": 12500,
+        "35": 2480
+      },
+      "recognitionPlan": {
+        "agreement": "700500",
+        "agreementDescription": "Fleet lease — ACME Transport",
+        "customer": "ACME Transport BV",
+        "currency": "EUR",
+        "classification": "Finance",
+        "status": "Active",
+        "goingForward": true,
+        "receivedDate": "2025-06-01",
+        "source": "Agreement domain",
+        "lines": [
+          {
+            "agreementLine": 1,
+            "assetDescription": "Consumer vehicle — VW ID.4",
+            "schedule": [
+              {
+                "period": "202506",
+                "categoryId": 1,
+                "amount": 350.1
+              },
+              {
+                "period": "202506",
+                "categoryId": 2,
+                "amount": 96.4
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
