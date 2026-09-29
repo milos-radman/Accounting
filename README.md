@@ -1,5 +1,8 @@
 # One Credit Engine — Accounting Domain
 
+> **Current activity:** getting the service demo-ready on IIS + SQL Server.
+> Status and next steps live in **[`DEMO_DEPLOYMENT.md`](DEMO_DEPLOYMENT.md)**.
+
 The accounting (ledger) domain of Tieto's One Credit Engine: it receives business-event
 messages from other domains (Agreement, Asset, Receivables, Payables), applies each legal
 entity's booking rules, and produces GLI journals for export to the customer's general ledger.

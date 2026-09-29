@@ -1,5 +1,10 @@
 # Accounting Domain — orientation for Claude Code sessions
 
+> **Active work: demo deployment to IIS + SQL Server.**
+> Read **`DEMO_DEPLOYMENT.md`** (repo root) first — it holds the current status, the next
+> steps, and the scope rules. Keep it updated as you work; it is the only planning file.
+> Scope reminder: we are building a **presentable demo**, not a production system.
+
 Two codebases live here, built from the specification material in this folder
 (spec docx v0.9, `Accounting_Example.pptx` UI guidance, `Accounting Rule Config.xlsx`,
 entity model PNGs):
