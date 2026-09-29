@@ -230,7 +230,7 @@ const TOOL_LABELS: Record<string, string> = {
 
 // Fold consecutive identical tool chips into one with a count, so eight
 // simulate_message calls read as a single "Ran a simulation ×8".
-type RenderItem = UIMsg | { role: 'toolgroup'; name: string; ok: boolean; count: number };
+type RenderItem = Exclude<UIMsg, { role: 'tool' }> | { role: 'toolgroup'; name: string; ok: boolean; count: number };
 function collapse(messages: UIMsg[]): RenderItem[] {
   const out: RenderItem[] = [];
   for (const m of messages) {

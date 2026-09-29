@@ -1,0 +1,37 @@
+# Whole demo in containers: SQL Server + API + UI prototype. See DEMO_DEPLOYMENT.md.
+#   docker compose up -d --build
+#   UI  http://localhost:5173   API  http://localhost:5080/scalar   SQL  localhost,14333 (sa)
+# NOTE: the UI (App/) keeps its data in the browser; it does not call the API yet.
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "LocalDev!Passw0rd" # ponytail: demo-only password
+    ports:
+      - "14333:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'LocalDev!Passw0rd' -Q 'SELECT 1'"]
+      interval: 5s
+      retries: 30
+
+  api:
+    build: ./Service
+    environment:
+      ASPNETCORE_ENVIRONMENT: Demo
+      TenantRegistry__Tenants__demo: "Server=sql;Database=tenant_demo;User Id=sa;Password=LocalDev!Passw0rd;TrustServerCertificate=true"
+    ports:
+      - "5080:8080"
+    depends_on:
+      sql:
+        condition: service_healthy
+
+  app:
+    build: ./App
+    ports:
+      - "5173:80"
+
+volumes:
+  sqldata:

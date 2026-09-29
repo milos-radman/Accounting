@@ -167,9 +167,10 @@ If the site returns HTTP 500.x: set `stdoutLogEnabled="true"` in
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 4.1 | Decide how the demo is shown | TODO | **Zero-work path: Scalar + SSMS** (the demo script above). `App/` is localStorage-only and will NOT show SQL data without new API wiring |
+| 4.1 | Decide how the demo is shown | **DONE** | Include the React UI; make its SQL-backed state the durable source instead of browser `localStorage` |
 | 4.2 | Publish `App/` as a second IIS site | TODO | only if a UI is required for the presentation |
 | 4.3 | Rule/formula maintenance API | TODO | only if the demo must show *configuring* rules; today they come from the seed (blocker 10) |
+| 4.4 | Persist `App/` state through the API to SQL | TODO | Next-session implementation plan: add a small endpoint and one SQL JSON snapshot per demo tenant; load on startup and save app state through the API. Keep existing UI logic and workflows. This persists the prototype state; it does **not** make the service booking engine consume the UI's rules/configuration. `ponytail:` single snapshot is single-user; concurrent edits can overwrite each other, so add versioning/merge only if multi-user use is needed. No automated test suite requested; verify with build and a manual save/reload smoke run. Estimate: 2–4 active AI work days and $25–$100 API-equivalent model usage; relational per-record storage is explicitly out of this scope. |
 
 ### Phase 5 — Deferred (explicitly out of scope)
 
@@ -189,6 +190,7 @@ Add only if a specific demo scenario fails without it.
 | 2026-09-29 | Keep SQL 2008 installed; any SQL Server 2012+ is fine (A/B/C in Phase 1) | avoids breaking whatever else uses the old instance |
 | 2026-09-29 | `Demo` environment instead of running IIS as `Development` | Development would load `appsettings.Development.json` (RabbitMQ on localhost) and dev-only behaviour |
 | 2026-09-29 | Demo rules seeded in code, no rule API | the only way to get a bookable DB without building a new feature |
+| 2026-09-29 | Keep the React demo UI and persist its state as a SQL JSON snapshot via the .NET API | fastest prototype-grade replacement for localStorage; avoids rebuilding all App state as normalized relational tables. Single-user demo only; service booking logic remains separate from the UI snapshot |
 
 ---
 
@@ -202,3 +204,6 @@ Add only if a specific demo scenario fails without it.
   and 10. Verified end-to-end against SQL Server 2022 in Docker (see Phase 2 "Verified").
   **Next up (user, elevated): Phase 1 — choose SQL option A/B/C, install the .NET 10 Hosting
   Bundle — then Phase 3: run `Service\deploy-iis.ps1` and walk the demo script.**
+- **2026-09-29** — Decided to include the React UI in the demo and persist its state via the
+  .NET API to a SQL JSON snapshot. Scope is UI-state persistence only; the service booking
+  engine remains independent. Phase 4.4 is queued for execution planning in the next session.

@@ -190,7 +190,7 @@ export default function Simulator() {
     const eventName = data.accountingEvents.find(e => e.id === effectiveEventId)?.name ?? '';
     const gliNumber = nextGliFor(data, entity); // next number in this entity's GLI series
     const startPeriod = effPeriod; // accounting month, derived from the message date (effBookingDate)
-    const journalLines: JournalLine[] = result.map((l, i) => {
+    const journalLines: JournalLine[] = (result ?? []).map((l, i) => {
       return {
         line: i + 1,
         pseudoAccount: l.account ?? '',
