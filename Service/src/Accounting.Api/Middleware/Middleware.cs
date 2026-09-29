@@ -135,6 +135,8 @@ public sealed class ExceptionHandlingMiddleware
         problem.Extensions["correlationId"] = correlationId;
 
         context.Response.StatusCode = status;
-        await context.Response.WriteAsJsonAsync(problem);
+        // ponytail: CancellationToken.None - the error response must still be written
+        // even when the client has already aborted the request.
+        await context.Response.WriteAsJsonAsync(problem, CancellationToken.None);
     }
 }
