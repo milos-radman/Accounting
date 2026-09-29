@@ -6,10 +6,10 @@ using Microsoft.Extensions.Options;
 namespace Accounting.Api.Auth;
 
 /// <summary>
-/// Local-development-only authentication: issues a fixed principal so a developer can run
-/// the service without an identity provider. Activated exclusively when
-/// `Authentication:Mode` is "Development" AND the environment is Development —
-/// Program.cs refuses the combination anywhere else.
+/// Local-development / demo authentication: issues a fixed principal so the service runs
+/// without an identity provider. Activated exclusively when `Authentication:Mode` is
+/// "Development" AND the environment is Development or Demo — Program.cs refuses the
+/// combination anywhere else.
 /// </summary>
 public sealed class DevelopmentAuthenticationHandler
     : AuthenticationHandler<AuthenticationSchemeOptions>

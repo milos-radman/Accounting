@@ -30,25 +30,34 @@ public static class DependencyInjection
         services.AddSingleton(TimeProvider.System);
         services.AddScoped<AuditSaveChangesInterceptor>();
 
-        // EF Core (§9): per-request DbContext resolving the tenant's connection string,
-        // integrated with Wolverine's transactional outbox (§8.2).
-        services.AddDbContextWithWolverineIntegration<AccountingDbContext>(
-            (sp, options) =>
-            {
-                var tenant = sp.GetRequiredService<ITenantContext>();
-                var connectionStrings = sp.GetRequiredService<ITenantConnectionStringProvider>();
-                options.UseSqlServer(connectionStrings.GetConnectionString(tenant.TenantId));
-                options.AddInterceptors(sp.GetRequiredService<AuditSaveChangesInterceptor>());
-            }
-        );
-
-        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        // EF Core (§9): per-request DbContext resolving the tenant's connection string.
+        void ConfigureDb(IServiceProvider sp, DbContextOptionsBuilder options)
+        {
+            var tenant = sp.GetRequiredService<ITenantContext>();
+            var connectionStrings = sp.GetRequiredService<ITenantConnectionStringProvider>();
+            options.UseSqlServer(connectionStrings.GetConnectionString(tenant.TenantId));
+            options.AddInterceptors(sp.GetRequiredService<AuditSaveChangesInterceptor>());
+        }
 
         // Transactional outbox (§8.2) needs Wolverine's durable message store. When it is
-        // not configured (local dev / tests) fall back to inline publishing after save.
+        // not configured (local dev / demo / tests) use a plain DbContext and publish inline
+        // after save — Wolverine's EF integration cannot build the model without that store.
         var durabilityConfigured = !string.IsNullOrEmpty(
             configuration.GetConnectionString("WolverineDurability")
         );
+        if (durabilityConfigured)
+        {
+            // ponytail: unverified path. Wolverine registers DbContextOptions as a singleton,
+            // which likely freezes the first-resolved tenant; verify before enabling the outbox.
+            services.AddDbContextWithWolverineIntegration<AccountingDbContext>(ConfigureDb);
+        }
+        else
+        {
+            services.AddDbContext<AccountingDbContext>(ConfigureDb);
+        }
+
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
         if (durabilityConfigured)
         {
             services.AddScoped<WolverineOutboxUnitOfWork>();

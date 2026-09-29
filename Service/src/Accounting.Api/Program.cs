@@ -36,13 +36,16 @@ builder
     .WithMetrics(metrics => metrics.AddAspNetCoreInstrumentation().AddOtlpExporter());
 
 // ---------- AuthN (§7): OIDC JWT bearer, IdP-agnostic ----------
+// ponytail: "Demo" environment = trusted single-user demo box (IIS). It reuses the fixed
+// development principal; replace with real OIDC before exposing it to anyone untrusted.
+var isDevOrDemo = builder.Environment.IsDevelopment() || builder.Environment.IsEnvironment("Demo");
 var authMode = builder.Configuration["Authentication:Mode"];
 if (string.Equals(authMode, "Development", StringComparison.OrdinalIgnoreCase))
 {
-    if (!builder.Environment.IsDevelopment())
+    if (!isDevOrDemo)
     {
         throw new InvalidOperationException(
-            "Authentication:Mode=Development is only allowed in the Development environment."
+            "Authentication:Mode=Development is only allowed in the Development or Demo environment."
         );
     }
 
@@ -133,6 +136,14 @@ builder.Host.UseWolverine(options =>
 
 var app = builder.Build();
 
+if (app.Configuration.GetValue<bool>("Database:MigrateOnStartup"))
+{
+    await Accounting.Infrastructure.Seeding.DatabaseInitializer.MigrateAndSeedAllTenantsAsync(
+        app.Services,
+        app.Configuration.GetValue<bool>("Database:SeedDemoData")
+    );
+}
+
 app.UseSerilogRequestLogging();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseCors();
@@ -144,7 +155,7 @@ app.MapControllers();
 app.MapHealthChecks("/health/live").AllowAnonymous();
 app.MapHealthChecks("/health/ready").AllowAnonymous();
 app.MapOpenApi().AllowAnonymous();
-if (app.Environment.IsDevelopment())
+if (isDevOrDemo)
 {
     app.MapScalarApiReference().AllowAnonymous();
 }

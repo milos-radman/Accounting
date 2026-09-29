@@ -22,8 +22,11 @@ dotnet run --project src/Accounting.Api
 Open <http://localhost:5000/scalar> for the API reference.
 Local development uses `Authentication:Mode=Development` (fixed dev principal; tenant from
 the `X-Tenant-Id` header, default `demo`). This mode refuses to start outside the
-Development environment. The `demo` tenant's connection string lives in
+Development and Demo environments. The `demo` tenant's connection string lives in
 `appsettings.Development.json` (`TenantRegistry`).
+
+IIS demo hosting (`Demo` environment, migrate + seed on startup, `deploy-iis.ps1`) is
+described in [`../DEMO_DEPLOYMENT.md`](../DEMO_DEPLOYMENT.md).
 
 Apply migrations to the demo tenant database:
 
