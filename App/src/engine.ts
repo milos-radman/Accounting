@@ -1,4 +1,4 @@
-import type { AccountingEvent, AppData, Condition, ExtAccountPart, Formula, Journal, JournalLine, LegalEntity, PendingMessage, PseudoAccount } from './types';
+import type { AccountingEvent, AppData, Condition, ExtAccountPart, Formula, Journal, JournalLine, LegalEntity, OpeningBalance, PendingMessage, PseudoAccount } from './types';
 
 // The booking engine: takes an event message (as another domain would send it)
 // and resolves accounting rules -> formulas -> conditions -> pseudo accounts
@@ -197,36 +197,43 @@ function matches(row: Condition, inputs: Record<number, string>): boolean {
   return input != null && input.trim().toLowerCase() === row.value.trim().toLowerCase();
 }
 
-// Walk condition rows to resolve an account. A row without any account is a *filter* (guard);
-// the account rows that follow it must match the filter as well as their own value. Filters are
-// grouped structurally: a filter row that follows an account row opens a NEW group and resets the
-// active filters (so e.g. "Accounting Type = DL … Accounting Type = MG …" are independent blocks);
-// consecutive filter rows accumulate and must all hold (AND) within the same group.
+// Resolve an account from the condition rows as a hierarchy of OVERRIDES.
+//
+// Each row has an explicit level (0 = a top-level branch such as "Accounting Type = DL"; deeper
+// levels are overrides nested under the branch above, e.g. "Amount Code = OPC"). A row is "in scope"
+// only when every ancestor level currently has a matching row — so the Amount Code overrides under
+// "Accounting Type = MG" apply only to MG messages, and a branch may test any field.
+//
+// Evaluation starts from the formula's header account (the caller applies it when this returns null),
+// and every in-scope matching row that CARRIES an account REPLACES the account so far. The deepest,
+// most specific match therefore wins, while a shallower row's account (e.g. a branch's own account)
+// acts as the default for that whole branch. If nothing more specific matches, the branch account
+// stands; if no branch matches at all, the formula header account is used.
+//
+// Returns the overriding account (or null to mean "use the formula header account").
 function resolveConditionAccount(
   rows: Condition[],
   side: 'D' | 'C',
   inputs: Record<number, string>,
 ): { pseudoAccountId: number; trace: string } | null {
-  let guards: { ok: boolean; label: string }[] = [];
-  let prevWasAccount = false;
+  // Depth is the row's explicit level, shifted so the shallowest row is 0 (tolerating 1-based data).
+  const minLevel = rows.length ? Math.min(...rows.map(r => r.level ?? 0)) : 0;
+  const matched: boolean[] = []; // matched[d] = the current row at depth d is in scope and matched
+  const label: string[] = [];    // its value, for the trace
+  let best: { pseudoAccountId: number; trace: string } | null = null;
   for (const row of rows) {
-    const hasAccounts = row.debitPseudoAccountId != null || row.creditPseudoAccountId != null;
-    const rowMatches = matches(row, inputs);
-    if (!hasAccounts) {
-      if (prevWasAccount) guards = []; // a filter after a result starts a new group
-      guards.push({ ok: rowMatches, label: `${row.value}` });
-      prevWasAccount = false;
-      continue;
-    }
-    prevWasAccount = true;
+    const d = Math.max(0, (row.level ?? 0) - minLevel);
+    matched.length = d; // a row at depth d resets any deeper levels
+    label.length = d;
+    const ancestorsOk = matched.every(Boolean); // every level above it matched (none ⇒ true)
+    matched[d] = ancestorsOk && matches(row, inputs);
+    label[d] = row.value;
     const acctId = side === 'D' ? row.debitPseudoAccountId : row.creditPseudoAccountId;
-    if (acctId == null) continue;
-    if (rowMatches && guards.every(g => g.ok)) {
-      const guardText = guards.length ? guards.map(g => g.label).join(' & ') + ' & ' : '';
-      return { pseudoAccountId: acctId, trace: `condition ${guardText}${row.value}` };
+    if (matched[d] && acctId != null) {
+      best = { pseudoAccountId: acctId, trace: `condition ${label.slice(0, d + 1).join(' → ')}` };
     }
   }
-  return null;
+  return best;
 }
 
 // Resolve a single account for a formula given condition inputs: use the condition-matched account
@@ -574,6 +581,148 @@ export function postMessage(d: AppData, msg: EventMessage, source: string): { gl
   }, { correlationId: msg.messageId, source });
   entity.journalDifferences = d.journals.filter(x => x.legalEntityId === entity.id && x.difference).length;
   return { gli, difference };
+}
+
+// ---- Year-end close / roll-forward ----------------------------------------------------------
+// Closing a fiscal year does two things, exactly as a real ledger does:
+//   1. Result disposition — the year's net P&L result is moved into equity (retained earnings).
+//   2. Carry forward — next year's opening balances = this year's CLOSING balance-sheet positions
+//      (opening + journal movements), with retained earnings updated by the result. P&L accounts
+//      open the new year at zero (they are simply not carried forward).
+// This is the mechanism that means opening balances are normally NOT re-typed each year — they are
+// derived from the prior year's close. Manual entry is only needed at go-live for the first year.
+
+export interface YearCloseSummary {
+  entityCode: string;
+  ledger: string;
+  fiscalYear: number;
+  nextYear: number;
+  netResult: number;            // profit (>0) or loss (<0) for the year, base currency
+  retainedAccount: string | null;
+  retainedBefore: number;       // retained-earnings closing balance before the result (credit-positive)
+  retainedAfter: number;        // after rolling the year's result in
+  carriedAccounts: number;      // number of opening rows created for next year
+}
+
+// The equity account the year's result is disposed to: an entity Balance account whose description
+// looks like retained earnings / equity, else the conventional '2080'.
+export function retainedEarningsAccount(data: AppData, entity: LegalEntity): PseudoAccount | undefined {
+  const own = data.pseudoAccounts.filter(p => p.entityCode === entity.ownerCode && p.accountKind === 'Balance');
+  return own.find(p => /retain|equity/i.test(p.description)) ?? own.find(p => p.pseudo === '2080');
+}
+
+// Compute (without mutating) the opening balances for the NEXT fiscal year by closing `fiscalYear`
+// for one entity + ledger. Returns the new opening rows plus a summary of the result disposition.
+export function computeYearClose(
+  data: AppData, entity: LegalEntity, ledger: string, fiscalYear: number,
+): { openings: OpeningBalance[]; summary: YearCloseSummary } {
+  const fyStart = entity.fiscalYearStartMonth ?? 1;
+  const r2 = (n: number) => Math.round(n * 100) / 100;
+  const acct = (code: string) => data.pseudoAccounts.find(p => p.entityCode === entity.ownerCode && p.pseudo === code) ?? data.pseudoAccounts.find(p => p.pseudo === code);
+  const kindOf = (code: string) => acct(code)?.accountKind ?? 'Balance';
+  const descOf = (code: string) => acct(code)?.description ?? code;
+
+  // Start from this year's opening balances (Balance accounts), then add journal movements.
+  const bal = new Map<string, { debit: number; credit: number }>();
+  for (const o of data.openingBalances) {
+    if (o.entityCode !== entity.ownerCode || o.ledger !== ledger || o.fiscalYear !== fiscalYear) continue;
+    const c = bal.get(o.pseudoAccount) ?? { debit: 0, credit: 0 };
+    c.debit += o.debit; c.credit += o.credit; bal.set(o.pseudoAccount, c);
+  }
+  let result = 0; // net P&L result, credit-positive (profit)
+  for (const j of data.journals) {
+    if (j.legalEntityId !== entity.id || fiscalYearOf(j.bookingDate, fyStart) !== fiscalYear) continue;
+    if (j.difference || j.broughtForward) continue; // out-of-balance and brought-forward journals aren't movements
+    for (const l of j.lines) {
+      if (l.ledger !== ledger) continue;
+      const rate = l.currencyRate ?? 1;
+      if (kindOf(l.pseudoAccount) === 'Result') {
+        result += ((l.credit || 0) - (l.debit || 0)) * rate;
+      } else {
+        const c = bal.get(l.pseudoAccount) ?? { debit: 0, credit: 0 };
+        c.debit += (l.debit || 0) * rate; c.credit += (l.credit || 0) * rate; bal.set(l.pseudoAccount, c);
+      }
+    }
+  }
+  result = r2(result);
+
+  const retained = retainedEarningsAccount(data, entity);
+  const retainedCode = retained?.pseudo ?? null;
+
+  const openings: OpeningBalance[] = [];
+  let idBase = Math.max(0, ...data.openingBalances.map(o => o.id));
+  let retainedBefore = 0, retainedAfter = 0, hasRetained = false;
+  for (const [code, m] of bal) {
+    let net = r2(m.debit - m.credit); // debit-positive
+    if (code === retainedCode) {
+      hasRetained = true;
+      retainedBefore = r2(-net);        // equity shown credit-positive
+      net = r2(net - result);           // roll the year's result into equity (increases credit)
+      retainedAfter = r2(-net);
+    }
+    if (net === 0 && code !== retainedCode) continue;
+    openings.push({
+      id: ++idBase, entityCode: entity.ownerCode, ledger, fiscalYear: fiscalYear + 1,
+      pseudoAccount: code, description: descOf(code),
+      debit: net > 0 ? net : 0, credit: net < 0 ? r2(-net) : 0,
+    });
+  }
+  // Retained account carried no balance yet but there is a result to dispose — add it.
+  if (retainedCode && !hasRetained && result !== 0) {
+    retainedBefore = 0; retainedAfter = result;
+    openings.push({
+      id: ++idBase, entityCode: entity.ownerCode, ledger, fiscalYear: fiscalYear + 1,
+      pseudoAccount: retainedCode, description: descOf(retainedCode),
+      debit: result < 0 ? r2(-result) : 0, credit: result > 0 ? result : 0,
+    });
+  }
+
+  return {
+    openings,
+    summary: {
+      entityCode: entity.ownerCode, ledger, fiscalYear, nextYear: fiscalYear + 1,
+      netResult: result, retainedAccount: retainedCode, retainedBefore, retainedAfter,
+      carriedAccounts: openings.length,
+    },
+  };
+}
+
+// Apply a year close inside a draft mutation: replace next year's opening balances for this
+// entity + ledger with the carried-forward set, AND post a "Balance brought forward" journal on
+// the first day of the new year so the carry-forward is visible in the ledger. The journal is
+// tagged broughtForward so statement aggregation ignores it (the opening-balances table is the
+// source of truth — the journal would otherwise double-count the opening).
+export function applyYearClose(d: AppData, entity: LegalEntity, ledger: string, fiscalYear: number): YearCloseSummary {
+  const { openings, summary } = computeYearClose(d, entity, ledger, fiscalYear);
+  const nextYear = fiscalYear + 1;
+  d.openingBalances = d.openingBalances.filter(
+    o => !(o.entityCode === entity.ownerCode && o.ledger === ledger && o.fiscalYear === nextYear),
+  );
+  d.openingBalances.push(...openings);
+
+  const fyStart = entity.fiscalYearStartMonth ?? 1;
+  const bookingDate = `${nextYear}-${String(fyStart).padStart(2, '0')}-01`;
+  // Remove any prior brought-forward journal for this ledger + new year (idempotent re-close).
+  d.journals = d.journals.filter(
+    j => !(j.broughtForward && j.legalEntityId === entity.id && j.bookingDate === bookingDate && j.lines[0]?.ledger === ledger),
+  );
+  if (openings.length) {
+    const baseCode = d.currencies.find(c => c.id === entity.baseCurrencyId)?.code ?? 'EUR';
+    const lines: JournalLine[] = openings.map((o, i) => ({
+      line: i + 1, pseudoAccount: o.pseudoAccount, description: o.description,
+      agreement: '', agreementLine: null, invoice: '', refNo: '',
+      debit: o.debit, credit: o.credit, ledger, currency: baseCode, currencyRate: 1,
+      formula: '', externalAccountString: '', amountType: 'Brought forward', conditionValue: '',
+    }));
+    const gli = takeGliFor(d, entity);
+    d.journals.unshift({
+      gliNumber: gli, gliPrefix: entity.gliPrefix, legalEntityId: entity.id,
+      accountingEvent: 'Balance brought forward', lines, lineCount: lines.length,
+      bookingDate, createDate: new Date().toISOString().slice(0, 10), exportDate: null,
+      difference: false, createdBy: 'Year-end close', broughtForward: true,
+    });
+  }
+  return summary;
 }
 
 // Reconstruct the event message from a stored pending message.

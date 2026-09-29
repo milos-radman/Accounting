@@ -2026,7 +2026,7 @@
   {
    "id": 20,
    "formulaConditionId": 10,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2036,7 +2036,7 @@
   {
    "id": 21,
    "formulaConditionId": 10,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 8,
@@ -2046,7 +2046,7 @@
   {
    "id": 22,
    "formulaConditionId": 11,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 22,
@@ -2056,7 +2056,7 @@
   {
    "id": 23,
    "formulaConditionId": 11,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 22,
@@ -2066,7 +2066,7 @@
   {
    "id": 24,
    "formulaConditionId": 12,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 26,
@@ -2076,7 +2076,7 @@
   {
    "id": 25,
    "formulaConditionId": 13,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2086,7 +2086,7 @@
   {
    "id": 26,
    "formulaConditionId": 13,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2096,7 +2096,7 @@
   {
    "id": 27,
    "formulaConditionId": 14,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 31,
@@ -2106,7 +2106,7 @@
   {
    "id": 28,
    "formulaConditionId": 14,
-   "level": 2,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 10,
@@ -2116,7 +2116,7 @@
   {
    "id": 29,
    "formulaConditionId": 15,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2126,7 +2126,7 @@
   {
    "id": 30,
    "formulaConditionId": 16,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2136,7 +2136,7 @@
   {
    "id": 31,
    "formulaConditionId": 16,
-   "level": 2,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2146,7 +2146,7 @@
   {
    "id": 32,
    "formulaConditionId": 17,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2156,7 +2156,7 @@
   {
    "id": 35,
    "formulaConditionId": 19,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 6,
@@ -2166,7 +2166,7 @@
   {
    "id": 36,
    "formulaConditionId": 20,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2176,7 +2176,7 @@
   {
    "id": 37,
    "formulaConditionId": 21,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2186,7 +2186,7 @@
   {
    "id": 38,
    "formulaConditionId": 22,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2196,7 +2196,7 @@
   {
    "id": 39,
    "formulaConditionId": 22,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 18,
    "value": "907",
    "debitPseudoAccountId": null,
@@ -2206,7 +2206,7 @@
   {
    "id": 40,
    "formulaConditionId": 22,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 18,
    "value": "906",
    "debitPseudoAccountId": null,
@@ -2216,7 +2216,7 @@
   {
    "id": 41,
    "formulaConditionId": 23,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 20,
@@ -2226,7 +2226,7 @@
   {
    "id": 42,
    "formulaConditionId": 24,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 31,
@@ -2236,7 +2236,7 @@
   {
    "id": 43,
    "formulaConditionId": 24,
-   "level": 2,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 32,
@@ -2246,7 +2246,7 @@
   {
    "id": 44,
    "formulaConditionId": 25,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2256,7 +2256,7 @@
   {
    "id": 45,
    "formulaConditionId": 26,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2266,7 +2266,7 @@
   {
    "id": 46,
    "formulaConditionId": 26,
-   "level": 2,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2276,7 +2276,7 @@
   {
    "id": 47,
    "formulaConditionId": 27,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2286,7 +2286,7 @@
   {
    "id": 48,
    "formulaConditionId": 28,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2296,7 +2296,7 @@
   {
    "id": 49,
    "formulaConditionId": 28,
-   "level": 2,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2306,7 +2306,7 @@
   {
    "id": 50,
    "formulaConditionId": 29,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2316,7 +2316,7 @@
   {
    "id": 51,
    "formulaConditionId": 29,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -2326,7 +2326,7 @@
   {
    "id": 52,
    "formulaConditionId": 29,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -2336,7 +2336,7 @@
   {
    "id": 53,
    "formulaConditionId": 29,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2346,7 +2346,7 @@
   {
    "id": 54,
    "formulaConditionId": 29,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -2356,7 +2356,7 @@
   {
    "id": 55,
    "formulaConditionId": 30,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2366,7 +2366,7 @@
   {
    "id": 56,
    "formulaConditionId": 30,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2376,7 +2376,7 @@
   {
    "id": 57,
    "formulaConditionId": 30,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 4,
@@ -2386,7 +2386,7 @@
   {
    "id": 58,
    "formulaConditionId": 30,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": 5,
@@ -2396,7 +2396,7 @@
   {
    "id": 59,
    "formulaConditionId": 30,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": 5,
@@ -2406,7 +2406,7 @@
   {
    "id": 60,
    "formulaConditionId": 30,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2416,7 +2416,7 @@
   {
    "id": 61,
    "formulaConditionId": 30,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 23,
@@ -2426,7 +2426,7 @@
   {
    "id": 62,
    "formulaConditionId": 31,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2436,7 +2436,7 @@
   {
    "id": 63,
    "formulaConditionId": 31,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 25,
@@ -2446,7 +2446,7 @@
   {
    "id": 64,
    "formulaConditionId": 31,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": 24,
@@ -2456,7 +2456,7 @@
   {
    "id": 65,
    "formulaConditionId": 31,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2466,7 +2466,7 @@
   {
    "id": 66,
    "formulaConditionId": 32,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2476,7 +2476,7 @@
   {
    "id": 67,
    "formulaConditionId": 32,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 23,
@@ -2486,7 +2486,7 @@
   {
    "id": 68,
    "formulaConditionId": 32,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 5,
@@ -2496,7 +2496,7 @@
   {
    "id": 69,
    "formulaConditionId": 32,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2506,7 +2506,7 @@
   {
    "id": 70,
    "formulaConditionId": 32,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 20,
@@ -2516,7 +2516,7 @@
   {
    "id": 71,
    "formulaConditionId": 33,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2526,7 +2526,7 @@
   {
    "id": 72,
    "formulaConditionId": 33,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -2536,7 +2536,7 @@
   {
    "id": 73,
    "formulaConditionId": 33,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": null,
@@ -2546,7 +2546,7 @@
   {
    "id": 74,
    "formulaConditionId": 33,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -2556,7 +2556,7 @@
   {
    "id": 75,
    "formulaConditionId": 33,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": null,
@@ -2566,7 +2566,7 @@
   {
    "id": 76,
    "formulaConditionId": 33,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2576,7 +2576,7 @@
   {
    "id": 77,
    "formulaConditionId": 33,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -2586,7 +2586,7 @@
   {
    "id": 78,
    "formulaConditionId": 33,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 5,
@@ -2596,7 +2596,7 @@
   {
    "id": 79,
    "formulaConditionId": 34,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2606,7 +2606,7 @@
   {
    "id": 80,
    "formulaConditionId": 34,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -2616,7 +2616,7 @@
   {
    "id": 81,
    "formulaConditionId": 34,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": null,
@@ -2626,7 +2626,7 @@
   {
    "id": 82,
    "formulaConditionId": 34,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -2636,7 +2636,7 @@
   {
    "id": 83,
    "formulaConditionId": 34,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": null,
@@ -2646,7 +2646,7 @@
   {
    "id": 84,
    "formulaConditionId": 34,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2656,7 +2656,7 @@
   {
    "id": 85,
    "formulaConditionId": 34,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -2666,7 +2666,7 @@
   {
    "id": 86,
    "formulaConditionId": 24,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -2676,7 +2676,7 @@
   {
    "id": 87,
    "formulaConditionId": 35,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2686,7 +2686,7 @@
   {
    "id": 88,
    "formulaConditionId": 35,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 30,
@@ -2696,7 +2696,7 @@
   {
    "id": 89,
    "formulaConditionId": 35,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": 29,
@@ -2706,7 +2706,7 @@
   {
    "id": 90,
    "formulaConditionId": 35,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2716,7 +2716,7 @@
   {
    "id": 91,
    "formulaConditionId": 35,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": 29,
@@ -2726,7 +2726,7 @@
   {
    "id": 92,
    "formulaConditionId": 35,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2736,7 +2736,7 @@
   {
    "id": 93,
    "formulaConditionId": 35,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 30,
@@ -2746,7 +2746,7 @@
   {
    "id": 94,
    "formulaConditionId": 35,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2756,7 +2756,7 @@
   {
    "id": 95,
    "formulaConditionId": 36,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2766,7 +2766,7 @@
   {
    "id": 96,
    "formulaConditionId": 36,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 30,
@@ -2776,7 +2776,7 @@
   {
    "id": 97,
    "formulaConditionId": 36,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": 29,
@@ -2786,7 +2786,7 @@
   {
    "id": 98,
    "formulaConditionId": 26,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2796,7 +2796,7 @@
   {
    "id": 99,
    "formulaConditionId": 36,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": 29,
@@ -2806,7 +2806,7 @@
   {
    "id": 100,
    "formulaConditionId": 36,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2816,7 +2816,7 @@
   {
    "id": 101,
    "formulaConditionId": 36,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 30,
@@ -2826,7 +2826,7 @@
   {
    "id": 102,
    "formulaConditionId": 36,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2836,7 +2836,7 @@
   {
    "id": 103,
    "formulaConditionId": 37,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2846,7 +2846,7 @@
   {
    "id": 104,
    "formulaConditionId": 37,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 4,
@@ -2856,7 +2856,7 @@
   {
    "id": 105,
    "formulaConditionId": 37,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2866,7 +2866,7 @@
   {
    "id": 106,
    "formulaConditionId": 37,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": 5,
@@ -2876,7 +2876,7 @@
   {
    "id": 107,
    "formulaConditionId": 38,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2886,7 +2886,7 @@
   {
    "id": 108,
    "formulaConditionId": 38,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "111",
    "debitPseudoAccountId": 20,
@@ -2896,7 +2896,7 @@
   {
    "id": 109,
    "formulaConditionId": 38,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st9",
    "debitPseudoAccountId": 20,
@@ -2906,7 +2906,7 @@
   {
    "id": 110,
    "formulaConditionId": 39,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -2916,7 +2916,7 @@
   {
    "id": 111,
    "formulaConditionId": 39,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 29,
@@ -2926,7 +2926,7 @@
   {
    "id": 112,
    "formulaConditionId": 25,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 28,
@@ -2936,7 +2936,7 @@
   {
    "id": 113,
    "formulaConditionId": 46,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 8,
@@ -2946,7 +2946,7 @@
   {
    "id": 114,
    "formulaConditionId": 47,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2956,7 +2956,7 @@
   {
    "id": 115,
    "formulaConditionId": 48,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 6,
@@ -2966,7 +2966,7 @@
   {
    "id": 116,
    "formulaConditionId": 49,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -2976,7 +2976,7 @@
   {
    "id": 117,
    "formulaConditionId": 49,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 20,
@@ -2986,7 +2986,7 @@
   {
    "id": 118,
    "formulaConditionId": 49,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 20,
@@ -2996,7 +2996,7 @@
   {
    "id": 119,
    "formulaConditionId": 49,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
@@ -3006,7 +3006,7 @@
   {
    "id": 120,
    "formulaConditionId": 49,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "st2",
    "debitPseudoAccountId": 5,
@@ -3016,7 +3016,7 @@
   {
    "id": 121,
    "formulaConditionId": 50,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3026,7 +3026,7 @@
   {
    "id": 122,
    "formulaConditionId": 50,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -3036,7 +3036,7 @@
   {
    "id": 123,
    "formulaConditionId": 50,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -3046,7 +3046,7 @@
   {
    "id": 124,
    "formulaConditionId": 51,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3056,7 +3056,7 @@
   {
    "id": 125,
    "formulaConditionId": 51,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 23,
@@ -3066,7 +3066,7 @@
   {
    "id": 126,
    "formulaConditionId": 51,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 23,
@@ -3076,7 +3076,7 @@
   {
    "id": 127,
    "formulaConditionId": 52,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3086,7 +3086,7 @@
   {
    "id": 128,
    "formulaConditionId": 52,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 20,
@@ -3096,7 +3096,7 @@
   {
    "id": 129,
    "formulaConditionId": 52,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 20,
@@ -3106,7 +3106,7 @@
   {
    "id": 130,
    "formulaConditionId": 53,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3116,7 +3116,7 @@
   {
    "id": 131,
    "formulaConditionId": 53,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -3126,7 +3126,7 @@
   {
    "id": 132,
    "formulaConditionId": 53,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -3136,7 +3136,7 @@
   {
    "id": 133,
    "formulaConditionId": 54,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3146,7 +3146,7 @@
   {
    "id": 134,
    "formulaConditionId": 54,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": null,
@@ -3156,7 +3156,7 @@
   {
    "id": 135,
    "formulaConditionId": 54,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": null,
@@ -3166,7 +3166,7 @@
   {
    "id": 136,
    "formulaConditionId": 55,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3176,7 +3176,7 @@
   {
    "id": 137,
    "formulaConditionId": 55,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 30,
@@ -3186,7 +3186,7 @@
   {
    "id": 138,
    "formulaConditionId": 55,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 30,
@@ -3196,7 +3196,7 @@
   {
    "id": 139,
    "formulaConditionId": 56,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3206,7 +3206,7 @@
   {
    "id": 140,
    "formulaConditionId": 56,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 17,
    "value": "911",
    "debitPseudoAccountId": 30,
@@ -3216,7 +3216,7 @@
   {
    "id": 141,
    "formulaConditionId": 56,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 17,
    "value": "el2",
    "debitPseudoAccountId": 30,
@@ -3226,7 +3226,7 @@
   {
    "id": 142,
    "formulaConditionId": 57,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3236,7 +3236,7 @@
   {
    "id": 143,
    "formulaConditionId": 58,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3246,7 +3246,7 @@
   {
    "id": 144,
    "formulaConditionId": 59,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3256,7 +3256,7 @@
   {
    "id": 145,
    "formulaConditionId": 60,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
@@ -3266,7 +3266,7 @@
   {
    "id": 146,
    "formulaConditionId": 61,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 20,
@@ -3276,7 +3276,7 @@
   {
    "id": 147,
    "formulaConditionId": 62,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 6,
@@ -3286,7 +3286,7 @@
   {
    "id": 148,
    "formulaConditionId": 63,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 20,
@@ -3296,17 +3296,17 @@
   {
    "id": 151,
    "formulaConditionId": 18,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": null,
-   "creditPseudoAccountId": null,
+   "creditPseudoAccountId": 11,
    "operator": null
   },
   {
    "id": 152,
    "formulaConditionId": 18,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 18,
    "value": "IFE",
    "debitPseudoAccountId": null,
@@ -3316,7 +3316,7 @@
   {
    "id": 153,
    "formulaConditionId": 18,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 18,
    "value": "OPC",
    "debitPseudoAccountId": null,
@@ -3326,7 +3326,7 @@
   {
    "id": 154,
    "formulaConditionId": 18,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 18,
    "value": "SEB",
    "debitPseudoAccountId": null,
@@ -3336,7 +3336,7 @@
   {
    "id": 155,
    "formulaConditionId": 18,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 18,
    "value": "TEB",
    "debitPseudoAccountId": null,
@@ -3346,7 +3346,7 @@
   {
    "id": 156,
    "formulaConditionId": 18,
-   "level": 6,
+   "level": 1,
    "conditionValueId": 18,
    "value": "TAB",
    "debitPseudoAccountId": null,
@@ -3356,17 +3356,17 @@
   {
    "id": 157,
    "formulaConditionId": 18,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": null,
-   "creditPseudoAccountId": null,
+   "creditPseudoAccountId": 6,
    "operator": null
   },
   {
    "id": 158,
    "formulaConditionId": 18,
-   "level": 2,
+   "level": 1,
    "conditionValueId": 18,
    "value": "OPC",
    "debitPseudoAccountId": null,
@@ -3376,7 +3376,7 @@
   {
    "id": 159,
    "formulaConditionId": 18,
-   "level": 3,
+   "level": 1,
    "conditionValueId": 18,
    "value": "IFE",
    "debitPseudoAccountId": null,
@@ -3386,7 +3386,7 @@
   {
    "id": 160,
    "formulaConditionId": 18,
-   "level": 4,
+   "level": 1,
    "conditionValueId": 18,
    "value": "SEB",
    "debitPseudoAccountId": null,
@@ -3396,7 +3396,7 @@
   {
    "id": 161,
    "formulaConditionId": 18,
-   "level": 5,
+   "level": 1,
    "conditionValueId": 18,
    "value": "TEB",
    "debitPseudoAccountId": null,
@@ -3406,7 +3406,7 @@
   {
    "id": 162,
    "formulaConditionId": 18,
-   "level": 6,
+   "level": 1,
    "conditionValueId": 18,
    "value": "TAB",
    "debitPseudoAccountId": null,
@@ -3416,7 +3416,7 @@
   {
    "id": 163,
    "formulaConditionId": 101,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "DL",
    "debitPseudoAccountId": 17,
@@ -3426,7 +3426,7 @@
   {
    "id": 164,
    "formulaConditionId": 101,
-   "level": 1,
+   "level": 0,
    "conditionValueId": 7,
    "value": "MG",
    "debitPseudoAccountId": 5,

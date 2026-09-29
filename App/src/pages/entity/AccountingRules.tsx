@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { useStore, useLookups } from '../../store';
 import { Dialog } from '../../components/Chrome';
+import { useDrill } from '../../components/trail';
 import { Icon } from '../../components/Icon';
 import type { AccountingRule, LegalEntity } from '../../types';
 
@@ -10,6 +11,7 @@ export default function AccountingRules() {
   const entity = useOutletContext<LegalEntity>();
   const { data, update } = useStore();
   const { ledgerName, classNameOf, eventName, formulaById, amountTypeName, conditionValueName, pseudoName, conditionsOf } = useLookups();
+  const drill = useDrill();
 
   const [filterSource, setFilterSource] = useState('');
   const [filterLedger, setFilterLedger] = useState('');
@@ -96,34 +98,49 @@ export default function AccountingRules() {
               {conds.length === 0 ? (
                 <span className="muted">No conditions — books on {f?.debitAccount ?? f?.creditAccount ?? 'the formula account'}.</span>
               ) : (
-                <table className="cond-table" style={{ maxWidth: 760 }}>
-                  <thead>
-                    <tr>
-                      <th style={{ width: 26 }} />
-                      <th>Condition field</th>
-                      <th style={{ width: 20 }} />
-                      <th>Value</th>
-                      <th style={{ width: 40 }} />
-                      <th>Debit account</th>
-                      <th>Credit account</th>
-                      <th style={{ width: 60 }}>Op</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {conds.map(c => (
-                      <tr key={c.id}>
-                        <td className="kw">IF</td>
-                        <td>{conditionValueName(c.conditionValueId)}</td>
-                        <td className="kw">=</td>
-                        <td>{c.value || '—'}</td>
-                        <td className="kw">Then</td>
-                        <td>{pseudoName(entity.ownerCode, c.debitPseudoAccountId) || '—'}</td>
-                        <td>{pseudoName(entity.ownerCode, c.creditPseudoAccountId) || '—'}</td>
-                        <td>{c.operator ?? ''}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <div style={{ maxWidth: 820, padding: '2px 0 4px' }}>
+                  <p className="muted" style={{ marginTop: 0, marginBottom: 8, fontSize: 12 }}>
+                    Branches are checked top to bottom; within the first that matches, the most specific override wins.{' '}
+                    {f && (
+                      <button
+                        className="link-btn"
+                        style={{ background: 'none', border: 0, padding: 0, color: 'var(--purple)', cursor: 'pointer', font: 'inherit' }}
+                        onClick={e => { e.stopPropagation(); drill(`/legal-entity/${entity.id}/formulas/${f.id}`, f.name); }}
+                      >Edit on formula {formulaCode(r)} →</button>
+                    )}
+                  </p>
+                  {conds.map(c => {
+                    const depth = c.level ?? 0;
+                    return (
+                      <div key={c.id} style={{
+                        display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 4,
+                        marginLeft: depth * 24, padding: '5px 10px', borderRadius: 8,
+                        border: '1px solid var(--line)',
+                        background: depth === 0 ? '#f3f0fb' : 'var(--card, transparent)',
+                      }}>
+                        {depth > 0 && <span style={{ color: 'var(--muted)' }}>↳</span>}
+                        <span className="kw">IF</span>
+                        <span>{conditionValueName(c.conditionValueId)}</span>
+                        <span className="kw">=</span>
+                        <b>{c.value || '—'}</b>
+                        <span className="kw" style={{ marginLeft: 4 }}>Then</span>
+                        <span className="muted" style={{ fontSize: 11 }}>Dr</span>
+                        <span>{pseudoName(entity.ownerCode, c.debitPseudoAccountId) || '—'}</span>
+                        <span className="muted" style={{ fontSize: 11 }}>Cr</span>
+                        <span>{pseudoName(entity.ownerCode, c.creditPseudoAccountId) || '—'}</span>
+                        <span style={{ flex: 1 }} />
+                        <span style={{ fontSize: 11, color: 'var(--muted)' }}>{depth === 0 ? 'branch' : `level ${depth}`}</span>
+                      </div>
+                    );
+                  })}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 8, padding: '7px 12px', border: '1px dashed var(--line-strong, var(--line))', borderRadius: 8 }}>
+                    <span className="kw" style={{ color: 'var(--muted)' }}>OTHERWISE</span>
+                    <span className="muted" style={{ fontSize: 12 }}>no branch matches →</span>
+                    <span style={{ fontSize: 12 }}>Dr <b>{f?.debitAccount ?? '—'}</b> · Cr <b>{f?.creditAccount ?? '—'}</b></span>
+                    <span style={{ flex: 1 }} />
+                    <span style={{ fontSize: 11, color: 'var(--muted)' }}>formula account</span>
+                  </div>
+                </div>
               )}
             </td>
           </tr>

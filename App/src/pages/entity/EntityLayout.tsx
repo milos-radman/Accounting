@@ -50,6 +50,7 @@ export default function EntityLayout() {
           <MenuItem to={`${base}/integration`} icon="plug" label="Integration" />
           <MenuItem to={`${base}/chart-of-account`} icon="book" label="Chart of account" />
           <MenuItem to={`${base}/pseudo-account`} icon="rows" label="Pseudo account" />
+          <MenuItem to={`${base}/opening-balances`} icon="scale" label="Opening balances" />
           <MenuItem to={`${base}/formulas`} icon="sigma" label="Formulas" />
           <MenuItem to={`${base}/classes-ledgers`} icon="coins" label="Classes & ledgers" />
           <MenuItem to={`${base}/accounting-rules`} icon="sliders" label="Accounting rules" />

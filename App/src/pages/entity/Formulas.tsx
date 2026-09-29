@@ -235,13 +235,13 @@ export function FormulaDetail() {
   const formula = data.formulas.find(f => f.id === Number(formulaId));
   if (!formula) return <div className="empty">Formula not found.</div>;
 
+  // Array order (not id) — the engine reads the conditions in this order, so the form must too.
   const conditions = formula.formulaConditionId == null
     ? []
-    : data.conditions
-        .filter(c => c.formulaConditionId === formula.formulaConditionId)
-        .sort((a, b) => (a.id - b.id));
+    : data.conditions.filter(c => c.formulaConditionId === formula.formulaConditionId);
 
   const pseudoOptions = data.pseudoAccounts.filter(p => p.entityCode === entity.ownerCode);
+  const AMOUNT_CODE_CV = 18;
 
   const ensureConditionGroup = (draftFormulaId: number, d: typeof data): number => {
     const f = d.formulas.find(x => x.id === draftFormulaId)!;
@@ -252,28 +252,46 @@ export function FormulaDetail() {
     return nextFc;
   };
 
-  const addRow = (afterId?: number) => {
-    update(d => {
-      const fcId = ensureConditionGroup(formula.id, d);
-      const nextId = Math.max(0, ...d.conditions.map(c => c.id)) + 1;
-      const rows = d.conditions.filter(c => c.formulaConditionId === fcId);
-      const newRow: Condition = {
-        id: nextId, formulaConditionId: fcId, level: rows.length + 1,
-        conditionValueId: d.conditionValues[0]?.id ?? null, value: '',
-        debitPseudoAccountId: null, creditPseudoAccountId: null, operator: null,
-      };
-      if (afterId != null) {
-        const idx = d.conditions.findIndex(c => c.id === afterId);
-        d.conditions.splice(idx + 1, 0, newRow);
-      } else {
-        d.conditions.push(newRow);
-      }
-    });
-  };
+  const newRow = (d: typeof data, fcId: number, level: number, conditionValueId: number | null): Condition => ({
+    id: Math.max(0, ...d.conditions.map(c => c.id)) + 1, formulaConditionId: fcId, level,
+    conditionValueId, value: '', debitPseudoAccountId: null, creditPseudoAccountId: null, operator: null,
+  });
 
-  const removeRow = (id: number) => {
-    update(d => { d.conditions = d.conditions.filter(c => c.id !== id); });
-  };
+  // Add a top-level branch (level 0) at the end of this formula's condition group.
+  const addBranch = () => update(d => {
+    const fcId = ensureConditionGroup(formula.id, d);
+    let insertAt = d.conditions.length;
+    for (let i = d.conditions.length - 1; i >= 0; i--) if (d.conditions[i].formulaConditionId === fcId) { insertAt = i + 1; break; }
+    d.conditions.splice(insertAt, 0, newRow(d, fcId, 0, d.conditionValues[0]?.id ?? null));
+  });
+
+  // Add a sub-condition one level deeper than `parentId`, placed after the parent's descendants.
+  // Works at any depth: an override under a branch, or a further sub-level under that override.
+  const addChild = (parentId: number) => update(d => {
+    const pIdx = d.conditions.findIndex(c => c.id === parentId);
+    if (pIdx < 0) return;
+    const parent = d.conditions[pIdx];
+    const fcId = parent.formulaConditionId;
+    const parentLevel = parent.level ?? 0;
+    let insertAt = pIdx + 1;
+    for (let i = pIdx + 1; i < d.conditions.length; i++) {
+      const c = d.conditions[i];
+      if (c.formulaConditionId !== fcId || (c.level ?? 0) <= parentLevel) break; // past this subtree
+      insertAt = i + 1;
+    }
+    const cvId = d.conditionValues.find(v => v.id === AMOUNT_CODE_CV)?.id ?? d.conditionValues[0]?.id ?? null;
+    d.conditions.splice(insertAt, 0, newRow(d, fcId, parentLevel + 1, cvId));
+  });
+
+  // Remove a row and everything nested under it (any depth).
+  const removeRow = (id: number) => update(d => {
+    const idx = d.conditions.findIndex(c => c.id === id);
+    if (idx < 0) return;
+    const row = d.conditions[idx];
+    let end = idx + 1;
+    while (end < d.conditions.length && d.conditions[end].formulaConditionId === row.formulaConditionId && (d.conditions[end].level ?? 0) > (row.level ?? 0)) end++;
+    d.conditions.splice(idx, end - idx);
+  });
 
   const patchRow = (id: number, patch: Partial<Condition>) => {
     update(d => {
@@ -281,6 +299,45 @@ export function FormulaDetail() {
       if (row) Object.assign(row, patch);
     });
   };
+
+  // Shared controls for one condition row (field / value / debit / credit).
+  const fieldSelect = (c: Condition) => (
+    <select value={c.conditionValueId ?? ''} onChange={e => patchRow(c.id, { conditionValueId: Number(e.target.value) })}>
+      {data.conditionValues.map(v => <option key={v.id} value={v.id}>{v.name}</option>)}
+    </select>
+  );
+  const valueControl = (c: Condition) => {
+    const opts = (data.conditionValueOptions ?? []).filter(o => o.conditionValueId === c.conditionValueId);
+    return opts.length > 0
+      ? (
+        <select value={c.value} onChange={e => patchRow(c.id, { value: e.target.value })} style={{ minWidth: 180 }}>
+          <option value=""></option>
+          {!opts.some(o => o.code === c.value) && c.value && <option value={c.value}>{c.value}</option>}
+          {opts.map(o => <option key={o.code} value={o.code}>{o.code} — {o.description}</option>)}
+        </select>
+      )
+      : <input value={c.value} onChange={e => patchRow(c.id, { value: e.target.value })} style={{ minWidth: 140 }} />;
+  };
+  const acctSelect = (c: Condition, side: 'D' | 'C') => (
+    <select
+      value={(side === 'D' ? c.debitPseudoAccountId : c.creditPseudoAccountId) ?? ''}
+      onChange={e => patchRow(c.id, side === 'D'
+        ? { debitPseudoAccountId: e.target.value === '' ? null : Number(e.target.value) }
+        : { creditPseudoAccountId: e.target.value === '' ? null : Number(e.target.value) })}
+      style={{ minWidth: 150 }}
+    >
+      <option value="">—</option>
+      {pseudoOptions.map(p => <option key={p.id} value={p.id}>{p.pseudo} – {p.description}</option>)}
+    </select>
+  );
+  const condControls = (c: Condition) => (
+    <>
+      <span className="kw">IF</span>{fieldSelect(c)}<span className="kw">=</span>{valueControl(c)}
+      <span className="kw" style={{ marginLeft: 4 }}>Then</span>
+      <span className="muted" style={{ fontSize: 11 }}>Dr</span>{acctSelect(c, 'D')}
+      <span className="muted" style={{ fontSize: 11 }}>Cr</span>{acctSelect(c, 'C')}
+    </>
+  );
 
   return (
     <div>
@@ -307,82 +364,43 @@ export function FormulaDetail() {
 
       <div className="card">
         <h4>Conditions</h4>
-        <table className="cond-table">
-          <thead>
-            <tr>
-              <th style={{ width: 56 }} />
-              <th style={{ width: 26 }} />
-              <th>Condition field</th>
-              <th style={{ width: 20 }} />
-              <th>Value</th>
-              <th style={{ width: 40 }} />
-              <th>Debit account</th>
-              <th>Credit account</th>
-              <th style={{ width: 90 }}>And/Or</th>
-            </tr>
-          </thead>
-          <tbody>
-            {conditions.map(c => (
-              <tr key={c.id}>
-                <td>
-                  <button className="icon-btn add" title="Add row below" onClick={() => addRow(c.id)}><Icon name="plus" size={15} /></button>
-                  <button className="icon-btn del" title="Remove row" onClick={() => removeRow(c.id)}><Icon name="x" size={15} /></button>
-                </td>
-                <td className="kw">IF</td>
-                <td>
-                  <select value={c.conditionValueId ?? ''} onChange={e => patchRow(c.id, { conditionValueId: Number(e.target.value) })}>
-                    {data.conditionValues.map(v => <option key={v.id} value={v.id}>{v.name}</option>)}
-                  </select>
-                </td>
-                <td className="kw">=</td>
-                <td>{(() => {
-                  // If the chosen attribute has configured codes, pick from a code — description combo
-                  // (the code is stored); otherwise keep a free-text value (Customer, Agreement, …).
-                  const opts = (data.conditionValueOptions ?? []).filter(o => o.conditionValueId === c.conditionValueId);
-                  return opts.length > 0
-                    ? (
-                      <select value={c.value} onChange={e => patchRow(c.id, { value: e.target.value })} style={{ width: '100%' }}>
-                        <option value=""></option>
-                        {!opts.some(o => o.code === c.value) && c.value && <option value={c.value}>{c.value}</option>}
-                        {opts.map(o => <option key={o.code} value={o.code}>{o.code} — {o.description}</option>)}
-                      </select>
-                    )
-                    : <input value={c.value} onChange={e => patchRow(c.id, { value: e.target.value })} />;
-                })()}</td>
-                <td className="kw">Then</td>
-                <td>
-                  <select value={c.debitPseudoAccountId ?? ''} onChange={e => patchRow(c.id, { debitPseudoAccountId: e.target.value === '' ? null : Number(e.target.value) })}>
-                    <option value="">—</option>
-                    {pseudoOptions.map(p => <option key={p.id} value={p.id}>{p.pseudo} – {p.description}</option>)}
-                  </select>
-                </td>
-                <td>
-                  <select value={c.creditPseudoAccountId ?? ''} onChange={e => patchRow(c.id, { creditPseudoAccountId: e.target.value === '' ? null : Number(e.target.value) })}>
-                    <option value="">—</option>
-                    {pseudoOptions.map(p => <option key={p.id} value={p.id}>{p.pseudo} – {p.description}</option>)}
-                  </select>
-                </td>
-                <td>
-                  <select value={c.operator ?? ''} onChange={e => patchRow(c.id, { operator: e.target.value || null })}>
-                    <option value=""></option>
-                    <option value="AND">And</option>
-                    <option value="OR">Or</option>
-                  </select>
-                </td>
-              </tr>
-            ))}
-            <tr>
-              <td colSpan={9}>
-                <button className="icon-btn add" title="Add condition row" onClick={() => addRow()}><Icon name="plus" size={15} /></button>
-                {conditions.length === 0 && (
-                  <span className="muted" style={{ marginLeft: 8 }}>
-                    No conditions — the formula books on its default accounts.
-                  </span>
-                )}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <p className="muted" style={{ marginTop: -4, maxWidth: 780, fontSize: 12.5 }}>
+          Branches are checked top to bottom. Within the first branch that matches, each override that
+          matches replaces the account — the most specific match wins. If a branch has an account it is
+          the branch default; if nothing matches, the formula account below is used.
+        </p>
+
+        {conditions.map(c => {
+          const depth = c.level ?? 0;
+          return (
+            <div key={c.id} style={{
+              display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 4,
+              marginLeft: depth * 24, padding: '6px 10px', borderRadius: 8,
+              border: '1px solid var(--line)',
+              background: depth === 0 ? '#f3f0fb' : 'var(--card, transparent)',
+            }}>
+              {depth > 0 && <span style={{ color: 'var(--muted)' }}>↳</span>}
+              {condControls(c)}
+              <span style={{ flex: 1 }} />
+              <span style={{ fontSize: 11, color: 'var(--muted)' }}>{depth === 0 ? 'branch' : `level ${depth}`}</span>
+              <button className="btn small ghost" title="Add a sub-condition nested under this row" onClick={() => addChild(c.id)}><Icon name="plus" size={13} /> sub-level</button>
+              <button className="icon-btn del" title="Remove this row and anything nested under it" onClick={() => removeRow(c.id)}><Icon name="x" size={15} /></button>
+            </div>
+          );
+        })}
+
+        <button className="btn" onClick={addBranch} style={{ marginTop: 4 }}><Icon name="plus" size={14} /> Add branch</button>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 12, padding: '8px 12px', border: '1px dashed var(--line-strong, var(--line))', borderRadius: 8 }}>
+          <span className="kw" style={{ color: 'var(--muted)' }}>OTHERWISE</span>
+          <span className="muted" style={{ fontSize: 12.5 }}>no branch matches →</span>
+          <span style={{ fontSize: 12.5 }}>Dr <b>{formula.debitAccount ?? '—'}</b> · Cr <b>{formula.creditAccount ?? '—'}</b></span>
+          <span style={{ flex: 1 }} />
+          <span style={{ fontSize: 11, color: 'var(--muted)' }}>formula account</span>
+        </div>
+        {conditions.length === 0 && (
+          <p className="muted" style={{ fontSize: 12.5, marginTop: 8 }}>No branches yet — the formula books on its account above. Add a branch to route by a condition.</p>
+        )}
       </div>
 
       {showEdit && (

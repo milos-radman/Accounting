@@ -12,6 +12,7 @@ import {
   recognitionFormulas, recognitionRules,
 } from './data/recognition';
 import { importedPlans } from './data/importedPlans';
+import { openingBalances as seedOpeningBalances, openingPseudoAccounts } from './data/openingBalances';
 import { reconcileGliSerie } from './engine';
 
 const STORAGE_KEY = 'accounting-domain-data-v1';
@@ -112,7 +113,7 @@ function buildInitialData(): AppData {
   const links = pseudoAccountCoaLinks.map(l => ({ ...l, coaNodeId: (linkBase[l.entityCode] ?? 0) + l.coaNodeId }));
   const entities = seed.legalEntities.map(e =>
     withPartyRefs({ ...e, dimensionSeparator: dimensionSeparators[e.id] ?? '', revaluationResultAccount: '420420' }, seed.parties));
-  const accounts = [...seed.pseudoAccounts.map(p => ({ ...p, accountKind: defaultAccountKind(p) })), ...recognitionPseudoAccounts];
+  const accounts = [...seed.pseudoAccounts.map(p => ({ ...p, accountKind: defaultAccountKind(p) })), ...recognitionPseudoAccounts, ...openingPseudoAccounts];
   const allJournals = [...recognitionDemoJournals, ...journals];
   // Each entity's GLI series starts at the latest number used by its seeded journals.
   entities.forEach(e => reconcileGliSerie(e, allJournals));
@@ -134,6 +135,7 @@ function buildInitialData(): AppData {
     revalueAccounts: [], revalueTransactions: [], exportBatches: [],
     ledgerSeries: seedLedgerSeries(), journalEvents: [...demoJournalEvents],
     recognitionCategories, recognitionPlans: [...recognitionPlans, ...importedPlans], recognitionStates: [],
+    openingBalances: seedOpeningBalances,
   };
 }
 
@@ -412,6 +414,19 @@ function loadData(): AppData {
       const f17 = parsed.formulas.find(f => f.id === 17);
       if (f17 && f17.formulaConditionId === 64) f17.formulaConditionId = null;
       parsed.conditions = parsed.conditions.filter(c => c.formulaConditionId !== 64);
+      // migration: normalize condition levels to tree depth (branch = 0, overrides = 1…) so the
+      // override resolver reads them correctly. Depth = order the condition field first appears
+      // within the group (Accounting Type → 0, Amount Code → 1), matching the seed.
+      {
+        const byFc = new Map<number, AppData['conditions']>();
+        for (const c of parsed.conditions) { const a = byFc.get(c.formulaConditionId) ?? []; a.push(c); byFc.set(c.formulaConditionId, a); }
+        for (const arr of byFc.values()) {
+          if (arr.some(c => (c.level ?? 0) === 0)) continue; // already tree-leveled (seed / UI-managed) — leave user branches intact
+          const rank = new Map<number, number>();
+          for (const c of arr) if (c.conditionValueId != null && !rank.has(c.conditionValueId)) rank.set(c.conditionValueId, rank.size);
+          for (const c of arr) c.level = c.conditionValueId != null ? (rank.get(c.conditionValueId) ?? 0) : 0;
+        }
+      }
       parsed.recognitionCategories ??= recognitionCategories;
       // migration: categories predating rule-based accounts / the Cutoff-vs-Straight kind — ensure
       // kind + the system amount type names are present (accounts live on the Monthly Booking rules).
@@ -435,6 +450,11 @@ function loadData(): AppData {
         if (p.goingForward === undefined && (p.source === 'Manual entry' || p.source === 'Activation')) p.goingForward = true;
       }
       parsed.recognitionStates ??= [];
+      // migration: opening balances + the equity account they carry the brought-forward figure on
+      parsed.openingBalances ??= seedOpeningBalances;
+      for (const pa of openingPseudoAccounts) {
+        if (!parsed.pseudoAccounts.some(p => p.entityCode === pa.entityCode && p.pseudo === pa.pseudo)) parsed.pseudoAccounts.push(pa);
+      }
       for (const j of recognitionDemoJournals) {
         if (!parsed.journals.some(x => x.gliNumber === j.gliNumber)) parsed.journals.unshift(j);
       }

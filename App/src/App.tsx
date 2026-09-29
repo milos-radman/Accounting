@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { StoreProvider } from './store';
 import { TopNav } from './components/Chrome';
 import { TrailProvider } from './components/trail';
+import { AskClaude } from './components/AskClaude';
 import Dashboard from './pages/Dashboard';
 import LegalEntityList from './pages/LegalEntityList';
 import EntityLayout from './pages/entity/EntityLayout';
@@ -9,6 +10,7 @@ import EntityInfo from './pages/entity/EntityInfo';
 import Integration from './pages/entity/Integration';
 import ChartOfAccountPage from './pages/entity/ChartOfAccountPage';
 import PseudoAccounts from './pages/entity/PseudoAccounts';
+import OpeningBalances from './pages/entity/OpeningBalances';
 import Dimensions from './pages/entity/Dimensions';
 import Accruals from './pages/entity/Accruals';
 import Formulas, { FormulaDetail } from './pages/entity/Formulas';
@@ -38,6 +40,7 @@ export default function App() {
       <HashRouter>
         <TrailProvider>
         <TopNav />
+        <AskClaude />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/legal-entity" element={<LegalEntityList />} />
@@ -46,6 +49,7 @@ export default function App() {
             <Route path="integration" element={<Integration />} />
             <Route path="chart-of-account" element={<ChartOfAccountPage />} />
             <Route path="pseudo-account" element={<PseudoAccounts />} />
+            <Route path="opening-balances" element={<OpeningBalances />} />
             <Route path="dimensions" element={<Dimensions />} />
             <Route path="accruals" element={<Accruals />} />
             <Route path="recognition" element={<Recognition />} />

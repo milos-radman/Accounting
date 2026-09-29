@@ -698,6 +698,11 @@ export interface Journal {
   // For a reversal journal (e.g. Credit Invoicing): the GLI of the journal it reverses. The
   // original journal is "reversed by" whichever journal points at it.
   reversesGli?: number;
+  // True for the "Balance brought forward" journal a year-end close posts on the first day of the
+  // new year. It carries the opening positions into the ledger for visibility; reports read the
+  // openingBalances table (the source of truth), so this journal is EXCLUDED from statement
+  // aggregation to avoid double-counting the opening.
+  broughtForward?: boolean;
 }
 
 // One GL integration for a legal entity: both the delivery config (file/location/schedule) and
@@ -861,4 +866,21 @@ export interface AppData extends SeedData {
   recognitionCategories: RecognitionCategory[];
   recognitionPlans: RecognitionPlan[];
   recognitionStates: RecognitionState[];
+  openingBalances: OpeningBalance[];
+}
+
+// Opening (brought-forward) balance for one account, per legal entity + ledger + fiscal year.
+// The position as of the first day of that fiscal year (derived from the entity's
+// fiscalYearStartMonth). Debit/credit mirror JournalLine so trial balance / balance sheet
+// aggregation is uniform. Normally set on Balance accounts only — P&L accounts open at zero.
+// An opening set should balance: sum(debit) === sum(credit) per entity + ledger + fiscal year.
+export interface OpeningBalance {
+  id: number;
+  entityCode: string;
+  ledger: string;       // e.g. 'Local Legal' | 'US GAAP'
+  fiscalYear: number;   // the fiscal year this is the opening position for (label year)
+  pseudoAccount: string;
+  description: string;
+  debit: number;        // base (reporting) currency
+  credit: number;
 }
