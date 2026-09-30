@@ -1,12 +1,18 @@
 # Dependencies & build output (App/.gitignore also covers these; repeated here for safety)
 node_modules/
 **/node_modules/
+**/bin/
+**/obj/
 dist/
 **/dist/
 dist-ssr/
 *.local
 Documents/ArchivedService/BuildOutput/
 *.log
+Deploy/.env
+Deploy/*.zip
+Deploy/appsettings.Production.json
+Deploy/publish*/
 
 # OS / OneDrive / Office temp files
 Thumbs.db

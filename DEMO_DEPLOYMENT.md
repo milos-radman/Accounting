@@ -9,10 +9,11 @@ Build a flexible, presentable accounting demo that preserves the existing React 
 workflows, separates business behavior from UI code where practical, and saves its working
 state in Microsoft SQL Server.
 
-Keep it simple: the React UI, TypeScript business modules, Node web host, and SQL data access
-belong to the **App project** and deploy as one web app. Browser code cannot connect safely to
-SQL Server, so the same Node process handles the small same-origin data requests. Do not create
-or deploy a separate API/service. `Service/` is archived and out of active development scope.
+Keep it simple: the React UI, TypeScript business modules, web host, and SQL data access belong to
+the **App project** and deploy as one web app. Node hosts local/Docker use; ASP.NET Core hosts the
+IIS package. Browser code cannot connect safely to SQL Server, so the same-origin data requests
+stay inside the app process. Do not create or deploy a separate API/service. `Service/` is archived
+and out of active development scope.
 
 The demo is for one trusted user at a time. A single JSON state snapshot is an intentional
 shortcut that preserves flexibility while the prototype changes. Do not add multi-user,
@@ -32,8 +33,8 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
 | B4 | Keep the App setup and container path simple | **DONE** | One App compose setup starts SQL Server and the web app; compose configuration resolves. |
 | B5 | Verify the App build and a manual persistence workflow | **DONE** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. Browser seed, edit-to-SQL, and reset-to-seed are verified. API save/load and persistence after App restart also pass. |
 | B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
-| C1 | Prepare IIS deployment for the single App host | **IN PROGRESS** | IIS and WAS are running and the ASP.NET Core Module V2 binary is installed. The current shell is not elevated, so IIS configuration cannot be read or changed yet. |
-| C2 | Deploy App to IIS and verify SQL persistence there | **NOT STARTED** | Configure IIS to host the single App Node process and connect it to SQL Server; then verify seed/edit/reload/reset there. Keep access limited to trusted demo users while the browser-based AI key flow remains enabled. |
+| C1 | Prepare IIS deployment for the single App host | **DONE** | Self-contained ASP.NET Core 8 out-of-process host targets the existing `No Managed Code` IIS pool and avoids server runtime dependencies. Current app URL is `http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting`; database `DEMO_Accounting` is on SQL Server `AZS-PFSDEV-07.credit-dev.com`. The ASP.NET Core Module is still required. |
+| C2 | Deploy App to IIS and verify SQL persistence there | **IN PROGRESS** | The user reports the app is now hosted at `http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting`. The database and snapshot table were provisioned; verify the hosted health endpoint and seed/edit/reload/reset against SQL. The supplied SQL login is sysadmin, so use an app-only login before broader exposure. |
 | D1 | Make project tracking easier to resume | **PLANNED** | Keep this file as the only tracker; organize it around one active task, a short ordered next list, backlog, decisions, and dated results with verification. |
 | D2 | Add contextual in-app help | **PLANNED** | Add offline, screen-aware user help for each major area. Feature work must add or review its help entry; require help metadata for new screens. Keep this separate from the optional AI assistant. |
 | D3 | Improve snapshot maintenance when data shapes change | **PLANNED** | Keep the flexible SQL JSON snapshot. When its shape next changes, add an explicit version and ordered migration; consider backup/export and a retry action for save failures. |
@@ -59,7 +60,7 @@ The first help version should explain each major screen's purpose, how to use it
 | UI | `App/src/` | React screens and user interaction |
 | Business | `App/src/business/` | Booking engine and accounting demo workflows |
 | Data | `App/server/data/`, `App/src/data/` | SQL snapshot persistence and UI data client/reference data |
-| Host | `App/server/` | Serves the built UI and its same-origin data requests in one process |
+| Host | `App/server/`, `App/Host/` | Node/Express host for local/Docker; self-contained C# ASP.NET Core 8 out-of-process host for IIS. Each serves the built UI and same-origin SQL requests in one process. |
 
 ## Repository layout
 
@@ -80,6 +81,7 @@ The first help version should explain each major screen's purpose, how to use it
 | 2026-09-30 | Keep UI, business, and data access in one App project and one deployable process | Keep setup and evolution simple. The browser uses same-origin requests handled by the App's own Node host; no separately deployed API/service. |
 | 2026-09-30 | Keep `DEMO_DEPLOYMENT.md` as the sole planning and work-history file | Preserve current status and decision history without parallel TODO documents. |
 | 2026-09-30 | Update the root README in the same development change when setup, capabilities, or behavior changes | Keep the GitHub landing page aligned with the working demo. AI instructions make this part of every development task. |
+| 2026-09-30 | Use self-contained ASP.NET Core out-of-process hosting in the IIS package while retaining Node for local/Docker workflows | The IIS server cannot receive machine-level changes. Bundle the app runtime and avoid the unavailable in-process handler; IIS's ASP.NET Core Module remains required. |
 
 ## Earlier work (before the App-only direction)
 
@@ -104,7 +106,36 @@ The first help version should explain each major screen's purpose, how to use it
 - **2026-09-30** — Verified the user's Accounting Class edit in SQL: record `PF-Agreement` changed
   to `PF-Agreement 1`; the user triggered reset and SQL returned it to `PF-Agreement`. The valid
   seeded snapshot remains in place. This completes the App SQL persistence workflow.
-- **Next** — Prepare and deploy the single App host on IIS with SQL Server. IIS and WAS are running
-  and the ASP.NET Core Module V2 binary exists, but IIS configuration access failed because this
-  shell is not elevated. Continue after an elevated IIS session is available. After deployment,
-  follow D1-D5 in the planned work order above.
+- **2026-09-30** — Prepared deployment for SQL database `DEMO_Accounting` and IIS site
+  `DEMO_Accounting`. Added a rerunnable SQL migration script and a ZIP with the target connection
+  settings. The package is ignored by Git because it contains credentials. `DB_AUTO_CREATE=false`
+  avoids database/schema permissions at app runtime. Ran the migration script twice against
+  `AZS-PFSDEV-07.credit-dev.com`; both runs succeeded and the migration ledger contains one
+  initial migration. The supplied SQL login is a sysadmin. IIS hosting mode/path and authenticated
+  remote deployment access still need discovery.
+- **2026-09-30** — User supplied IIS folder `F:\_WebSites\DEMO_Apps\Accounting` on
+  `azs-pfwdev-02.credit-dev.com`. The F$ share is not accessible with the current Windows session;
+  WinRM is reachable but unauthenticated. The root URL returns IIS 404, so the app is not yet
+  serving from the site.
+- **2026-09-30** — Retried the user's `file://AZS-PFWDEV-02/_WebSites/DEMO_Apps/Accounting` path.
+  The short hostname doesn't resolve from this session, and the `_WebSites` share is unavailable
+  through the server FQDN/IP; no server files were changed.
+- **2026-09-30** — Rebuilt `Deploy/accounting-demo-deploy.zip` with Windows' ZIP creator after
+  the user reported an extraction error. Windows `Expand-Archive` extracted the prior archive;
+  the replacement opens with 12,722 entries and every entry stream reads successfully.
+- **2026-09-30** — The user confirmed IIS app `DEMO_Accounting`, app pool `DEMO_Accounting`,
+  `No Managed Code`, no URL Rewrite/web.config/Node/npm. The server already hosts .NET 10 apps and
+  cannot be changed, so the deployable host is being moved to ASP.NET Core 10 within the App.
+- **2026-09-30** — Built the ASP.NET Core 10 host and package. The user reported that the server's
+  runtime list contains .NET 8 but not .NET 10 and that IIS cannot load the in-process handler.
+- **2026-09-30** — Retargeted the IIS host to self-contained .NET 8 out-of-process to avoid both
+  the unavailable .NET 10 runtime and failing in-process handler. The refreshed 48 MB ZIP passes
+  integrity checks and includes the app-local runtime; IIS's ASP.NET Core Module is still required.
+- **2026-09-30** — The user reported startup failure from a literal `\n` suffix in the generated
+  `appsettings.Production.json`. Regenerated the file without the suffix, validated the JSON in
+  the published folder and ZIP, and rechecked the 367-entry archive.
+- **2026-09-30** — The user reports that the app is now hosted at
+  `http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting`; this is also the SQL Server host for
+  database `DEMO_Accounting`. Updated the App README with the deployment address and technology
+  stack. End-to-end SQL persistence at the hosted URL remains to be confirmed.
+- **Next** — Verify the hosted health endpoint and SQL load/save/reset. Then follow D1-D5 above.

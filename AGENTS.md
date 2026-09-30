@@ -18,12 +18,13 @@ progress log current as work proceeds. Do not add another plan, status, or TODO 
 - `App/src/` — React and TypeScript UI.
 - `App/src/business/` — accounting rules and demo business workflows.
 - `App/src/data/` — seed/reference data and the browser-to-app data client.
-- `App/server/data/` — SQL Server persistence.
-- `App/server/` — the Node web host that serves the UI and handles same-origin data requests.
+- `App/server/data/` — SQL Server persistence for the Node development host.
+- `App/server/` — the Node web host used by local development and Docker.
+- `App/Host/` — the ASP.NET Core host used by the IIS deployment package.
 
-The UI and Node host are one App project and one deployable process. Keep SQL credentials on
-the server. Do not connect browser code directly to SQL Server or add a separately deployed
-API/service.
+The UI and its host are one App project and one deployable process in each environment: Node for
+local development/Docker and ASP.NET Core for IIS. Keep SQL credentials on the server. Do not
+connect browser code directly to SQL Server or add a separately deployed API/service.
 
 ## Working rules
 

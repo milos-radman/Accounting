@@ -20,22 +20,27 @@ const baseConfig = {
 export async function connectStore() {
   if (!baseConfig.password) throw new Error('Set DB_PASSWORD before starting the demo.');
 
-  const master = await new sql.ConnectionPool({ ...baseConfig, database: 'master' }).connect();
-  try {
-    await master.request().query(`IF DB_ID(N'${databaseName}') IS NULL CREATE DATABASE [${databaseName}]`);
-  } finally {
-    await master.close();
+  const autoCreateDatabase = process.env.DB_AUTO_CREATE !== 'false';
+  if (autoCreateDatabase) {
+    const master = await new sql.ConnectionPool({ ...baseConfig, database: 'master' }).connect();
+    try {
+      await master.request().query(`IF DB_ID(N'${databaseName}') IS NULL CREATE DATABASE [${databaseName}]`);
+    } finally {
+      await master.close();
+    }
   }
 
   const pool = await new sql.ConnectionPool({ ...baseConfig, database: databaseName }).connect();
-  await pool.request().query(`
-    IF OBJECT_ID(N'dbo.DemoAppState', N'U') IS NULL
-      CREATE TABLE dbo.DemoAppState (
-        StateKey nvarchar(100) NOT NULL CONSTRAINT PK_DemoAppState PRIMARY KEY,
-        StateJson nvarchar(max) NOT NULL,
-        UpdatedAt datetime2(7) NOT NULL CONSTRAINT DF_DemoAppState_UpdatedAt DEFAULT SYSUTCDATETIME()
-      )
-  `);
+  if (autoCreateDatabase) {
+    await pool.request().query(`
+      IF OBJECT_ID(N'dbo.DemoAppState', N'U') IS NULL
+        CREATE TABLE dbo.DemoAppState (
+          StateKey nvarchar(100) NOT NULL CONSTRAINT PK_DemoAppState PRIMARY KEY,
+          StateJson nvarchar(max) NOT NULL,
+          UpdatedAt datetime2(7) NOT NULL CONSTRAINT DF_DemoAppState_UpdatedAt DEFAULT SYSUTCDATETIME()
+        )
+    `);
+  }
   return pool;
 }
 
