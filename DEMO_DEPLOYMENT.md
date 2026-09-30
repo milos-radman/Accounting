@@ -26,11 +26,11 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
 | A1 | Archive non-demo repo material under `Documents/` | **DONE** | Service, message contract, compose/deployment files, domain references, and legacy orientation are preserved. Root now contains App and files needed to build, guide, and document it. |
 | A2 | Keep `AGENTS.md` and one work log | **DONE** | Root `AGENTS.md` gives AI working rules; this file tracks past/current/future work. |
 | A3 | Document the single App project and keep README current | **DONE** | `App/README.md` is the source; the npm dev/build/lint/start lifecycle syncs the GitHub root README. AGENTS.md and Copilot instructions require updating the source README with behavior/setup changes. |
-| B1 | Build the App-owned SQL persistence layer | **IN PROGRESS** | Node host serves the React build; SQL data module creates a demo database/table and loads/saves a JSON snapshot. |
+| B1 | Build the App-owned SQL persistence layer | **DONE** | Node host serves the React build; SQL data module creates a demo database/table and loads/saves a JSON snapshot. Runtime smoke confirmed API round-trip and persistence after restarting the App container. |
 | B2 | Separate the main business modules from UI files | **DONE** | Booking, accrual, recognition, and revaluation modules are grouped under `App/src/business/`; the App TypeScript build passes. |
-| B3 | Load, save, and reset state through SQL | **IN PROGRESS** | SQL load/save, one-time browser-state import, reset, and save status are implemented. Manual persistence verification still needs SQL Server running. |
+| B3 | Load, save, and reset state through SQL | **IN PROGRESS** | SQL load/save, one-time browser-state import, reset, and save status are implemented. API round-trip and restart persistence pass; React UI seed/edit/reset workflow remains to be checked. |
 | B4 | Keep the App setup and container path simple | **DONE** | One App compose setup starts SQL Server and the web app; compose configuration resolves. |
-| B5 | Verify the App build and a manual persistence workflow | **BLOCKED** | App build and Node syntax checks pass. Docker engine is stopped; starting its Windows service returned Access Denied. Still need seed load, edit/save, reload, and reset against SQL Server. |
+| B5 | Verify the App build and a manual persistence workflow | **IN PROGRESS** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. API state endpoint returns 204 when empty and saved snapshots survive App restart. Browser automation is unavailable in this session, so frontend seed/edit/reset remains unverified. |
 | B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
 
 ## App layers
@@ -78,7 +78,9 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
   revaluation modules into `App/src/business/`. Root README now regenerates from `App/README.md`
   on the normal npm dev/build/lint/start commands. `npm run build`, Node syntax checks, Docker
   compose config, `npm run lint`, and `git diff --check` pass. The build/lint report existing
-  chunk-size and hook/fast-refresh warnings. Docker could not start because the Docker engine
-  service returned Access Denied.
-- **Next** — Start Docker Desktop/engine, then perform the manual SQL persistence workflow
-  (initial seed, edit/save, browser reload, reset). Update this log with the results.
+  chunk-size and hook/fast-refresh warnings. The initial compose healthcheck quoting prevented
+  SQL login; corrected it to expand the container password safely. Docker App + SQL containers
+  now run healthy. API smoke checks confirmed an empty-state response, snapshot round-trip, and
+  snapshot persistence after restarting the App container; removed the probe row afterward.
+- **Next** — Verify frontend seed, edit/save, reload, and reset against SQL Server, then finish
+  B3/B5. Browser automation returned a transport error, so retry with an available browser.
