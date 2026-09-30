@@ -28,9 +28,9 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
 | A3 | Document the single App project and keep README current | **DONE** | `App/README.md` is the source; the npm dev/build/lint/start lifecycle syncs the GitHub root README. AGENTS.md and Copilot instructions require updating the source README with behavior/setup changes. |
 | B1 | Build the App-owned SQL persistence layer | **DONE** | Node host serves the React build; SQL data module creates a demo database/table and loads/saves a JSON snapshot. Runtime smoke confirmed API round-trip and persistence after restarting the App container. |
 | B2 | Separate the main business modules from UI files | **DONE** | Booking, accrual, recognition, and revaluation modules are grouped under `App/src/business/`; the App TypeScript build passes. |
-| B3 | Load, save, and reset state through SQL | **IN PROGRESS** | First browser load created one valid 646 KB SQL snapshot from seeded state. API round-trip and restart persistence pass; browser edit/reload and reset remain to be checked. |
+| B3 | Load, save, and reset state through SQL | **IN PROGRESS** | First browser load created one valid 646 KB SQL snapshot from seeded state. A browser edit changed Accounting Class `PF-Agreement` to `PF-Agreement 1` in SQL; API round-trip and restart persistence pass. Reset remains to be checked. |
 | B4 | Keep the App setup and container path simple | **DONE** | One App compose setup starts SQL Server and the web app; compose configuration resolves. |
-| B5 | Verify the App build and a manual persistence workflow | **IN PROGRESS** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. First browser load seeded valid JSON; API save/load and restart persistence pass. Browser edit/reload and reset remain unverified. |
+| B5 | Verify the App build and a manual persistence workflow | **IN PROGRESS** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. First browser load seeded valid JSON, and a browser edit was confirmed in SQL. API save/load and restart persistence pass. Reset remains unverified. |
 | B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
 
 ## App layers
@@ -86,3 +86,6 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
   B3/B5. The user opened the app in a browser on 2026-09-30; SQL now contains one valid 646 KB
   seeded snapshot. Requested a temporary Accounting Class description edit and browser reload to
   verify persistence, then reset behavior. Browser automation transport remains unavailable.
+- **2026-09-30** — Verified the user's Accounting Class edit in SQL: record `PF-Agreement` now has
+  description `PF-Agreement 1`. Reset-to-seed remains the last persistence workflow to verify;
+  leave it for the user to trigger because it discards saved demo changes.
