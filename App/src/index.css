@@ -455,3 +455,14 @@ input[type='checkbox'] { accent-color: var(--purple); width: 15px; height: 15px;
   background: var(--green-soft); color: var(--green);
 }
 .pill.inactive { background: var(--red-soft); color: var(--red-text); }
+
+.failure-page { min-height: 100%; display: grid; place-items: center; padding: 24px; background: var(--bg); }
+.failure-card { width: min(100%, 680px); padding: 32px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-md); }
+.failure-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--amber-soft); color: var(--amber-text); font-size: 22px; font-weight: 700; }
+.failure-kicker { margin: 18px 0 5px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.failure-card h1 { margin: 0; font-size: 23px; }
+.failure-card > p:not(.failure-kicker) { margin: 10px 0 20px; color: var(--text); line-height: 1.6; }
+.failure-details { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.failure-details summary { color: var(--purple-strong); font-weight: 650; cursor: pointer; }
+.failure-details p { color: var(--muted); line-height: 1.5; }
+.failure-details pre { max-height: 320px; overflow: auto; padding: 14px; border-radius: 8px; background: #f4f2f8; color: var(--ink); font: 11px/1.5 Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }

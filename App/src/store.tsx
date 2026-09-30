@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { AppData, SeedData, CoaNode, EntityCoaNode, AccountKind, PseudoAccount, Party, PartyRef, LegalEntity, Integration, JournalPostedEvent } from './types';
 import { loadDemoState, saveDemoState } from './data/demoState';
+import { AppFailure } from './components/AppFailure';
 import seedJson from './data/seed.json';
 import {
   extAccountValues, extAccountParts, journals, integrations, pseudoAccountCoaLinks, dimensionSeparators, accrualCodes,
@@ -548,7 +549,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => { dataRef.current = data; }, [data]);
   const [activityLog, setActivityLog] = useState<ActivityEntry[]>(() => seedActivity(data));
   const [ready, setReady] = useState(false);
-  const [loadError, setLoadError] = useState('');
+  const [loadError, setLoadError] = useState<Error | null>(null);
   const [retry, setRetry] = useState(0);
   const [saveStatus, setSaveStatus] = useState<'saving' | 'saved' | 'error'>('saved');
 
@@ -564,10 +565,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         dataRef.current = initial;
         setData(initial);
         setActivityLog(seedActivity(initial));
-        setLoadError('');
+        setLoadError(null);
         setReady(true);
       } catch (error) {
-        if (!cancelled) setLoadError(error instanceof Error ? error.message : 'Could not connect to the demo database.');
+        if (!cancelled) setLoadError(error instanceof Error ? error : new Error('Could not connect to the demo database.'));
       }
     };
     void initialize();
@@ -605,11 +606,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   };
 
   if (loadError) {
-    return <main style={{ padding: 32, fontFamily: 'system-ui' }}>
-      <h1>Demo database unavailable</h1>
-      <p>{loadError}</p>
-      <button onClick={() => { setLoadError(''); setRetry(value => value + 1); }}>Retry connection</button>
-    </main>;
+    return <AppFailure error={loadError} onRetry={() => { setLoadError(null); setRetry(value => value + 1); }} />;
   }
   if (!ready) return <main style={{ padding: 32, fontFamily: 'system-ui' }}>Connecting to the demo database…</main>;
 

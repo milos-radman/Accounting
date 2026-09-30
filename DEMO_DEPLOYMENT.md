@@ -35,6 +35,7 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
 | B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
 | C1 | Prepare IIS deployment for the single App host | **DONE** | Self-contained ASP.NET Core 8 out-of-process host targets the existing `No Managed Code` IIS pool and avoids server runtime dependencies. Current app URL is `http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting`; database `DEMO_Accounting` is on SQL Server `AZS-PFSDEV-07.credit-dev.com`. The ASP.NET Core Module is still required. |
 | C2 | Deploy App to IIS and verify SQL persistence there | **IN PROGRESS** | The user reports the app is now hosted at `http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting`. The database and snapshot table were provisioned; verify the hosted health endpoint and seed/edit/reload/reset against SQL. The supplied SQL login is sysadmin, so use an app-only login before broader exposure. |
+| C3 | Show friendly startup and database diagnostics | **DONE** | SQL connectivity is checked on the first data request so an unavailable database no longer prevents the UI from loading. Database and React startup errors show a friendly retry screen with expandable, copyable diagnostics; IIS process-start errors map to a static fallback that points to Event Viewer. Server passwords are redacted. |
 | D1 | Make project tracking easier to resume | **PLANNED** | Keep this file as the only tracker; organize it around one active task, a short ordered next list, backlog, decisions, and dated results with verification. |
 | D2 | Add contextual in-app help | **PLANNED** | Add offline, screen-aware user help for each major area. Feature work must add or review its help entry; require help metadata for new screens. Keep this separate from the optional AI assistant. |
 | D3 | Improve snapshot maintenance when data shapes change | **PLANNED** | Keep the flexible SQL JSON snapshot. When its shape next changes, add an explicit version and ordered migration; consider backup/export and a retry action for save failures. |
@@ -138,4 +139,10 @@ The first help version should explain each major screen's purpose, how to use it
   `http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting`; this is also the SQL Server host for
   database `DEMO_Accounting`. Updated the App README with the deployment address and technology
   stack. End-to-end SQL persistence at the hosted URL remains to be confirmed.
+- **2026-09-30** — Added friendly app startup and database error handling. IIS and Node hosts no
+  longer require a successful SQL connection before serving the UI. The error page offers retry,
+  expandable/copyable browser and server diagnostics, and reports are scrubbed for passwords.
+  React render/start errors use the same page. The IIS package maps ASP.NET Core 500.30 and 502.5
+  process-start failures to a static friendly page; the server exception itself still has to be
+  retrieved from the matching Windows Application event log entry.
 - **Next** — Verify the hosted health endpoint and SQL load/save/reset. Then follow D1-D5 above.

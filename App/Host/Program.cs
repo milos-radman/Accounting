@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Server.IIS;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -12,27 +13,31 @@ builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 
 
 var database = builder.Configuration.GetSection("Database");
 var databasePassword = database["Password"];
-if (string.IsNullOrWhiteSpace(databasePassword))
-    throw new InvalidOperationException("Database:Password must be configured.");
-
 var connectionString = new SqlConnectionStringBuilder
 {
     DataSource = $"{database["Server"] ?? "localhost"},{database.GetValue("Port", 1433)}",
     InitialCatalog = database["Name"] ?? "AccountingDemo",
     UserID = database["User"] ?? "sa",
-    Password = databasePassword,
+    Password = databasePassword ?? string.Empty,
     Encrypt = database.GetValue("Encrypt", false),
     TrustServerCertificate = database.GetValue("TrustServerCertificate", true),
 }.ConnectionString;
-await using (var connection = new SqlConnection(connectionString))
-    await connection.OpenAsync();
 
 var app = builder.Build();
 app.UseExceptionHandler(handler => handler.Run(async context =>
 {
-    app.Logger.LogError(context.Features.Get<IExceptionHandlerFeature>()?.Error, "The demo SQL request failed.");
+    var error = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+    var diagnosticId = Guid.NewGuid().ToString("N");
+    app.Logger.LogError(error, "The demo request failed. Diagnostic ID: {DiagnosticId}", diagnosticId);
     context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-    await context.Response.WriteAsJsonAsync(new { message = "The demo could not save or load its SQL data." });
+    var details = error?.ToString() ?? "No exception details were captured.";
+    details = Regex.Replace(details, "(?im)(password|pwd)\\s*=.*$", "$1=[REDACTED]");
+    await context.Response.WriteAsJsonAsync(new
+    {
+        message = "The demo could not load or save its data. The database may be unavailable; please retry in a moment.",
+        diagnosticId,
+        details = new { timeUtc = DateTime.UtcNow, method = context.Request.Method, path = context.Request.Path.Value, exception = details },
+    });
 }));
 app.UseDefaultFiles();
 app.UseStaticFiles();

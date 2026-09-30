@@ -75,8 +75,12 @@ once when the SQL snapshot is first created; after that, SQL Server is the durab
 **Settings → Reset data** page restores seeded defaults and saves them to SQL Server.
 
 The app saves the full state after edits. A status indicator shows whether the latest snapshot
-was saved. If the database is unavailable at startup, the UI waits for a successful connection
-and offers a retry.
+was saved. If SQL Server is unavailable, the host still serves the UI and the app shows a friendly
+connection message with retry. Expand **Technical details for support or AI** to copy the browser
+and server diagnostic report; database passwords are redacted. Unexpected React startup errors
+use the same friendly report. The IIS package also maps common ASP.NET Core process-start failures
+to a static friendly page with copyable time, URL, and browser details; include the matching
+ASP.NET Core Module event from Windows Application logs for the server exception.
 
 ## Main workflows
 

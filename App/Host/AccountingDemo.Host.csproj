@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.0" />
     <Content Include="../../Deploy/appsettings.Production.json" Link="appsettings.Production.json" CopyToPublishDirectory="Always" Condition="Exists('../../Deploy/appsettings.Production.json')" />
+    <Content Include="host-start-error.html" CopyToPublishDirectory="Always" />
     <Content Include="../dist/**" Link="wwwroot/%(RecursiveDir)%(Filename)%(Extension)" CopyToPublishDirectory="PreserveNewest" Condition="Exists('../dist/index.html')" />
   </ItemGroup>
 </Project>
