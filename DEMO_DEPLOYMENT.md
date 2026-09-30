@@ -30,7 +30,7 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
 | B2 | Separate the main business modules from UI files | **DONE** | Booking, accrual, recognition, and revaluation modules are grouped under `App/src/business/`; the App TypeScript build passes. |
 | B3 | Load, save, and reset state through SQL | **IN PROGRESS** | SQL load/save, one-time browser-state import, reset, and save status are implemented. API round-trip and restart persistence pass; React UI seed/edit/reset workflow remains to be checked. |
 | B4 | Keep the App setup and container path simple | **DONE** | One App compose setup starts SQL Server and the web app; compose configuration resolves. |
-| B5 | Verify the App build and a manual persistence workflow | **IN PROGRESS** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. API state endpoint returns 204 when empty and saved snapshots survive App restart. Browser automation is unavailable in this session, so frontend seed/edit/reset remains unverified. |
+| B5 | Verify the App build and a manual persistence workflow | **IN PROGRESS** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. API state endpoint returns 204 when empty and saved snapshots survive App restart. UI serves successfully; browser automation transport remains unavailable, so frontend seed/edit/reset remains unverified. |
 | B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
 
 ## App layers
@@ -83,4 +83,6 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
   now run healthy. API smoke checks confirmed an empty-state response, snapshot round-trip, and
   snapshot persistence after restarting the App container; removed the probe row afterward.
 - **Next** — Verify frontend seed, edit/save, reload, and reset against SQL Server, then finish
-  B3/B5. Browser automation returned a transport error, so retry with an available browser.
+  B3/B5. Re-tried browser automation on 2026-09-30; its transport still closes before browser
+  access. Inspected the store path: empty SQL loads seed state and saves it; edits and reset queue
+  SQL saves. Live UI interaction remains the one unverified step.
