@@ -28,10 +28,12 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
 | A3 | Document the single App project and keep README current | **DONE** | `App/README.md` is the source; the npm dev/build/lint/start lifecycle syncs the GitHub root README. AGENTS.md and Copilot instructions require updating the source README with behavior/setup changes. |
 | B1 | Build the App-owned SQL persistence layer | **DONE** | Node host serves the React build; SQL data module creates a demo database/table and loads/saves a JSON snapshot. Runtime smoke confirmed API round-trip and persistence after restarting the App container. |
 | B2 | Separate the main business modules from UI files | **DONE** | Booking, accrual, recognition, and revaluation modules are grouped under `App/src/business/`; the App TypeScript build passes. |
-| B3 | Load, save, and reset state through SQL | **IN PROGRESS** | First browser load created one valid 646 KB SQL snapshot from seeded state. A browser edit changed Accounting Class `PF-Agreement` to `PF-Agreement 1` in SQL; API round-trip and restart persistence pass. Reset remains to be checked. |
+| B3 | Load, save, and reset state through SQL | **DONE** | First browser load created one valid 646 KB SQL snapshot from seeded state. A browser edit changed Accounting Class `PF-Agreement` to `PF-Agreement 1` in SQL; reset restored `PF-Agreement`. API round-trip and persistence after App restart also pass. |
 | B4 | Keep the App setup and container path simple | **DONE** | One App compose setup starts SQL Server and the web app; compose configuration resolves. |
-| B5 | Verify the App build and a manual persistence workflow | **IN PROGRESS** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. First browser load seeded valid JSON, and a browser edit was confirmed in SQL. API save/load and restart persistence pass. Reset remains unverified. |
+| B5 | Verify the App build and a manual persistence workflow | **DONE** | Build/lint and Node syntax checks pass; Docker App + SQL Server are healthy. Browser seed, edit-to-SQL, and reset-to-seed are verified. API save/load and persistence after App restart also pass. |
 | B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
+| C1 | Prepare IIS deployment for the single App host | **IN PROGRESS** | IIS and WAS are running and the ASP.NET Core Module V2 binary is installed. The current shell is not elevated, so IIS configuration cannot be read or changed yet. |
+| C2 | Deploy App to IIS and verify SQL persistence there | **NOT STARTED** | After IIS access is available, configure IIS to host the App Node process and point it at the target SQL Server; then repeat seed/edit/reload/reset smoke checks. |
 
 ## App layers
 
@@ -82,10 +84,9 @@ requires it. Keep SQL persistence real and preserve the demo's business behavior
   SQL login; corrected it to expand the container password safely. Docker App + SQL containers
   now run healthy. API smoke checks confirmed an empty-state response, snapshot round-trip, and
   snapshot persistence after restarting the App container; removed the probe row afterward.
-- **Next** — Verify frontend seed, edit/save, reload, and reset against SQL Server, then finish
-  B3/B5. The user opened the app in a browser on 2026-09-30; SQL now contains one valid 646 KB
-  seeded snapshot. Requested a temporary Accounting Class description edit and browser reload to
-  verify persistence, then reset behavior. Browser automation transport remains unavailable.
-- **2026-09-30** — Verified the user's Accounting Class edit in SQL: record `PF-Agreement` now has
-  description `PF-Agreement 1`. Reset-to-seed remains the last persistence workflow to verify;
-  leave it for the user to trigger because it discards saved demo changes.
+- **2026-09-30** — Verified the user's Accounting Class edit in SQL: record `PF-Agreement` changed
+  to `PF-Agreement 1`; the user triggered reset and SQL returned it to `PF-Agreement`. The valid
+  seeded snapshot remains in place. This completes the App SQL persistence workflow.
+- **Next** — Prepare and deploy the single App host on IIS with SQL Server. IIS and WAS are running
+  and the ASP.NET Core Module V2 binary exists, but IIS configuration access failed because this
+  shell is not elevated. Continue after an elevated IIS session is available.
