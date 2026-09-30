@@ -1,4 +1,4 @@
-import type { AccountingEvent, AppData, Condition, ExtAccountPart, Formula, Journal, JournalLine, LegalEntity, OpeningBalance, PendingMessage, PseudoAccount } from './types';
+import type { AccountingEvent, AppData, Condition, ExtAccountPart, Formula, Journal, JournalLine, LegalEntity, OpeningBalance, PendingMessage, PseudoAccount } from '../types';
 
 // The booking engine: takes an event message (as another domain would send it)
 // and resolves accounting rules -> formulas -> conditions -> pseudo accounts

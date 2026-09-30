@@ -4,8 +4,8 @@ import { useStore, formatAmount } from '../../store';
 import { Dialog } from '../../components/Chrome';
 import { DrillLink } from '../../components/trail';
 import { Icon } from '../../components/Icon';
-import { deferralLines, round2, appendAccrualItem, planAccrualRecognition, recognizeAccruals } from '../../accruals';
-import { takeGliFor } from '../../engine';
+import { deferralLines, round2, appendAccrualItem, planAccrualRecognition, recognizeAccruals } from '../../business/accruals';
+import { takeGliFor } from '../../business/engine';
 import type { AccrualCode, LegalEntity } from '../../types';
 
 // Accruals: create an item from a message-line amount (deferring the total on the balance

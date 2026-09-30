@@ -5,6 +5,7 @@ dist/
 **/dist/
 dist-ssr/
 *.local
+Documents/ArchivedService/BuildOutput/
 *.log
 
 # OS / OneDrive / Office temp files

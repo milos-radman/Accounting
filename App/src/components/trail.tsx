@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import type { ReactNode, CSSProperties, MouseEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from '../store';
-import { gliLabel } from '../engine';
+import { gliLabel } from '../business/engine';
 import type { AppData } from '../types';
 
 // A breadcrumb crumb: a label and where clicking it goes.

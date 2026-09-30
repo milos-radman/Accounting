@@ -55,14 +55,13 @@ function ListHeader({ title, children, onAdd }: { title: string; children?: Reac
   );
 }
 
-// Reset the whole prototype back to the seeded demo data. This app keeps every change in the
-// browser (localStorage); this is the one-click way to discard those and reload the fresh seed —
-// e.g. after a data-model change. reset() rebuilds in place, so no page refresh is needed.
+// Reset the whole demo back to seeded defaults. reset() rebuilds in place and the store saves
+// the resulting snapshot to SQL Server without a page refresh.
 export function ResetDataSettings() {
   const { reset } = useStore();
   const [done, setDone] = useState(false);
   const doReset = () => {
-    if (window.confirm('Reset all demo data to the seeded defaults?\n\nEverything you added or changed in this browser — pseudo accounts, formulas & conditions, attribute codes, and any simulated / posted journals — will be discarded.')) {
+    if (window.confirm('Reset all demo data to the seeded defaults?\n\nEverything added or changed in the demo — pseudo accounts, formulas & conditions, attribute codes, and any simulated / posted journals — will be discarded.')) {
       reset();
       setDone(true);
     }
@@ -72,9 +71,9 @@ export function ResetDataSettings() {
       <div className="pagelike-title">Reset data</div>
       <div className="card" style={{ maxWidth: 640 }}>
         <p className="muted" style={{ marginTop: 0 }}>
-          This prototype stores everything you do in the browser (localStorage). Resetting discards
-          those changes and rebuilds the app from the seeded demo data — handy after a data-model
-          change or to start from a clean, known state.
+          The demo stores its working data in SQL Server. Resetting discards those changes and
+          rebuilds the app from the seeded demo data — handy after a data-model change or to start
+          from a clean, known state.
         </p>
         <p className="muted">
           <b>Discarded:</b> anything you added or edited here — pseudo accounts, formulas &amp;

@@ -1,4 +1,4 @@
-import type { AppData, ImportedScheduleRow, JournalLine, LegalEntity, RecognitionCategory, RecognitionPlan } from './types';
+import type { AppData, ImportedScheduleRow, JournalLine, LegalEntity, RecognitionCategory, RecognitionPlan } from '../types';
 import { takeGliFor, addJournal } from './engine';
 import { round2 } from './accruals';
 

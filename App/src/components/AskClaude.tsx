@@ -7,7 +7,7 @@ import PptxGenJS from 'pptxgenjs';
 import Anthropic from '@anthropic-ai/sdk';
 import { useStore } from '../store';
 import { Icon } from './Icon';
-import { simulateMessage, resolveFormulaAccount, fiscalYearOf, type EventMessage } from '../engine';
+import { simulateMessage, resolveFormulaAccount, fiscalYearOf, type EventMessage } from '../business/engine';
 import type { AppData, LegalEntity } from '../types';
 
 // ────────────────────────────────────────────────────────────────────────────

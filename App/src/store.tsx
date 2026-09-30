@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { AppData, SeedData, CoaNode, EntityCoaNode, AccountKind, PseudoAccount, Party, PartyRef, LegalEntity, Integration, JournalPostedEvent } from './types';
+import { loadDemoState, saveDemoState } from './data/demoState';
 import seedJson from './data/seed.json';
 import {
   extAccountValues, extAccountParts, journals, integrations, pseudoAccountCoaLinks, dimensionSeparators, accrualCodes,
@@ -13,7 +14,7 @@ import {
 } from './data/recognition';
 import { importedPlans } from './data/importedPlans';
 import { openingBalances as seedOpeningBalances, openingPseudoAccounts } from './data/openingBalances';
-import { reconcileGliSerie } from './engine';
+import { reconcileGliSerie } from './business/engine';
 
 const STORAGE_KEY = 'accounting-domain-data-v1';
 
@@ -209,9 +210,9 @@ function defaultCurrencyRate(code: string): number {
   return rates[code] ?? 1;
 }
 
-function loadData(): AppData {
+function loadData(snapshot: string | null = localStorage.getItem(STORAGE_KEY)): AppData {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = snapshot;
     if (raw) {
       const parsed = JSON.parse(raw) as AppData;
       // migration: older saved data predates the PseudoAccountCOA link table
@@ -535,23 +536,56 @@ interface Store {
   update: (mutate: (draft: AppData) => void) => void;
   reset: () => void;
   activityLog: ActivityEntry[];
+  saveStatus: 'saving' | 'saved' | 'error';
 }
 
 const StoreContext = createContext<Store | null>(null);
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [data, setData] = useState<AppData>(loadData);
+  const [data, setData] = useState<AppData>(buildInitialData);
   const dataRef = useRef(data);
+  const saveQueue = useRef<Promise<void>>(Promise.resolve());
   useEffect(() => { dataRef.current = data; }, [data]);
   const [activityLog, setActivityLog] = useState<ActivityEntry[]>(() => seedActivity(data));
+  const [ready, setReady] = useState(false);
+  const [loadError, setLoadError] = useState('');
+  const [retry, setRetry] = useState(0);
+  const [saveStatus, setSaveStatus] = useState<'saving' | 'saved' | 'error'>('saved');
 
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch {
-      // storage full — ignore, app keeps working in memory
-    }
-  }, [data]);
+    let cancelled = false;
+    const initialize = async () => {
+      try {
+        const saved = await loadDemoState();
+        const initial = saved ? loadData(JSON.stringify(saved)) : loadData();
+        if (!saved) await saveDemoState(initial);
+        if (cancelled) return;
+        localStorage.removeItem(STORAGE_KEY);
+        dataRef.current = initial;
+        setData(initial);
+        setActivityLog(seedActivity(initial));
+        setLoadError('');
+        setReady(true);
+      } catch (error) {
+        if (!cancelled) setLoadError(error instanceof Error ? error.message : 'Could not connect to the demo database.');
+      }
+    };
+    void initialize();
+    return () => { cancelled = true; };
+  }, [retry]);
+
+  useEffect(() => {
+    if (!ready) return;
+    setSaveStatus('saving');
+    const timer = window.setTimeout(() => {
+      const save = saveQueue.current.catch(() => undefined).then(() => saveDemoState(data));
+      saveQueue.current = save;
+      void save
+        .then(() => setSaveStatus('saved'))
+        .catch(() => setSaveStatus('error'));
+    }, 500);
+    return () => window.clearTimeout(timer);
+  }, [data, ready]);
 
   const update = (mutate: (draft: AppData) => void) => {
     const prev = dataRef.current;
@@ -564,14 +598,27 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   };
 
   const reset = () => {
-    localStorage.removeItem(STORAGE_KEY);
     const fresh = buildInitialData();
     dataRef.current = fresh;
     setData(fresh);
     setActivityLog(seedActivity(fresh));
   };
 
-  return <StoreContext.Provider value={{ data, update, reset, activityLog }}>{children}</StoreContext.Provider>;
+  if (loadError) {
+    return <main style={{ padding: 32, fontFamily: 'system-ui' }}>
+      <h1>Demo database unavailable</h1>
+      <p>{loadError}</p>
+      <button onClick={() => { setLoadError(''); setRetry(value => value + 1); }}>Retry connection</button>
+    </main>;
+  }
+  if (!ready) return <main style={{ padding: 32, fontFamily: 'system-ui' }}>Connecting to the demo database…</main>;
+
+  return <StoreContext.Provider value={{ data, update, reset, activityLog, saveStatus }}>
+    {children}
+    <div role="status" style={{ position: 'fixed', right: 10, bottom: 8, zIndex: 9999, padding: '4px 8px', borderRadius: 4, background: saveStatus === 'error' ? '#a22' : '#222', color: '#fff', fontSize: 11 }}>
+      {saveStatus === 'saving' ? 'Saving to SQL…' : saveStatus === 'error' ? 'Save failed — changes are not durable' : 'Saved to SQL'}
+    </div>
+  </StoreContext.Provider>;
 }
 
 export function useStore(): Store {

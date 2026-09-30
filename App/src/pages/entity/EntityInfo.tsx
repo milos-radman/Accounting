@@ -4,10 +4,10 @@ import { useStore, copyCoaTemplate, nextCoaIdBase, toPartyRef, formatAmount } fr
 import { Dialog } from '../../components/Chrome';
 import { Icon } from '../../components/Icon';
 import { PartyPicker } from '../../components/PartyPicker';
-import { planAccrualRecognition, recognizeAccruals } from '../../accruals';
-import { pendingDue, releasePendingMessages } from '../../engine';
-import { planBalanceRevaluation, revalueBalances } from '../../revaluation';
-import { planRecognition, runRecognition } from '../../recognition';
+import { planAccrualRecognition, recognizeAccruals } from '../../business/accruals';
+import { pendingDue, releasePendingMessages } from '../../business/engine';
+import { planBalanceRevaluation, revalueBalances } from '../../business/revaluation';
+import { planRecognition, runRecognition } from '../../business/recognition';
 import { commitExportInDraft } from '../../glexport';
 import type { LegalEntity, PartyRef } from '../../types';
 

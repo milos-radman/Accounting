@@ -5,10 +5,10 @@ import { Icon } from '../../components/Icon';
 import {
   simulateMessage, formulasFor, conditionInputsNeeded, defaultAmounts, resolveBookingDate,
   exportBookingDate, nextGliFor, findReversalOriginals, reverseByMessage, addJournal, externalAccountFor,
-} from '../../engine';
-import { deferralLines, appendAccrualItem, resolveMessageAccruals } from '../../accruals';
-import { activateRecognitionPlan } from '../../recognition';
-import type { EventMessage, SimLine } from '../../engine';
+} from '../../business/engine';
+import { deferralLines, appendAccrualItem, resolveMessageAccruals } from '../../business/accruals';
+import { activateRecognitionPlan } from '../../business/recognition';
+import type { EventMessage, SimLine } from '../../business/engine';
 import type { JournalLine } from '../../types';
 
 interface AccrualLineInput { amountTypeId: number; amountCode: string; amount: string; months: string; }

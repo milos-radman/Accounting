@@ -1,4 +1,4 @@
-import type { AccrualCode, AccrualDirection, AppData, JournalLine } from './types';
+import type { AccrualCode, AccrualDirection, AppData, JournalLine } from '../types';
 import { nextGliFor, addJournal, resolveFormulaAccount, externalAccountFor } from './engine';
 import type { EventMessage } from './engine';
 

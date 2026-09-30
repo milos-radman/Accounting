@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 import { useStore } from '../../store';
 import { Icon } from '../../components/Icon';
-import { buildExternalAccountString } from '../../engine';
+import { buildExternalAccountString } from '../../business/engine';
 import type { ExtAccountPart, LegalEntity } from '../../types';
 
 const separatorOptions = [

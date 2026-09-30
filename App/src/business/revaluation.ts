@@ -1,4 +1,4 @@
-import type { AppData, JournalLine, LegalEntity } from './types';
+import type { AppData, JournalLine, LegalEntity } from '../types';
 import { round2 } from './accruals';
 import { nextGliFor, addJournal } from './engine';
 

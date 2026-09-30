@@ -5,7 +5,7 @@ import { useStore, formatAmount } from '../store';
 import type { ActivityEntry } from '../store';
 import { Breadcrumb } from '../components/Chrome';
 import { Icon } from '../components/Icon';
-import { planRecognition, importedPositions, goingForwardImportedPositions } from '../recognition';
+import { planRecognition, importedPositions, goingForwardImportedPositions } from '../business/recognition';
 import type { AppData, LegalEntity } from '../types';
 
 const tileColors = ['linear-gradient(135deg, #7c3aed, #46137c)', 'linear-gradient(135deg, #0ea5e9, #1e40af)', 'linear-gradient(135deg, #10b981, #047857)'];

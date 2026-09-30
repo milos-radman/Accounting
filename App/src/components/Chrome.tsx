@@ -1,7 +1,7 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { useStore } from '../store';
-import { gliLabel } from '../engine';
+import { gliLabel } from '../business/engine';
 import { useTrail, structuralTrail, DrillLink } from './trail';
 import { Icon } from './Icon';
 

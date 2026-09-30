@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, useParams } from 'react-router-dom';
 import { useStore } from '../../store';
-import { gliLabel } from '../../engine';
+import { gliLabel } from '../../business/engine';
 import { useDrill } from '../../components/trail';
 import { Icon } from '../../components/Icon';
 import { SearchCombo, makeColumnSearch } from '../../components/Combo';

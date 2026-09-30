@@ -1,5 +1,5 @@
 import type { AppData, ExportBatch, ExportBatchLine, ExtAccountPart, Integration } from './types';
-import { exportBookingDate, inUseParts, gliLabel } from './engine';
+import { exportBookingDate, inUseParts, gliLabel } from './business/engine';
 
 // Resolve the export voucher number for each journal: the next number in its (single) ledger's
 // gapless series, or the entity GLI number when that ledger has no series. Read-only — returns the

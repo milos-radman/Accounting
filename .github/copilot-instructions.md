@@ -1,30 +1,15 @@
-# Copilot instructions — Accounting Domain
+# Copilot instructions — Accounting Demo
 
-**Start with [`DEMO_DEPLOYMENT.md`](../DEMO_DEPLOYMENT.md)** in the repository root. It is the
-living status file for the active work (demo deployment to IIS + SQL Server) and holds the
-current progress, the next steps and the scope rules. Update its status table and progress
-log in the same commit as any change you make. It is the **only** planning file — do not
-create additional plan, status or TODO documents.
+Read [`AGENTS.md`](../AGENTS.md) for the project rules, then [`DEMO_DEPLOYMENT.md`](../DEMO_DEPLOYMENT.md)
+for the active work and decisions. The root [`README.md`](../README.md) describes the current
+demo and setup; keep it updated in the same change whenever those change.
 
-Supporting context:
+Work in `App/`. `Documents/` preserves the earlier service, integration contracts, and domain
+reference material. Do not modify the archived Service as part of demo work.
 
-- [`CLAUDE.md`](../CLAUDE.md) — repo layout, build/test commands, conventions.
-- [`README.md`](../README.md) — domain background and how to read the repo.
-- [`Service/README.md`](../Service/README.md) — service architecture and documented deviations.
+Keep the App simple and flexible: one Node web process serves the React UI, contains its business
+modules, and accesses SQL Server. Do not add a separately deployed API or connect browser code
+directly to SQL Server. Preserve existing demo screens and workflows when changing persistence.
 
-## Scope rule
-
-The goal is a **presentable demo** for testing and concept investigation — **not** a
-production system. Real OIDC, RabbitMQ/outbox, HTTPS certs, CI/CD and hardening are
-explicitly out of scope unless a demo scenario fails without them. Prefer the fewest steps
-and the least code that genuinely works.
-
-Do not simplify away correctness that the demo depends on: the booking engine rules, data
-actually persisting to SQL Server, and GLI journal numbering.
-
-## Working in `Service/`
-
-- .NET 10. `dotnet build` runs analyzers as errors — keep it clean.
-- `dotnet test tests/Accounting.UnitTests` and `tests/Accounting.AcceptanceTests` need no Docker.
-- Run `dotnet csharpier format .` before finishing.
-- Architecture rules are executable tests; if one fails, fix the dependency, never the test.
+`DEMO_DEPLOYMENT.md` is the only planning and work-history file. Update its status and progress
+log as work proceeds; do not add separate plan, status, or TODO files.

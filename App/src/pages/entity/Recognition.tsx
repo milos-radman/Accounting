@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useOutletContext, useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useStore, formatAmount } from '../../store';
-import { gliLabel } from '../../engine';
+import { gliLabel } from '../../business/engine';
 import { DrillLink } from '../../components/trail';
 import { Dialog } from '../../components/Chrome';
-import { planRecognition, resolveRecognitionLeg, undoMonthlyBooking, importedPositions, goingForwardImportedPositions, parseMonthlyRecImport } from '../../recognition';
-import type { RecognitionPosition, ImportedLinePosition } from '../../recognition';
+import { planRecognition, resolveRecognitionLeg, undoMonthlyBooking, importedPositions, goingForwardImportedPositions, parseMonthlyRecImport } from '../../business/recognition';
+import type { RecognitionPosition, ImportedLinePosition } from '../../business/recognition';
 import type { AppData, LegalEntity, RecognitionPlan, RecognitionCategory } from '../../types';
 
 const PAGE_SIZE = 20; // agreements per page in the search list

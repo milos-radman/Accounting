@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import { useStore, formatAmount } from '../../store';
 import { Dialog } from '../../components/Chrome';
 import { Icon } from '../../components/Icon';
-import { fiscalYearOf, fiscalYearLabel, computeYearClose, applyYearClose } from '../../engine';
+import { fiscalYearOf, fiscalYearLabel, computeYearClose, applyYearClose } from '../../business/engine';
 import type { LegalEntity, OpeningBalance } from '../../types';
 
 // Opening (brought-forward) balances per legal entity + ledger + fiscal year. The position as of

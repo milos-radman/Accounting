@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useStore, formatAmount } from '../../store';
-import { gliLabel } from '../../engine';
+import { gliLabel } from '../../business/engine';
 import { DrillLink } from '../../components/trail';
 
 type EventStatusFilter = 'All' | 'Posted' | 'AcceptedPending' | 'Rejected';

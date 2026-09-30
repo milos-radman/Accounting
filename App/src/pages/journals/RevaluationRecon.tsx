@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useStore, formatAmount } from '../../store';
-import { gliLabel } from '../../engine';
+import { gliLabel } from '../../business/engine';
 import { DrillLink } from '../../components/trail';
 import { Icon } from '../../components/Icon';
-import { revalTransactionPreview } from '../../revaluation';
+import { revalTransactionPreview } from '../../business/revaluation';
 
 const rate = (n: number) => n.toLocaleString('sv-SE', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
 

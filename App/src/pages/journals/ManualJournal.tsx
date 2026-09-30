@@ -1,7 +1,7 @@
 import { useState, useRef, Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore, formatAmount } from '../../store';
-import { nextGliFor, addJournal } from '../../engine';
+import { nextGliFor, addJournal } from '../../business/engine';
 import { Icon } from '../../components/Icon';
 import type { JournalLine } from '../../types';
 

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Breadcrumb, SidePanel, MenuItem } from '../../components/Chrome';
 import { DrillLink } from '../../components/trail';
 import { useStore, formatAmount } from '../../store';
-import { gliLabel, fiscalYearOf, fiscalYearLabel } from '../../engine';
+import { gliLabel, fiscalYearOf, fiscalYearLabel } from '../../business/engine';
 import { exportGrid, exportWorkbook, stamp } from '../../reportExport';
 import { Icon } from '../../components/Icon';
 import type { AppData, JournalLine, LegalEntity } from '../../types';

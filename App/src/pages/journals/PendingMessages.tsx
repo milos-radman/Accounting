@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStore, formatAmount } from '../../store';
-import { gliLabel } from '../../engine';
+import { gliLabel } from '../../business/engine';
 import { DrillLink } from '../../components/trail';
 import { Icon } from '../../components/Icon';
 import type { PendingMessage } from '../../types';

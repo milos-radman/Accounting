@@ -1,209 +1,84 @@
-# Demo deployment — IIS + SQL Server
+# Accounting Demo — work plan and log
 
-**This is the living status file for getting the Accounting service running on IIS against a
-real SQL Server database.** It is updated as work progresses.
+This is the repository's only planning and work-history file. It records past decisions,
+current tasks, and what comes next. Update its status and progress log as work proceeds.
 
-> **If you are an AI assistant starting in this repo: read this file first, then
-> `CLAUDE.md`.** The status table below is the single source of truth for what is done and
-> what comes next. When you finish a task, update its **Status** and the **Progress log** at
-> the bottom in the same commit as the code change. Do not create additional planning,
-> status, or TODO files — this one file is it.
+## Goal and scope
 
----
+Build a flexible, presentable accounting demo that preserves the existing React screens and
+workflows, separates business behavior from UI code where practical, and saves its working
+state in Microsoft SQL Server.
 
-## Goal (and explicit non-goal)
+Keep it simple: the React UI, TypeScript business modules, Node web host, and SQL data access
+belong to the **App project** and deploy as one web app. Browser code cannot connect safely to
+SQL Server, so the same Node process handles the small same-origin data requests. Do not create
+or deploy a separate API/service. `Service/` is archived and out of active development scope.
 
-**Goal:** a running, demonstrable instance of the Accounting service on Windows/IIS, backed by
-a real SQL Server database, good enough to **present, test, and investigate the concept**.
+The demo is for one trusted user at a time. A single JSON state snapshot is an intentional
+shortcut that preserves flexibility while the prototype changes. Do not add multi-user,
+production security, concurrency/versioning, or normalized storage unless a demo workflow
+requires it. Keep SQL persistence real and preserve the demo's business behavior.
 
-**Non-goal: this is NOT production hardening.** Do not add production concerns unless a demo
-scenario actually fails without them. Specifically **out of scope**:
+## Current plan and status
 
-- Real OIDC / Entra ID identity — a fixed demo principal is fine.
-- RabbitMQ, durable outbox, retries, dead-letter handling.
-- HTTPS certificates, WAF, secret vaults, firewall rules.
-- CI/CD pipelines, blue-green deploys, monitoring/alerting stacks.
-- Performance, scale, load testing, multi-tenant isolation proof.
+| # | Task | Status | Notes |
+|---|---|---|---|
+| A1 | Archive non-demo repo material under `Documents/` | **DONE** | Service, message contract, compose/deployment files, domain references, and legacy orientation are preserved. Root now contains App and files needed to build, guide, and document it. |
+| A2 | Keep `AGENTS.md` and one work log | **DONE** | Root `AGENTS.md` gives AI working rules; this file tracks past/current/future work. |
+| A3 | Document the single App project and keep README current | **DONE** | `App/README.md` is the source; the npm dev/build/lint/start lifecycle syncs the GitHub root README. AGENTS.md and Copilot instructions require updating the source README with behavior/setup changes. |
+| B1 | Build the App-owned SQL persistence layer | **IN PROGRESS** | Node host serves the React build; SQL data module creates a demo database/table and loads/saves a JSON snapshot. |
+| B2 | Separate the main business modules from UI files | **DONE** | Booking, accrual, recognition, and revaluation modules are grouped under `App/src/business/`; the App TypeScript build passes. |
+| B3 | Load, save, and reset state through SQL | **IN PROGRESS** | SQL load/save, one-time browser-state import, reset, and save status are implemented. Manual persistence verification still needs SQL Server running. |
+| B4 | Keep the App setup and container path simple | **DONE** | One App compose setup starts SQL Server and the web app; compose configuration resolves. |
+| B5 | Verify the App build and a manual persistence workflow | **BLOCKED** | App build and Node syntax checks pass. Docker engine is stopped; starting its Windows service returned Access Denied. Still need seed load, edit/save, reload, and reset against SQL Server. |
+| B6 | Review archive boundaries and links | **DONE** | Root is focused on App, GitHub/agent guidance, the work log, and Documents; App build has no dependency on the archive. |
 
-When in doubt, pick the option that is **fewer steps and less code**, and note the shortcut
-with a `ponytail:` comment naming its ceiling. The demo box is single-user and trusted.
+## App layers
 
-**What must still be correct** (a demo that lies is worthless): the booking engine's rules,
-the data actually persisting to SQL Server, and GLI journal numbering.
-
----
-
-## Environment facts (verified 2026-09-29 on the dev machine)
-
-| Thing | State |
-|---|---|
-| IIS (`W3SVC`) | Running |
-| ASP.NET Core Hosting Bundle | **.NET 6 only** — .NET 10 bundle needed |
-| SQL Server | **Express 2008** (`MSSQL10.SQLEXPRESS`) — **too old**, EF Core 10 needs 2012+ |
-| LocalDB | 2012 + 2025 installed, **both fail to start** — disk sector-size issue (see blocker 8) |
-| .NET SDK | 10.0.401 (runtimes 10.0.11 / 10.0.12 present) |
-| Node.js | 24.15.0 / npm 11.16.0 |
-| Docker Desktop | 29.6.2 — installed, starts without admin. Runs a SQL Server 2022 container fine |
-| Shell elevation | Agent sessions are **not** elevated — admin tasks are handed to the user |
-
-Tasks marked **(admin)** need an elevated shell / installer rights.
-
----
-
-## Current technology state
-
-| Layer | Technology | Version |
+| Layer | Location | Responsibility |
 |---|---|---|
-| Service | .NET / ASP.NET Core | 10.0 (`net10.0`) |
-| ORM | EF Core SqlServer | 10.0.9 — code-first, 1 migration `20260703150712_InitialCreate` |
-| CQRS / validation | Mediator (source-gen) 3.0.2 / FluentValidation 12.1.1 | |
-| Messaging | Wolverine + RabbitMQ 6.16.0 | **optional** — skipped when connection strings are empty |
-| API docs | OpenAPI + Scalar 2.16.9 | Scalar mapped in Development **and Demo** |
-| Auth | JWT Bearer (OIDC) 10.0.9 | prod mode needs an IdP; `Development` mode refuses to start outside Development |
-| Observability | Serilog 10 + OpenTelemetry 1.16.0 | OTLP exporter defaults to `localhost:4317` |
-| Tenancy | Config-backed registry, DB-per-tenant, schema `accounting` | |
-| Tests | 34 unit + 3 acceptance + 3 integration passing | Integration tests need Docker running |
-| `App/` | React 19.2 + Vite 8.1 + TS 6.0 | **standalone prototype — makes no API calls** |
+| UI | `App/src/` | React screens and user interaction |
+| Business | `App/src/business/` | Booking engine and accounting demo workflows |
+| Data | `App/server/data/`, `App/src/data/` | SQL snapshot persistence and UI data client/reference data |
+| Host | `App/server/` | Serves the built UI and its same-origin data requests in one process |
 
----
+## Repository layout
 
-## Blockers found
-
-1. ~~Build broken — SonarAnalyzer `S8949` under `TreatWarningsAsErrors`.~~ **Fixed** (`c89be16`).
-2. SQL Server 2008 is unsupported by EF Core 10 (needs 2012+).
-3. IIS has the .NET 6 Hosting Bundle; .NET 10 apps need the .NET 10 bundle.
-4. ~~**A fresh database stays empty** — migrations/seed only ran in tests.~~ **Fixed** (2.1).
-5. ~~No login path outside Development.~~ **Fixed** via `Demo` environment (2.2).
-6. ~~No `web.config`.~~ **Not needed** — `dotnet publish -p:EnvironmentName=Demo` generates it.
-7. ~~OTLP exporter noise.~~ **Not a problem** — verified: no console output without a collector.
-8. **Disk sector size.** This machine's NVMe reports 16 KB sectors; SQL Server/LocalDB refuse
-   to start (`error 5178`). Installing SQL Server *on this machine* needs the documented
-   registry fix first (**admin + reboot**):
-   `reg add HKLM\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device /v ForcedPhysicalSectorSizeInBytes /t REG_MULTI_SZ /d "* 4095" /f`
-   Not an issue for a SQL Server on another machine, or in Docker.
-9. ~~**Service never worked against a real DB outside tests.**~~ **Fixed** (2.1): Wolverine's EF
-   integration (a) registers `DbContextOptions` as a singleton resolved without a tenant and
-   (b) requires the durable message store. Tests hid this by replacing the registration. Now a
-   plain `AddDbContext` is used unless `ConnectionStrings:WolverineDurability` is set.
-10. **No API to maintain booking rules/formulas** — only legal entities, pseudo accounts and
-    COA have endpoints. Worked around for the demo by seeding sample rules (2.5).
-
----
-
-## Plan & status
-
-Status values: `TODO` · `IN PROGRESS` · `DONE` · `BLOCKED` · `SKIPPED`
-
-### Phase 0 — Repo baseline
-
-| # | Task | Status | Notes |
-|---|---|---|---|
-| 0.1 | Push repo to GitHub | **DONE** | `milos-radman/Accounting`, branch `master` |
-| 0.2 | Commits authored as Milos Radman | **DONE** | local + global git identity set |
-| 0.3 | Fix the failing build (`S8949`) | **DONE** | `c89be16`; build clean, 34+3 tests green |
-
-### Phase 1 — Server prep **(admin)**
-
-Pick **one** SQL Server option for 1.1 (any SQL Server **2012+** works):
-
-- **A. A SQL Server on another machine** (matches the goal best). Needs a DB + SQL login.
-- **B. SQL Server 2022 Express on this machine.** Apply the sector-size registry fix
-  (blocker 8) and reboot *first*, then install as named instance `SQL2022`.
-- **C. SQL Server 2022 in Docker** (already verified working here, zero install):
-  `docker run -d --name acct-demo-sql --restart unless-stopped -e ACCEPT_EULA=Y -e "MSSQL_SA_PASSWORD=<pwd>" -p 14333:1433 mcr.microsoft.com/mssql/server:2022-latest`
-  Docker Desktop must be running for the site to work.
-
-| # | Task | Status | Notes |
-|---|---|---|---|
-| 1.1 | Provide a SQL Server 2012+ (option A, B or C above) | TODO | keep SQL 2008 as is |
-| 1.2 | Install .NET 10 Hosting Bundle, then `iisreset` | TODO | https://dotnet.microsoft.com/download/dotnet/10.0 → "Hosting Bundle" |
-| 1.3 | Login with rights to create DB `tenant_demo` | TODO | the app creates the DB + schema itself on first start. SQL auth is simplest; for Windows auth grant `IIS AppPool\AccountingDemo` (`dbcreator`, or `db_owner` on a pre-created DB) |
-
-### Phase 2 — Code changes (small, demo-grade)
-
-| # | Task | Status | Notes |
-|---|---|---|---|
-| 2.1 | Migrate + seed on startup behind `Database:MigrateOnStartup` | **DONE** | `Infrastructure/Seeding/DatabaseInitializer.cs`. Also fixed blocker 9 in `DependencyInjection.cs` |
-| 2.2 | Demo auth that works outside Development | **DONE** | new `Demo` environment reuses the fixed dev principal (`X-Tenant-Id` header, default `demo`) + Scalar. Config: `appsettings.Demo.json` |
-| 2.3 | Make the OTLP exporter opt-in | SKIPPED | verified unnecessary — no errors/noise without a collector |
-| 2.4 | `web.config` + Demo settings | **DONE** | `web.config` is generated by publish; only `appsettings.Demo.json` added. CORS skipped — Scalar is same-origin |
-| 2.5 | Seed a bookable sample legal entity (`Database:SeedDemoData`) | **DONE** | "ALS NLD", GLI serie 7414, 3 pseudo accounts, 3 Activation rules — the `PostAccountingEvent.feature` scenario. Only when the DB has no legal entities |
-| 2.6 | IIS deploy script | **DONE** | `Service/deploy-iis.ps1` — **untested** (needs admin); parses, JSON rewrite verified |
-
-**Verified 2026-09-29** by running the API with `ASPNETCORE_ENVIRONMENT=Demo` against a SQL
-Server 2022 container: migration + seed on first start, `/health/ready` 200, `/scalar` 200,
-Activation message → journal GLI 7414 with 3 lines, debit = credit = 14 640, redelivery returns
-`wasAlreadyProcessed: true`, restart does not duplicate seed data. 34 unit + 3 acceptance +
-3 integration tests pass.
-
-### Phase 3 — Deploy to IIS **(admin)**
-
-| # | Task | Status | Notes |
-|---|---|---|---|
-| 3.1 | Run `Service\deploy-iis.ps1` elevated | TODO | publishes, creates AppPool (No Managed Code) + site on port 8080; re-run to redeploy. Example below |
-| 3.2 | Smoke test | TODO | see "Demo script" below |
-
-```powershell
-# elevated PowerShell, from the Service folder
-.\deploy-iis.ps1 -ConnectionString "Server=<host>[,port];Database=tenant_demo;User Id=<login>;Password=<pwd>;TrustServerCertificate=true"
-```
-
-If the site returns HTTP 500.x: set `stdoutLogEnabled="true"` in
-`C:\inetpub\AccountingDemo\web.config`, create a `logs` folder there, recycle the pool and read
-`logs\stdout_*.log`. 500.31/500.19 almost always means task 1.2 is not done.
-
-### Demo script (smoke test = presentation)
-
-1. `http://<host>:8080/scalar` — API reference, try requests live (no login needed).
-2. `GET /api/v1/legal-entities` → the seeded "ALS NLD" (copy its `id`).
-3. `POST /api/v1/accounting-events` with a **new** `messageId`:
-   `{"messageId":"<new guid>","legalEntityId":"<id>","accountingClassCode":"PF","accountingEventCode":"s","bookingDate":"2024-10-05","currencyCode":"EUR","agreement":"1232","agreementLine":1,"portfolio":"23","amounts":{"Fixed Asset Value":12500,"Total Plan Rent":14640,"Total Plan Interest":2140},"attributes":{"Accounting Type":"MG"}}`
-   → 201, balanced journal.
-4. Same request again → 200 `wasAlreadyProcessed: true` (idempotency).
-5. `GET /api/v1/journals/{gliNumber}?legalEntityId=<id>` → lines on 140000 / 192101 / 192401.
-6. `bookingDate` `2024-09-15` → 409 (closed period). Show the rows in SSMS: schema `accounting`.
-
-### Phase 4 — Demo surface (optional)
-
-| # | Task | Status | Notes |
-|---|---|---|---|
-| 4.1 | Decide how the demo is shown | **DONE** | Include the React UI; make its SQL-backed state the durable source instead of browser `localStorage` |
-| 4.2 | Publish `App/` as a second IIS site | TODO | only if a UI is required for the presentation |
-| 4.3 | Rule/formula maintenance API | TODO | only if the demo must show *configuring* rules; today they come from the seed (blocker 10) |
-| 4.4 | Persist `App/` state through the API to SQL | TODO | Next-session implementation plan: add a small endpoint and one SQL JSON snapshot per demo tenant; load on startup and save app state through the API. Keep existing UI logic and workflows. This persists the prototype state; it does **not** make the service booking engine consume the UI's rules/configuration. `ponytail:` single snapshot is single-user; concurrent edits can overwrite each other, so add versioning/merge only if multi-user use is needed. No automated test suite requested; verify with build and a manual save/reload smoke run. Estimate: 2–4 active AI work days and $25–$100 API-equivalent model usage; relational per-record storage is explicitly out of this scope. |
-
-### Phase 5 — Deferred (explicitly out of scope)
-
-Real OIDC · RabbitMQ + durable outbox (fix Wolverine singleton `DbContextOptions` first, see
-blocker 9) · HTTPS certs · file/Seq log sinks · CI/CD (note: `Service/.github/workflows/ci.yml`
-is not in the repo-root `.github/`, so GitHub never runs it).
-Add only if a specific demo scenario fails without it.
-
----
+- `App/` — active demo application and its setup.
+- `Documents/ArchivedService/Service/` — previous .NET service and deployment implementation.
+- `Documents/Reference/` — domain specifications, message contract, sample files, and model references.
+- `Documents/Legacy/` — prior orientation material.
+- `Documents/Deployment/` — prior root-level compose setup.
+- `README.md`, `AGENTS.md`, `.github/copilot-instructions.md` — current user and agent guidance.
 
 ## Decisions
 
 | Date | Decision | Why |
 |---|---|---|
-| 2026-09-29 | Target the **Service**, not `App/`, for SQL+IIS | `App/` is a localStorage prototype with no API calls |
-| 2026-09-29 | RabbitMQ/outbox stay off | empty connection strings already disable them cleanly |
-| 2026-09-29 | Keep SQL 2008 installed; any SQL Server 2012+ is fine (A/B/C in Phase 1) | avoids breaking whatever else uses the old instance |
-| 2026-09-29 | `Demo` environment instead of running IIS as `Development` | Development would load `appsettings.Development.json` (RabbitMQ on localhost) and dev-only behaviour |
-| 2026-09-29 | Demo rules seeded in code, no rule API | the only way to get a bookable DB without building a new feature |
-| 2026-09-29 | Keep the React demo UI and persist its state as a SQL JSON snapshot via the .NET API | fastest prototype-grade replacement for localStorage; avoids rebuilding all App state as normalized relational tables. Single-user demo only; service booking logic remains separate from the UI snapshot |
+| 2026-09-29 | The React prototype behavior is the demo reference | It already contains the workflows and screens to preserve. |
+| 2026-09-29 | Persist the prototype's complete state as one SQL JSON snapshot | Fewest changes to retain its flexible data shape and existing UI behavior. Single-user demo only. |
+| 2026-09-30 | Work in `App/`; archive the former Service and non-demo materials in `Documents/` | Keep the active repository structure focused on the demo app while preserving prior work. |
+| 2026-09-30 | Keep UI, business, and data access in one App project and one deployable process | Keep setup and evolution simple. The browser uses same-origin requests handled by the App's own Node host; no separately deployed API/service. |
+| 2026-09-30 | Keep `DEMO_DEPLOYMENT.md` as the sole planning and work-history file | Preserve current status and decision history without parallel TODO documents. |
+| 2026-09-30 | Update the root README in the same development change when setup, capabilities, or behavior changes | Keep the GitHub landing page aligned with the working demo. AI instructions make this part of every development task. |
 
----
+## Earlier work (before the App-only direction)
 
-## Progress log
-
-- **2026-09-29** — Repo pushed to GitHub; git identity fixed. Surveyed the solution and the
-  machine. Found and fixed the failing build (`S8949`, commit `c89be16`); `dotnet build`
-  clean, csharpier clean, 34 unit + 3 acceptance tests passing. Wrote this plan.
-- **2026-09-29** — Phase 2 done (2.1, 2.2, 2.4, 2.5, 2.6; 2.3 skipped). Found and fixed
-  blocker 9 (the service could not use a real DB outside tests) and documented blockers 8
-  and 10. Verified end-to-end against SQL Server 2022 in Docker (see Phase 2 "Verified").
-  **Next up (user, elevated): Phase 1 — choose SQL option A/B/C, install the .NET 10 Hosting
-  Bundle — then Phase 3: run `Service\deploy-iis.ps1` and walk the demo script.**
-- **2026-09-29** — Decided to include the React UI in the demo and persist its state via the
-  .NET API to a SQL JSON snapshot. Scope is UI-state persistence only; the service booking
-  engine remains independent. Phase 4.4 is queued for execution planning in the next session.
+- **2026-09-29** — The .NET Service was built and verified against SQL Server 2022 in Docker.
+  Its startup migration, seed data, demo authentication, API, and IIS publish script remain
+  preserved under `Documents/ArchivedService/Service/`. IIS deployment itself was not completed.
+- **2026-09-30** — The user approved a six-part modernization plan, then clarified that active
+  work must be on `App/`, with UI, business logic, and data access together in one solution.
+  The .NET Service path was superseded and archived before further implementation there.
+- **2026-09-30** — Archived the previous Service, integration contracts, root deployment files,
+  domain documents, sample spreadsheets/images, and legacy `CLAUDE.md` under `Documents/`.
+  Kept the root README, AGENTS.md, GitHub guidance, and this work log.
+- **2026-09-30** — Added the App-owned Express/MSSQL host, SQL JSON snapshot storage, browser-state
+  import, save/reset feedback, and Docker setup. Moved the booking, accrual, recognition, and
+  revaluation modules into `App/src/business/`. Root README now regenerates from `App/README.md`
+  on the normal npm dev/build/lint/start commands. `npm run build`, Node syntax checks, Docker
+  compose config, `npm run lint`, and `git diff --check` pass. The build/lint report existing
+  chunk-size and hook/fast-refresh warnings. Docker could not start because the Docker engine
+  service returned Access Denied.
+- **Next** — Start Docker Desktop/engine, then perform the manual SQL persistence workflow
+  (initial seed, edit/save, browser reload, reset). Update this log with the results.

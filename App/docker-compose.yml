@@ -1,0 +1,33 @@
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${DB_PASSWORD:-LocalDev!Passw0rd}"
+    ports:
+      - "14333:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P '$$MSSQL_SA_PASSWORD' -Q 'SELECT 1'"]
+      interval: 5s
+      retries: 30
+
+  app:
+    build: .
+    environment:
+      PORT: 5173
+      DB_SERVER: sql
+      DB_PORT: 1433
+      DB_NAME: AccountingDemo
+      DB_USER: sa
+      DB_PASSWORD: "${DB_PASSWORD:-LocalDev!Passw0rd}"
+      DB_TRUST_SERVER_CERTIFICATE: "true"
+    ports:
+      - "5173:5173"
+    depends_on:
+      sql:
+        condition: service_healthy
+
+volumes:
+  sqldata:

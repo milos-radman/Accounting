@@ -4,7 +4,7 @@ import { Breadcrumb, Dialog } from '../../components/Chrome';
 import { DrillLink } from '../../components/trail';
 import { Icon } from '../../components/Icon';
 import { useStore, formatAmount } from '../../store';
-import { exportBookingDate, gliLabel, mirrorReversalJournal } from '../../engine';
+import { exportBookingDate, gliLabel, mirrorReversalJournal } from '../../business/engine';
 import type { Journal } from '../../types';
 
 // Slides 42-45: GLI detail with lines, expandable formula info, difference and Add transaction line

@@ -4,13 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "sync-readme": "node scripts/sync-readme.js",
+    "predev": "npm run sync-readme",
+    "dev": "concurrently -k -n ui,server \"npm:dev:ui\" \"npm:dev:server\"",
+    "dev:ui": "vite",
+    "dev:server": "node --env-file-if-exists=.env server/index.js",
+    "prebuild": "npm run sync-readme",
     "build": "tsc -b && vite build",
+    "prelint": "npm run sync-readme",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prestart": "npm run sync-readme",
+    "start": "node --env-file-if-exists=.env server/index.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.124.0",
+    "express": "^5.2.1",
+    "mssql": "^12.7.2",
     "pptxgenjs": "^4.0.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -24,6 +34,7 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "concurrently": "^10.0.5",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
