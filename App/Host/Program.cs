@@ -48,7 +48,7 @@ app.MapGet("/demo/state", async (CancellationToken cancellationToken) =>
 {
     await using var connection = new SqlConnection(connectionString);
     await connection.OpenAsync(cancellationToken);
-    await using var command = new SqlCommand("SELECT StateJson FROM dbo.DemoAppState WHERE StateKey = N'app'", connection);
+    await using var command = new SqlCommand("dbo.GetDemoState", connection) { CommandType = System.Data.CommandType.StoredProcedure };
     var state = await command.ExecuteScalarAsync(cancellationToken);
     return state is null or DBNull
         ? Results.NoContent()
@@ -63,15 +63,8 @@ app.MapPut("/demo/state", async (JsonElement state, CancellationToken cancellati
     var stateJson = state.GetRawText();
     await using var connection = new SqlConnection(connectionString);
     await connection.OpenAsync(cancellationToken);
-    await using var command = new SqlCommand("""
-        UPDATE dbo.DemoAppState
-        SET StateJson = @stateJson, UpdatedAt = SYSUTCDATETIME()
-        WHERE StateKey = N'app';
-        IF @@ROWCOUNT = 0
-            INSERT INTO dbo.DemoAppState (StateKey, StateJson) VALUES (N'app', @stateJson);
-        """, connection);
-    command.Parameters.AddWithValue("@stateJson", stateJson);
-    command.Parameters["@stateJson"].Size = -1;
+    await using var command = new SqlCommand("dbo.SaveDemoState", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+    command.Parameters.Add("@StateJson", System.Data.SqlDbType.NVarChar, -1).Value = stateJson;
     await command.ExecuteNonQueryAsync(cancellationToken);
     return Results.NoContent();
 });

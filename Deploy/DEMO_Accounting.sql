@@ -1,6 +1,6 @@
 -- Run this script against AZS-PFSDEV-07.credit-dev.com.
--- It is safe to rerun. Add future schema changes as new numbered migrations below;
--- do not edit a migration that has already been applied.
+-- Initial database setup. Once migration 003 has been applied, use numbered upgrade scripts
+-- instead of rerunning this bootstrap file; it includes the historical migration 002.
 
 USE [master];
 GO
@@ -39,20 +39,6 @@ BEGIN
 END;
 GO
 
--- Future migration template:
--- IF NOT EXISTS (SELECT 1 FROM dbo.DemoSchemaMigrations WHERE MigrationId = '002-short-description')
--- BEGIN
---   BEGIN TRY
---     BEGIN TRANSACTION;
---     -- Make additive, guarded changes here, for example:
---     -- IF COL_LENGTH(N'dbo.DemoAppState', N'NewColumn') IS NULL
---     --   ALTER TABLE dbo.DemoAppState ADD NewColumn nvarchar(100) NULL;
---     INSERT INTO dbo.DemoSchemaMigrations (MigrationId) VALUES ('002-short-description');
---     COMMIT;
---   END TRY
---   BEGIN CATCH
---     IF @@TRANCOUNT > 0 ROLLBACK;
---     THROW;
---   END CATCH;
--- END;
--- GO
+-- Run this file in SQLCMD mode from the repository root so Node and IIS use the same migration.
+:r App/server/data/migrations/002-relational-tables.sql
+:r App/server/data/migrations/003-unprefixed-tables.sql
