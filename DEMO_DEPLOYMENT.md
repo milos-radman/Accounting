@@ -135,6 +135,86 @@ these scopes against the live snapshot before finalizing constraints. The curren
 the snapshot table inline, while IIS relies on `Deploy/DEMO_Accounting.sql`; schema migration must
 give both hosts one consistent, ordered database version path.
 
+### Proposed relational model
+
+Keep one SQL table for every top-level collection and use ordinary typed columns. Suggested table
+names follow the existing collection names in PascalCase. Group them by ownership:
+
+| Area | Tables |
+|---|---|
+| Shared/master data | `Currency`, `Party`, `OrganizationUnit`, `AccountingClass`, `Ledger`, `AmountType`, `ConditionValue`, `ConditionValueOption`, `EventCategory`, `AccountingEvent`, `Formula`, `FormulaAppliesToEvent`, `FormulaCondition`, `Condition`, `ChartOfAccount`, `CoaNode` |
+| Legal-entity configuration | `LegalEntity`, `LegalEntityPartySnapshot`, `LegalAccountingClass`, `LegalAccountingLedger`, `AccountingRule`, `PseudoAccount`, `PseudoAccountSummaryKeepPart`, `ExtAccountValue`, `ExtAccountPart`, `PseudoAccountExtPart`, `PseudoAccountCoaLink`, `EntityCoaNode`, `Integration`, `IntegrationDefaultKeepPart`, `LedgerSeries`, `AccrualCode`, `RecognitionCategory` |
+| Accounting activity | `Journal`, `JournalLine`, `JournalPostedEvent`, `JournalPostedEventAgreementLine`, `JournalPostedEventInvoice`, `JournalPostedEventReference`, `PendingMessage`, `PendingMessageConditionInput`, `PendingMessageAmount`, `PendingMessageAccountValue`, `AccrualItem`, `AccrualConditionInput`, `AccrualContext`, `AccrualAccountValue`, `AccrualScheduleLine`, `RecognitionPlan`, `RecognitionPlanLine`, `RecognitionSchedule`, `ImportedRecognitionSchedule`, `RecognitionState`, `RevalueAccount`, `RevalueTransaction`, `ExportBatch`, `ExportBatchJournal`, `ExportBatchLine`, `OpeningBalance` |
+
+The principal relationships are legal entity → its accounting classes/configuration and activity;
+class → ledger → accounting rules; formula → condition group → conditions; template chart →
+template nodes and legal entity → copied nodes; journal → lines; accrual item → schedule lines;
+recognition plan → agreement lines → live/imported schedules; integration/export batch → child
+settings/lines; and revaluation transactions → source journal lines. Use foreign keys where current
+IDs identify the relationship. Preserve descriptive snapshots and existing string references where
+they intentionally record what a historical transaction displayed at posting time.
+
+Codebooks are included as first-class tables, not left in bundled JSON or treated as immutable
+constants. Shared codebooks include `Currency`, `AccountingClass`, `Ledger`, `AmountType`,
+`ConditionValue`/`ConditionValueOption`, `EventCategory`, `AccountingEvent`, and chart-of-account
+templates/nodes. Entity-configured code lists include `PseudoAccount`, `AccrualCode`,
+`RecognitionCategory`, and dimension values/parts. Seed/bootstrap inserts these rows only when a
+store-initialized marker is absent; later app edits remain authoritative and migrations must not
+overwrite them with newer seed values.
+
+Use these key rules as the starting point, then check them against the live snapshot before DDL:
+
+- Preserve client-assigned integer IDs; do not introduce SQL identities during the first cutover.
+- `PseudoAccount`: primary key `(EntityCode, Id)`; enforce `(EntityCode, Pseudo)` as a business
+  uniqueness rule only after checking existing data.
+- `Journal`: primary key `(LegalEntityId, GliNumber)`; `JournalLine` adds `Line` to that key.
+- Other collections use their current ID as primary key unless the source shows a scoped ID. Use
+  parent key + ordinal for nested lists where source order matters.
+- Child list tables use a parent foreign key and stable ordinal/key: plan lines and schedules,
+  imported schedule rows, batch journals/lines, event references, formula event applicability, and
+  dimension selections. Map-shaped attributes use one row per parent + attribute key.
+- Put the three party snapshots on `LegalEntityPartySnapshot`, keyed by `(LegalEntityId, Role)`;
+  keep `PartyId` as a nullable FK while retaining the copied display fields as snapshot columns.
+- Represent pending-message and accrual context maps with typed child tables; amount values link to
+  `AmountType` (and amount code when present), condition inputs link to `ConditionValue`, and
+  account-value lists use their value name as a key. Do not use JSON or a generic payload column.
+
+Use `int` for existing numeric IDs, `bit` for booleans, `date`/`datetime2` for actual dates and
+timestamps, and `nvarchar` for codes/text. Store period values as six-character `YYYYMM` strings
+with a format check to preserve the existing contract. Store money/rates as `decimal`, never SQL
+`float`; finalize precision/scale from observed and maximum engine values before the migration.
+Nullable TypeScript properties map to nullable columns. Constrain closed status/type fields with
+`CHECK` constraints where doing so will not reject valid demo values.
+
+### Refactoring and cutover path
+
+1. Finish the source inventory by checking the live snapshot's row counts, duplicate/scoped IDs,
+   nullable fields, and relationship orphans; inspect each `update()` mutation path for deletes and
+   in-place edits. Finalize the key and numeric precision choices above.
+2. Add ordered, additive SQL migrations for all 40 collection tables and their child tables. Keep
+   migration DDL in one versioned source used by Node setup and the IIS deployment script; record
+   each applied migration in `DemoSchemaMigrations`.
+3. Replace each host's `DemoAppState` read/write implementation with a small relational repository
+   that maps SQL rows to/from the existing `AppData` object. Keep `/demo/state` and the React store
+   contract in this phase; do not rewrite screens or add per-record endpoints yet.
+4. Import the existing snapshot once, transactionally, after the new tables exist. Validate every
+   collection and child-row count plus keys/relationships before recording import completion.
+5. During the rollback window, save the relational rows and legacy snapshot in the same SQL
+   transaction. The previous app version can then still read the latest saved state if rollback is
+   needed. Read from the relational tables after import; stop dual-writing only after acceptance.
+6. Verify canonical `AppData` round-trip equality (ignoring object-property order), key references,
+   journal debit/credit totals, and load/edit/reload/reset plus representative workflows on Node and
+   IIS. Measure save latency and SQL write volume for full-state saves.
+7. After acceptance and the rollback window, stop writing and remove `DemoAppState` in a later
+   guarded migration. If full-table transactional replacement is too slow, then replace it with
+   changed-row persistence; don't build incremental APIs before a measurement shows the need.
+
+The only JSON in the cutover path is the existing snapshot used as the import/temporary rollback
+source and the same-origin HTTP transport. The target steady-state database has no JSON data column.
+Keep `DemoSchemaMigrations` for schema versioning and add a small `DemoStoreMetadata` initialization
+marker so an intentionally empty codebook or entity list is not mistaken for a new database that
+needs the bundled seed loaded again.
+
 ## Help content scope
 
 The first help version should explain each major screen's purpose, how to use it, important accounting terms and fields, what the action changes, and where to see its result. Keep the help available without an API key or network connection. New or materially changed screens and workflows should update their help content in the same feature task. A screen/help registry should make missing help entries visible during development; the written guidance remains reviewed content rather than automatic prose generation.
