@@ -50,10 +50,11 @@ same database environment variables.
 
 ## IIS deployment package
 
-The current hosted app URL, as reported by the user, is
-[http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting](http://azs-pfsdev-07.credit-dev.com/DEMO_Accounting).
+The hosted app is at
+[https://azs-pfwdev-02.credit-dev.com/DEMO_Accounting](https://azs-pfwdev-02.credit-dev.com/DEMO_Accounting).
 It uses SQL Server at `AZS-PFSDEV-07.credit-dev.com`, database `DEMO_Accounting` (TCP port 1433).
-The hosted URL and database currently share the same server name.
+The web host and database are on different servers. The user verified that app changes are stored
+in the SQL database.
 
 The package and repeatable database script are in the repository's root `Deploy/` folder.
 `DEMO_Accounting.sql` creates the `DEMO_Accounting` database and state table and tracks applied
